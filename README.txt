@@ -1,0 +1,19 @@
+# README.txt
+#
+# Copyright (C) 2012-2026 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+This is a project by group G063 for the course Diseño y Pruebas 2.
+
+Design and implement a web information system for a fictitious company (Acme Starters, Inc.) 
+that manages domain-specific content (e.g., inventions, campaigns, strategies, sponsorships, or audits) 
+using a shared framework, with role-based features, publication workflows,
+internationalisation, testing, and proper packaging for delivery.
+
+- **/fragments/**
+ 
