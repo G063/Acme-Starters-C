@@ -30,6 +30,3 @@ nbdist/
 mvnw
 
 mvnw\.cmd
-
-.project
-.settings/

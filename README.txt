@@ -8,12 +8,14 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-This is a project by group G063 for the course Diseño y Pruebas 2.
+This is a starter project.  It is intended to be a core learning asset for the students
+who have enrolled the Design and Testing subject of the Software Engineering curriculum of the 
+University of Seville.  This project helps them start working on their new information system 
+projects.
 
-Design and implement a web information system for a fictitious company (Acme Starters, Inc.) 
-that manages domain-specific content (e.g., inventions, campaigns, strategies, sponsorships, or audits) 
-using a shared framework, with role-based features, publication workflows,
-internationalisation, testing, and proper packaging for delivery.
+To get this project up and running, please follow the guideline in the theory/lab 
+materials, taking into account that you must link the appropriate version of 
+the Acme-Framework excluding the following resources:
 
 - **/fragments/**
  
