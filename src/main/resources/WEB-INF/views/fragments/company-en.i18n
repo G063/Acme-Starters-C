@@ -10,9 +10,9 @@
 
 master.company.title = The company
 master.company.text = \
-	Acme Starters is a leading company specialized in Software development. Some of our achievements are the building and formalization \
-	of UpStream and ExistDB. Around the very few last years 40% of new apps globally are launched by our account. Please, if you want, contact \
-	our support team in order to acquire new information about us.
+	Acme Starters is a leading company specialized in Software development. Our track record includes the successful development and formalization \
+	of UpStream and ExistDB. The previous years, 40% apps globally are launched through our platform. We encourage you to contact us. \
+	You can contact us with the information found below. \
 	
 master.company.name = Acme Starters.
 master.company.address =  C. Cam. Hondo, 45, Marchena, Sevilla
