@@ -10,11 +10,11 @@
 
 master.company.title = The company
 master.company.text = \
-	Hello World, Inc. is a fictitious company that provides a starter \
-	project for the students of the Design and Testing subject of the \
-	Software Engineering Curriculum of the University of Seville.
-master.company.name = Acme, Inc.
-master.company.address = 01 Acme Drive, Wondercity, Wonderland
-master.company.phone = +1 000 111 222
-master.company.email = contact@acme.com
-
+	Acme Starters is a leading company specialized in Software development. Some of our achievements are the building and formalization \
+	of UpStream and ExistDB. Around the very few last years 40% of new apps globally are launched by our account. Please, if you want, contact \
+	our support team in order to acquire new information about us.
+	
+master.company.name = Acme Starters.
+master.company.address =  C. Cam. Hondo, 45, Marchena, Sevilla
+master.company.phone = +34 611 47 07 54
+master.company.email = AcmeStarters@acme.com
