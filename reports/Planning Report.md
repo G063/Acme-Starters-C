@@ -48,7 +48,7 @@ En esta sección se listan las tareas que han sido ejecutadas para cumplir con l
 | T0009/M | **Make plans:** Repartición de requisitos del nivel C | Student 1 (Manager) | 0.5 | 0.5 |
 | T0010/D | **Implement feature:** Requisito S1/1 (Modelo C01) | Student 1 (Developer) | 2.0 | 1.5 |
 
-> *Nota: Los datos provienen del registro de tareas completadas en el archivo de planificación.*
+> Como equipo nos compremetemos individualmente a tener completamente implementado el requisito 1 para el lunes 23 de febrero.
 
 ## 5. Budget
 
