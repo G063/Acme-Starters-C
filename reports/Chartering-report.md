@@ -15,8 +15,8 @@
   - [6. Performance Indicators (KPIs)](#6-performance-indicators-kpis)
     - [Performance Definition](#performance-definition)
   - [7. Performance Management and Group Exit](#7-performance-management-and-group-exit)
-    - [7.1. Rewards and Sanctions]
-    - [7.2. Expulsion Conditions]
+    - [7.1. Rewards and Sanctions](#71-rewards-and-sanctions)
+    - [7.2. Expulsion Conditions](#72-expulsion-conditions)
   - [8. Conclusions](#8-conclusions)
   - [9. Bibliography](#9-bibliography)
 
