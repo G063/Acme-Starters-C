@@ -104,7 +104,7 @@ public class Invention extends AbstractEntity {
 	@Transient
 	public Money getCost() {
 		InventionRepository repository = SpringHelper.getBean(InventionRepository.class);
-		Double totalAmount = repository.computeInventionAmount(this.getId()); // 
+		Double totalAmount = repository.computeInventionAmount(this.getId());
 
 		Money result = new Money();
 		result.setAmount(totalAmount != null ? totalAmount : 0.0);
