@@ -1,6 +1,7 @@
 
 package acme.entities;
 
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,8 +12,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.datatypes.Money;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -20,8 +22,6 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
-import acme.client.helpers.SpringHelper;
-import acme.client.helpers.StringHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
@@ -72,22 +72,6 @@ public class Sponsorship extends AbstractEntity {
 	private Boolean				draftMode;
 
 
-	public void setStartMoment(final String startMoment) {
-		assert !StringHelper.isBlank(startMoment);
-		Date date = MomentHelper.parse(startMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.startMoment = moment;
-	}
-
-	public void setEndMoment(final String endMoment) {
-		assert !StringHelper.isBlank(endMoment);
-		Date date = MomentHelper.parse(endMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.endMoment = moment;
-	}
-
 	@Transient
 	public Double getMonthsActive() {
 
@@ -97,19 +81,24 @@ public class Sponsorship extends AbstractEntity {
 		if (!MomentHelper.isBefore(this.startMoment, this.endMoment))
 			return 0.0;
 
-		long millis = this.endMoment.getTime() - this.startMoment.getTime();
+		Duration millis = MomentHelper.computeDuration(this.startMoment, this.endMoment);
 
-		double days = millis / (1000.0 * 60.0 * 60.0 * 24.0);
+		Duration days = millis.dividedBy(1000 * 60 * 60 * 24);
 
-		double months = days / 30.0;
+		Duration months = days.dividedBy(30);
 
 		return Math.round(months * 10.0) / 10.0;
 	}
 
+
+	@Transient
+	@Autowired
+	private SponsorshipRepository repo;
+
+
 	@Transient
 	public Money getTotalMoney() {
-		SponsorshipRepository repository = SpringHelper.getBean(SponsorshipRepository.class);
-		Double totalAmount = repository.sumMoney(this.getId());
+		Double totalAmount = this.repo.sumMoney(this.getId());
 
 		Money totalMoney = new Money();
 		totalMoney.setAmount(totalAmount);
@@ -121,6 +110,6 @@ public class Sponsorship extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Sponsor sponsor;
 }
