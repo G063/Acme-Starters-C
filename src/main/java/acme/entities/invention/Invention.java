@@ -1,9 +1,13 @@
 
-package acme.entities;
+package acme.entities.invention;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
@@ -53,16 +57,18 @@ public class Invention extends AbstractEntity {
 
 	@Mandatory
 	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
-	private Moment				startMoment;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				startMoment;
 
 	@Mandatory
 	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
-	private Moment				endMoment;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date				endMoment;
 
 
 	public void setStartMoment(final String startMoment) {
 		assert !StringHelper.isBlank(startMoment);
-		java.util.Date date = MomentHelper.parse(startMoment, "yyyy/MM/dd HH:mm");
+		Date date = MomentHelper.parse(startMoment, "yyyy/MM/dd HH:mm");
 		Moment moment = new Moment();
 		moment.setTime(date.getTime());
 		this.startMoment = moment;
@@ -70,7 +76,7 @@ public class Invention extends AbstractEntity {
 
 	public void setEndMoment(final String endMoment) {
 		assert !StringHelper.isBlank(endMoment);
-		java.util.Date date = MomentHelper.parse(endMoment, "yyyy/MM/dd HH:mm");
+		Date date = MomentHelper.parse(endMoment, "yyyy/MM/dd HH:mm");
 		Moment moment = new Moment();
 		moment.setTime(date.getTime());
 		this.endMoment = moment;
