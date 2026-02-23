@@ -1,29 +1,26 @@
 
 package acme.entities.strategy;
 
-import java.util.Collection;
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoment.Constraint;
-import acme.client.components.validation.ValidScore;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
-import acme.client.helpers.SpringHelper;
-import acme.client.helpers.StringHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
@@ -67,37 +64,15 @@ public class Strategy extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				endMoment;
 
-
-	public void setStartMoment(final String startMoment) {
-		assert !StringHelper.isBlank(startMoment);
-		java.util.Date date = MomentHelper.parse(startMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.startMoment = moment;
-	}
-
-	public void setEndMoment(final String endMoment) {
-		assert !StringHelper.isBlank(endMoment);
-		java.util.Date date = MomentHelper.parse(endMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.endMoment = moment;
-	}
-
-
 	@Optional
 	@ValidUrl
 	@Column
-	private String	moreInfo;
+	private String				moreInfo;
 
 	@Mandatory
 	@Valid
 	@Column
-	private Boolean	draftMode;
-
-	@Transient
-	@ValidScore
-	private Double	expectedPercentage;
+	private Boolean				draftMode;
 
 	// ---------------------------------------------------------
 	// Derived attributes
@@ -109,13 +84,18 @@ public class Strategy extends AbstractEntity {
 
 		if (this.startMoment == null || this.endMoment == null)
 			return 0.0;
-
-		long diffInMillies = Math.abs(this.endMoment.getTime() - this.startMoment.getTime());
-		double days = (double) diffInMillies / (1000 * 60 * 60 * 24);
+		Duration diffInMillies = MomentHelper.computeDuration(this.startMoment, this.endMoment);
+		double days = diffInMillies.getSeconds() / (60. * 60 * 24);
 		double months = days / 30.44;
 
 		return Math.round(months * 10.0) / 10.0;
 	}
+
+
+	@Transient
+	@Autowired
+	private StrategyRepository repository;
+
 
 	@Transient
 	public Double getExpectedPercentage() {
@@ -123,12 +103,9 @@ public class Strategy extends AbstractEntity {
 		if (this.getId() == 0)
 			return 0.0;
 
-		StrategyRepository repository = SpringHelper.getBean(StrategyRepository.class);
-		Double total = repository.computeExpectedPercentage(this.getId());
+		Double total = this.repository.computeExpectedPercentage(this.getId());
 
-		this.expectedPercentage = total != null ? total : 0.0;
-
-		return this.expectedPercentage;
+		return total != null ? total : 0.0;
 	}
 
 	// ---------------------------------------------------------
@@ -136,11 +113,8 @@ public class Strategy extends AbstractEntity {
 	// ---------------------------------------------------------
 
 
-	@OneToMany(mappedBy = "strategy")
-	private Collection<Tactic>	tactics;
-
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private Fundraiser			fundraiser;
+	private Fundraiser fundraiser;
 }
