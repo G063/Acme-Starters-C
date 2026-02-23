@@ -1,6 +1,7 @@
 
 package acme.entities.invention;
 
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,8 +12,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.datatypes.Money;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
@@ -20,8 +22,6 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
-import acme.client.helpers.SpringHelper;
-import acme.client.helpers.StringHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
@@ -65,52 +65,39 @@ public class Invention extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				endMoment;
 
-
-	public void setStartMoment(final String startMoment) {
-		assert !StringHelper.isBlank(startMoment);
-		Date date = MomentHelper.parse(startMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.startMoment = moment;
-	}
-
-	public void setEndMoment(final String endMoment) {
-		assert !StringHelper.isBlank(endMoment);
-		Date date = MomentHelper.parse(endMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.endMoment = moment;
-	}
-
-
 	@Optional
 	@ValidUrl
 	@Column
-	private String	moreInfo;
+	private String				moreInfo;
 
 	@Mandatory
 	@Valid
 	@Column
-	private Boolean	draftMode;
+	private Boolean				draftMode;
 
 
 	@Transient
 	public Double getMonthsActive() {
 		if (this.startMoment == null || this.endMoment == null)
 			return 0.0;
-		long diffInMillies = Math.abs(this.endMoment.getTime() - this.startMoment.getTime());
+		Duration diffInMillies = MomentHelper.computeDuration(this.startMoment, this.endMoment);
 
-		double days = (double) diffInMillies / (1000 * 60 * 60 * 24);
+		double days = diffInMillies.getSeconds() / (60. * 60 * 24);
 
 		double months = days / 30.44;
 
 		return Math.round(months * 10.0) / 10.0;
 	}
 
+
+	@Transient
+	@Autowired
+	private InventionRepository repo;
+
+
 	@Transient
 	public Money getCost() {
-		InventionRepository repository = SpringHelper.getBean(InventionRepository.class);
-		Double totalAmount = repository.computeInventionAmount(this.getId());
+		Double totalAmount = this.repo.computeInventionAmount(this.getId());
 
 		Money result = new Money();
 		result.setAmount(totalAmount != null ? totalAmount : 0.0);
@@ -124,5 +111,6 @@ public class Invention extends AbstractEntity {
 	@Valid
 	@ManyToOne
 	private Inventor inventor;
+	//Crear validadores
 
 }
