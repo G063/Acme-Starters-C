@@ -78,14 +78,11 @@ public class Sponsorship extends AbstractEntity {
 		if (this.startMoment == null || this.endMoment == null)
 			return 0.0;
 
-		if (!MomentHelper.isBefore(this.startMoment, this.endMoment))
-			return 0.0;
-
 		Duration millis = MomentHelper.computeDuration(this.startMoment, this.endMoment);
 
-		Duration days = millis.dividedBy(1000 * 60 * 60 * 24);
+		double days = millis.getSeconds() / (60. * 60 * 24);
 
-		Duration months = days.dividedBy(30);
+		double months = days / 30.44;
 
 		return Math.round(months * 10.0) / 10.0;
 	}
