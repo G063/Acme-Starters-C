@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.strategy;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

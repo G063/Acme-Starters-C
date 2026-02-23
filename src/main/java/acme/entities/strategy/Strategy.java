@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.strategy;
 
 import java.util.Collection;
 import java.util.Date;
