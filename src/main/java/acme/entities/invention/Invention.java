@@ -25,6 +25,7 @@ import acme.client.helpers.StringHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
+import acme.constraints.invention.ValidInvention;
 import acme.realms.Inventor;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +33,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidInvention
 public class Invention extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
