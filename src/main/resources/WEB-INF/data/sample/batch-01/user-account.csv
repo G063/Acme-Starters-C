@@ -5,3 +5,13 @@ user-account-consumer-03,true,"UserIdentity{name: 'Manolo', surname: '之乎路�
 user-account-provider-01,true,"UserIdentity{name: 'Laurel', surname: 'Provider', email: 'laurel@acme.com'}",provider1,provider1
 user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
 user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטיח Æløzå', email: 'antonia@acme.com'}",provider3,provider3
+user-account-sample-fundraiser-01,true,"UserIdentity{name: 'Sample', surname: 'One', email: 'sample1@acme.com'}",pass1,sample1
+user-account-sample-fundraiser-02,true,"UserIdentity{name: 'Sample', surname: 'Two', email: 'sample2@acme.com'}",pass2,sample2
+user-account-sample-fundraiser-03,true,"UserIdentity{name: 'Sample', surname: 'Three', email: 'sample3@acme.com'}",pass3,sample3
+user-account-sample-fundraiser-04,true,"UserIdentity{name: 'Sample', surname: 'Four', email: 'sample4@acme.com'}",pass4,sample4
+user-account-sample-fundraiser-05,true,"UserIdentity{name: 'Sample', surname: 'Five', email: 'sample5@acme.com'}",pass5,sample5
+user-account-sample-fundraiser-06,true,"UserIdentity{name: 'Sample', surname: 'Six', email: 'sample6@acme.com'}",pass6,sample6
+user-account-sample-fundraiser-07,true,"UserIdentity{name: 'Sample', surname: 'Seven', email: 'sample7@acme.com'}",pass7,sample7
+user-account-sample-fundraiser-08,true,"UserIdentity{name: 'Sample', surname: 'Eight', email: 'sample8@acme.com'}",pass8,sample8
+user-account-sample-fundraiser-09,true,"UserIdentity{name: 'Sample', surname: 'Nine', email: 'sample9@acme.com'}",pass9,sample9
+user-account-sample-fundraiser-10,true,"UserIdentity{name: 'Sample', surname: 'Ten', email: 'sample10@acme.com'}",pass10,sample10
