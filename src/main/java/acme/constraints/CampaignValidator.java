@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.client.helpers.MomentHelper;
-import acme.entities.Campaign;
-import acme.entities.CampaignRepository;
+import acme.entities.campaign.Campaign;
+import acme.entities.campaign.CampaignRepository;
 
 @Validator
 public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign>{
