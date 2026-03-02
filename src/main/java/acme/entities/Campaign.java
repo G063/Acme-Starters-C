@@ -1,6 +1,9 @@
 
 package acme.entities;
 
+import javax.persistence.Transient;
+
+import java.time.Duration;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -11,8 +14,9 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
@@ -20,7 +24,6 @@ import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
 import acme.client.helpers.SpringHelper;
-import acme.client.helpers.StringHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
@@ -53,31 +56,14 @@ public class Campaign extends AbstractEntity {
 	@Mandatory
 	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				startMoment;
-
+	private Date startMoment;
+	
 	@Mandatory
 	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date				endMoment;
-
-
-	public void setStartMoment(final String startMoment) {
-		assert !StringHelper.isBlank(startMoment);
-		java.util.Date date = MomentHelper.parse(startMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.startMoment = moment;
-	}
-
-	public void setEndMoment(final String endMoment) {
-		assert !StringHelper.isBlank(endMoment);
-		java.util.Date date = MomentHelper.parse(endMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.endMoment = moment;
-	}
-
-
+	private Date endMoment;
+	
+	
 	@Optional
 	@ValidUrl
 	@Column
@@ -90,19 +76,20 @@ public class Campaign extends AbstractEntity {
 
 
 	@Transient
+	@Autowired
+	private CampaignRepository repo;
+	
+	@Transient
 	public Double getMonthsActive() {
 
 		if (this.startMoment == null || this.endMoment == null)
 			return 0.0;
 
-		if (!MomentHelper.isBefore(this.startMoment, this.endMoment))
-			return 0.0;
+	    Duration millis = MomentHelper.computeDuration(this.startMoment, this.endMoment);
 
-		long millis = this.endMoment.getTime() - this.startMoment.getTime();
+	    double days = millis.getSeconds() / (60.0 * 60.0 * 24.0);
 
-		double days = millis / (1000.0 * 60.0 * 60.0 * 24.0);
-
-		double months = days / 30.0;
+	    double months = days / 30.44;
 
 		return Math.round(months * 10.0) / 10.0;
 	}
@@ -110,8 +97,7 @@ public class Campaign extends AbstractEntity {
 	@Transient
 	public Double getEffort() {
 
-		CampaignRepository repository = SpringHelper.getBean(CampaignRepository.class);
-		Double totalEffort = repository.sumEffortByCampaignId(this.getId());
+	    Double totalEffort = this.repo.sumEffortByCampaignId(this.getId());
 
 		return totalEffort == null ? 0.0 : totalEffort;
 	}
@@ -119,6 +105,6 @@ public class Campaign extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private SpokesPerson spokesperson;
 }
