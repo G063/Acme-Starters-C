@@ -50,11 +50,13 @@ public class InventionValidator extends AbstractValidator<ValidInvention, Invent
 		final Date beginDate = entity.getStartMoment();
 		final Date finishDate = entity.getEndMoment();
 
-		final boolean chronologyOk = beginDate != null && finishDate != null && !beginDate.before(currentTime) && finishDate.after(beginDate);
-
-		final boolean isSchemaValid = entity.getDraftMode() || chronologyOk;
-
-		super.state(cvc, isSchemaValid, "*", "acme.validation.invention.dates.message");
+		if (beginDate == null || finishDate == null)
+			super.state(cvc, false, "startMoment", "acme.validation.invention.dates.message");
+		else {
+			final boolean chronologyOk = !beginDate.before(currentTime) && finishDate.after(beginDate);
+			final boolean isSchemaValid = entity.getDraftMode() || chronologyOk;
+			super.state(cvc, isSchemaValid, "startMoment", "acme.validation.invention.dates.message");
+		}
 
 		return !super.hasErrors(cvc);
 	}

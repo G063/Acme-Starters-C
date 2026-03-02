@@ -12,16 +12,13 @@ import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.datatypes.Money;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
-import acme.client.helpers.MomentHelper;
 import acme.client.helpers.SpringHelper;
-import acme.client.helpers.StringHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
@@ -67,33 +64,15 @@ public class Invention extends AbstractEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				endMoment;
 
-
-	public void setStartMoment(final String startMoment) {
-		assert !StringHelper.isBlank(startMoment);
-		Date date = MomentHelper.parse(startMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.startMoment = moment;
-	}
-
-	public void setEndMoment(final String endMoment) {
-		assert !StringHelper.isBlank(endMoment);
-		Date date = MomentHelper.parse(endMoment, "yyyy/MM/dd HH:mm");
-		Moment moment = new Moment();
-		moment.setTime(date.getTime());
-		this.endMoment = moment;
-	}
-
-
 	@Optional
 	@ValidUrl
 	@Column
-	private String	moreInfo;
+	private String				moreInfo;
 
 	@Mandatory
 	@Valid
 	@Column
-	private Boolean	draftMode;
+	private Boolean				draftMode;
 
 
 	@Transient

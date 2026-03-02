@@ -41,18 +41,10 @@ public class Part extends AbstractEntity {
 	@Column
 	private Money				cost;
 
-
-	public void setCost(final Money cost) {
-		if (cost != null && !cost.getCurrency().equals("EUR"))
-			throw new IllegalArgumentException("Only Euros are accepted");
-		this.cost = cost;
-	}
-
-
 	@Mandatory
 	@Valid
 	@Column
-	private PartKind	kind;
+	private PartKind			kind;
 
 	// Derived attributes -----------------------------------------------------
 
@@ -61,6 +53,6 @@ public class Part extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private Invention	invention;
+	private Invention			invention;
 
 }

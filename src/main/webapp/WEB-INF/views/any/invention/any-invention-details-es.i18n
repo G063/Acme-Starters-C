@@ -1,0 +1,15 @@
+any.invention.form.title = Detalles de la invención
+any.invention.label.ticker = Ticker
+any.invention.label.name = Nombre
+any.invention.label.cost = Coste
+any.invention.label.monthsActive = Meses activo
+any.invention.label.description = Descripción
+
+any.invention.label.inventor-profile = Perfil del Inventor
+any.invention.label.inventor.name = Nombre del inventor
+any.invention.label.inventor.bio = Biografía
+any.invention.label.inventor.keyWords = Palabras clave
+any.invention.label.startMoment = Momento de inicio
+any.invention.label.endMoment = Momento de fin
+
+any.invention.button.parts = Ver partes
