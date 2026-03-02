@@ -1,3 +1,3 @@
 key,enabled,identity,password,username
-user-account-sponsor-neg-01,true,"""UserIdentity{name: 'Lorem', surname: 'ipsum', email: 'user:password@mail.com'}""",bad1,bad1
-user-account-sponsor-neg-02,true,"""UserIdentity{name: 'Lorem', surname: 'ipsum', email: 'lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.est.com'}""",bad2,bad2
+user-account-sponsor-01,true,"""UserIdentity{name: 'Lorem', surname: 'ipsum', email: 'user:password@mail.com'}""",bad1,bad1
+user-account-sponsor-02,true,"""UserIdentity{name: 'Lorem', surname: 'ipsum', email: 'lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.est.com'}""",bad2,bad2
