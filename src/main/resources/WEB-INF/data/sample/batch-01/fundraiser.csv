@@ -1,4 +1,7 @@
 key,bank,statement,agent,key:userAccount
+fundraiser1,Banco Santander,Declaracion de intenciones de Javier,true,user-account-fundraiser-01
+fundraiser2,BBVA,Declaracion de intenciones de Manuel,false,user-account-fundraiser-02
+fundraiser3,CaixaBank,Declaracion de intenciones de Rosa,true,user-account-fundraiser-03
 fundraiser-sample-01,Banco Santander,Statement for Santander,true,user-account-sample-fundraiser-01
 fundraiser-sample-02,BBVA,Statement for BBVA,false,user-account-sample-fundraiser-02
 fundraiser-sample-03,CaixaBank,Statement for CaixaBank,true,user-account-sample-fundraiser-03
