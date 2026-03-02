@@ -39,22 +39,14 @@ public class Donation extends AbstractEntity {
 	@Column
 	private Money				money;
 
-
-	public void setCost(final Money money) {
-		if (money != null && !money.getCurrency().equals("EUR"))
-			throw new IllegalArgumentException("Only Euros are accepted");
-		this.money = money;
-	}
-
-
 	@Mandatory
 	@Valid
 	@Column
-	private DonationKind	kind;
+	private DonationKind		kind;
 
 	@Mandatory
 	@Valid
 	@ManyToOne
-	private Sponsorship		sponsorship;
+	private Sponsorship			sponsorship;
 
 }
