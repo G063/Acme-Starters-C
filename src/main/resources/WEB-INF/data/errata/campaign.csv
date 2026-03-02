@@ -1,0 +1,40 @@
+key,ticker,name,description,startMoment,endMoment,moreInfo,draftMode,key:spokesperson
+# base entity
+camp-00,,,,,,,TRUE,
+# ticker - standard variations
+camp-01,,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-02,TICKER-DUP,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-03,TICKER-DUP,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-04,TICK,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-05,TICKER-123456789,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-06,A&B&C,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+# ticker - no singular values
+# name - standard variations
+camp-07,TICKER-01,,2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-08,TICKER-02,Lo,2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-09,TICKER-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tem",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+# name - no singular values
+# description - standard variations
+camp-10,TICKER-04,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-11,TICKER-05,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",http://lorem.com/ipsum,TRUE,spokesperson-01
+# description - no singular values
+# startMoment - standard variations (past dates - negative)
+camp-12,TICKER-06,"Lorem ipsum dolor sit amet, consectetur adipiscing",1999/12/31 23:59,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-13,TICKER-07,"Lorem ipsum dolor sit amet, consectetur adipiscing",2025/01/07 23:59,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+# startMoment - no singular values
+# endMoment - standard variations (past dates - negative)
+camp-14,TICKER-08,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,1999/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-15,TICKER-09,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2201/01/01 00:01,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://lorem.com/ipsum,TRUE,spokesperson-01
+# endMoment - no singular values
+# moreInfo - standard variations
+camp-16,TICKER-10,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",,TRUE,spokesperson-01
+camp-17,TICKER-11,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://,TRUE,spokesperson-01
+camp-18,TICKER-12,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",ftp://,TRUE,spokesperson-01
+camp-19,TICKER-13,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",http://a,TRUE,spokesperson-01
+camp-20,TICKER-14,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing",ftp://a,TRUE,spokesperson-01
+camp-21,TICKER-15,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,EUR 500000.00,50,"Lorem ipsum dolor sit amet, consectetur adipiscing","http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/x",TRUE,spokesperson-01
+# moreInfo - no singular values
+# draftMode - standard variations
+# draftMode - no singular values
+# spokesperson - standard variations
+# spokesperson - no singular values
