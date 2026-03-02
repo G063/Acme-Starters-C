@@ -1,0 +1,4 @@
+key,ticker,name,description,start-moment,end-moment,more-info,draft-mode,key:sponsor
+sponsorship-01,,Lorem ipsum,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2025/01/01 00:01,2112/12/31 23:59,http://lorem.com/ipsum,false,sponsor-01
+sponsorship-02,CH02-CODE2,Lorem ipsum,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2200/12/31 23:59,2112/12/31 23:59,http://lorem.com/ipsum,true,sponsor-01
+sponsorship-03,DI03-CODE3,Lorem ipsum,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2112/12/31 23:59,2200/12/31 23:58,not-a-url,false,sponsor-01

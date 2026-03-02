@@ -1,5 +1,5 @@
 
-package acme.entities;
+package acme.entities.sponsorship;
 
 import java.time.Duration;
 import java.util.Date;
