@@ -1,4 +1,4 @@
-package acme.entities;
+package acme.entities.campaign;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,7 +10,6 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
-import acme.datatypes.MilestoneKind;
 import lombok.Getter;
 import lombok.Setter;
 
