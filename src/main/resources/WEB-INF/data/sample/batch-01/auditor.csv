@@ -1,0 +1,29 @@
+key,key:userAccount,firm,highlights,solicitor
+#base role
+auditor-00,user-account-auditor-00,Lorem ipsum dolor sit amet  consectetu,Lorem ipsum dolor sit amet  consectetu,FALSE
+#firm- standard variations
+auditor-01,user-account-auditor-01,L,Lorem ipsum dolor sit amet  consectetu,FALSE
+auditor-02,user-account-auditor-02,Lo,Lorem ipsum dolor sit amet  consectetu,FALSE
+auditor-03,user-account-auditor-03,Lorem ipsum dolor sit amet  consectetur adipiscing elit. Sed do: eiusmod t,Lorem ipsum dolor sit amet  consectetu,FALSE
+auditor-04,user-account-auditor-04,Lorem ipsum dolor sit amet  consectetur adipiscing elit. Sed do: eiusmod te,Lorem ipsum dolor sit amet  consectetu,FALSE
+auditor-05,user-account-auditor-05,โลเร็ม อิปซัม,Lorem ipsum dolor sit amet  consectetu,FALSE
+auditor-06,user-account-auditor-06,لوريم إيبسوم,Lorem ipsum dolor sit amet  consectetu,FALSE
+auditor-07,user-account-auditor-07,洛伦·伊普森,Lorem ipsum dolor sit amet  consectetu,FALSE
+auditor-08,user-account-auditor-08,<marquee>Hacked</marquee>,Lorem ipsum dolor sit amet  consectetu,FALSE
+auditor-09,user-account-auditor-09,<script>alert(‘Hacked!’);</script>,Lorem ipsum dolor sit amet  consectetu,FALSE
+auditor-10,user-account-auditor-10,' or 'A' = 'A,Lorem ipsum dolor sit amet  consectetu,FALSE
+#firm- no singular values
+#highlights- standard variations
+auditor-11,user-account-auditor-11,Lorem ipsum dolor sit amet  consectetu,L,FALSE
+auditor-12,user-account-auditor-12,Lorem ipsum dolor sit amet  consectetu,Lo,FALSE
+auditor-13,user-account-auditor-13,Lorem ipsum dolor sit amet  consectetu,Lorem ipsum dolor sit amet  consectetur adipiscing elit. Sed do: eiusmod t,FALSE
+auditor-14,user-account-auditor-14,Lorem ipsum dolor sit amet  consectetu,Lorem ipsum dolor sit amet  consectetur adipiscing elit. Sed do: eiusmod te,FALSE
+auditor-15,user-account-auditor-15,Lorem ipsum dolor sit amet  consectetu,โลเร็ม อิปซัม,FALSE
+auditor-16,user-account-auditor-16,Lorem ipsum dolor sit amet  consectetu,لوريم إيبسوم,FALSE
+auditor-17,user-account-auditor-17,Lorem ipsum dolor sit amet  consectetu,洛伦·伊普森,FALSE
+auditor-18,user-account-auditor-18,Lorem ipsum dolor sit amet  consectetu,<marquee>Hacked</marquee>,FALSE
+auditor-19,user-account-auditor-19,Lorem ipsum dolor sit amet  consectetu,<script>alert(‘Hacked!’);</script>,FALSE
+auditor-20,user-account-auditor-20,Lorem ipsum dolor sit amet  consectetu,' or 'A' = 'A,FALSE
+#highlights- no singular values
+#solicitor- standard values
+auditor-21,user-account-auditor-21,Lorem ipsum dolor sit amet  consectetu,Lorem ipsum dolor sit amet  consectetu,TRUE
