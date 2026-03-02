@@ -13,14 +13,10 @@ import acme.entities.invention.Invention;
 @Service
 public class AnyInventionListService extends AbstractService<Any, Invention> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected AnyInventionRepository	repository;
 
 	protected Collection<Invention>		inventions;
-
-	// AbstractService<Any, Invention> interface ------------------------------
 
 
 	@Override

@@ -5,7 +5,6 @@ import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.constraints.invention.ValidPart;
 import acme.entities.invention.Part;
 
 @Validator

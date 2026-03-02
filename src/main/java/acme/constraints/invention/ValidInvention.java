@@ -1,3 +1,4 @@
+
 package acme.constraints.invention;
 
 import java.lang.annotation.ElementType;
