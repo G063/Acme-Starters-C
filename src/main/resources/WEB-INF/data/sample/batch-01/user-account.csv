@@ -5,6 +5,8 @@ user-account-consumer-03,True,"UserIdentity{name: 'Manolo', surname: '之乎路�
 user-account-provider-01,True,"UserIdentity{name: 'Laurel', surname: 'Provider', email: 'laurel@acme.com'}",provider1,provider1
 user-account-provider-02,True,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
 user-account-provider-03,True,"UserIdentity{name: 'Antonia', surname: 'אבטיח Æløzå', email: 'antonia@acme.com'}",provider3,provider3
-user-account-sponsor-01,True,"UserIdentity{name: 'Lorem ipsum', surname: 'Lorem ipsum', email: 'sponsor1@lorem-ipsum.org'}",sponsor1,sponsor1
-user-account-sponsor-02,True,"UserIdentity{name: 'Lorem ipsum', surname: 'Lorem ipsum', email: 'sponsor2@lorem-ipsum.org'}",sponsor2,sponsor2
-user-account-sponsor-03,True,"UserIdentity{name: 'Lorem ipsum', surname: 'Lorem ipsum', email: 'sponsor3@lorem-ipsum.org'}",sponsor3,sponsor3
+user-account-sponsor-01,True,"UserIdentity{name:'Lorem', surname:'Ipsum', email:'sponsor1@lorem-ipsum.org'}",sponsor1,sponsor1
+user-account-sponsor-02,True,"UserIdentity{name:'Lorem', surname:'Ipsum', email:'sponsor2@lorem-ipsum.org'}",sponsor2,sponsor2
+user-account-sponsor-03,True,"UserIdentity{name:'Lorem', surname:'Ipsum', email:'sponsor3@lorem-ipsum.org'}",sponsor3,sponsor3
+user-account-sponsor-04,True,"UserIdentity{name:'Lorem', surname:'Ipsum', email:'sponsor4@lorem-ipsum.org'}",sponsor4,sponsor4
+user-account-sponsor-05,True,"UserIdentity{name:'Lorem', surname:'Ipsum', email:'sponsor5@lorem-ipsum.org'}",sponsor5,sponsor5

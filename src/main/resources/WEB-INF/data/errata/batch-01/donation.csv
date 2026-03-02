@@ -1,4 +1,4 @@
 key,name,notes,money,kind,key:sponsorship
-donation-01,,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 500000.00,ALTRUIST,sponsorship-01
-donation-02,Lorem ipsum,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR -0.01,REWARDED,sponsorship-01
-donation-03,Lorem ipsum,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 0.01,INVALID_KIND,sponsorship-01
+donation-06,Lorem ipsum,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",,ALTRUIST,sponsorship-01
+donation-07,Lorem ipsum,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR -0.01,REWARDED,sponsorship-01
+donation-08,Lorem ipsum,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 500000.00,INVALID_KIND,sponsorship-01
