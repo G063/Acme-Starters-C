@@ -25,6 +25,7 @@ import acme.client.helpers.MomentHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
+import acme.constraints.sponsorship.ValidSponsorship;
 import acme.realms.Sponsor;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +33,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidSponsorship
 public class Sponsorship extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
@@ -96,6 +98,8 @@ public class Sponsorship extends AbstractEntity {
 	@Transient
 	public Money getTotalMoney() {
 		Double totalAmount = this.repo.sumMoney(this.getId());
+		if (totalAmount == null)
+			totalAmount = 0.;
 
 		Money totalMoney = new Money();
 		totalMoney.setAmount(totalAmount);
