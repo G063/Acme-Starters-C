@@ -31,10 +31,10 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 	public boolean isValid(final Sponsorship value, final ConstraintValidatorContext context) {
 		assert context != null;
 
-		boolean result = true;
-
 		if (value == null)
-			result = true;
+			return true;
+
+		boolean result = true;
 
 		final boolean notPublished = value.getDraftMode().equals(false);
 		final Integer id = value.getId();
