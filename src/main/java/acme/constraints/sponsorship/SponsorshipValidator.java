@@ -31,16 +31,16 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 	public boolean isValid(final Sponsorship value, final ConstraintValidatorContext context) {
 		assert context != null;
 
-		if (value == null)
-			return true;
-
 		boolean result = true;
 
-		final boolean notPublished = value.getDraftMode() != null && !value.getDraftMode();
+		if (value == null)
+			return result;
+
+		final boolean published = value.getDraftMode() != null && !value.getDraftMode();
 		final Integer id = value.getId();
 
 		// 1. Sponsorships must have at least one donation to be published
-		if (notPublished) {
+		if (published) {
 			final long donations = id == null ? 0L : this.repository.countSponsorshipsDonations(id);
 			if (donations < 1L) {
 				super.state(context, false, "draftMode", "acme.validation.sponshorship.no-donations.message");
@@ -51,7 +51,7 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 		// 2. startMoment/endMoment must be a valid time interval in future wrt. the moment when a sponsorship is notPublished
 		// end > start
 
-		if (notPublished && value.getStartMoment() != null && value.getEndMoment() != null) {
+		if (published && value.getStartMoment() != null && value.getEndMoment() != null) {
 			final Date now = MomentHelper.getCurrentMoment();
 			if (!(value.getStartMoment().after(now) && value.getEndMoment().after(value.getStartMoment()))) {
 				super.state(context, false, "startMoment", "acme.validation.sponsorship.invalid-interval.message");
@@ -62,12 +62,13 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 
 		// 3. The total money of a sponsorship is the sum of money in the corresponding donations. Only Euros are accepted
 
-		if (notPublished && id != null && this.repository.countNonEurDonations(id) > 0L) {
+		if (published && id != null && this.repository.countNonEurDonations(id) > 0L) {
 			super.state(context, false, "draftMode", "acme.validation.sponsorship.only-eur.message");
 			result = false;
 		}
 
 		return result;
+
 	}
 
 }

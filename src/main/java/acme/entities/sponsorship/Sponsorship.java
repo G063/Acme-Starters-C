@@ -1,7 +1,7 @@
 
 package acme.entities.sponsorship;
 
-import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -80,13 +80,7 @@ public class Sponsorship extends AbstractEntity {
 		if (this.startMoment == null || this.endMoment == null)
 			return 0.0;
 
-		Duration millis = MomentHelper.computeDuration(this.startMoment, this.endMoment);
-
-		double days = millis.getSeconds() / (60. * 60 * 24);
-
-		double months = days / 30.44;
-
-		return Math.round(months * 10.0) / 10.0;
+		return MomentHelper.computeDifference(this.startMoment, this.endMoment, ChronoUnit.MONTHS);
 	}
 
 

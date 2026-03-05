@@ -1,13 +1,11 @@
 key,address,im,gold,key:user-account
 #base-sponsor,"","","",""
-sponsor-00,,"",true,""
+sponsor-00,,"",true,user-account-sponsor-err-01
 #bad-address,"","","",""
-sponsor-01,"","","",""
-sponsor-02,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i","Lorem ipsum dolor sit amet, consectetu",true,user-account-sponsor-01
+sponsor-01,"","",true,user-account-sponsor-err-02
+sponsor-02,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i","Lorem ipsum dolor sit amet, consectetu",true,user-account-sponsor-err-03
 #bad-im,"","","",""
-sponsor-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","",true,user-account-sponsor-01
-sponsor-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tem",true,user-account-sponsor-01
+sponsor-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","",true,user-account-sponsor-err-04
+sponsor-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tem",true,user-account-sponsor-err-05
 #bad-gold,"","","",""
-sponsor-05,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetu","",user-account-sponsor-01
-#bad-user-acc,"","","",""
-sponsor-06,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetu",true,""
+sponsor-05,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetu","",user-account-sponsor-err-06
