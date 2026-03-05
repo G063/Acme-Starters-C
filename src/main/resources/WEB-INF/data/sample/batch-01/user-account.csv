@@ -8,3 +8,21 @@ user-account-provider-03,True,"UserIdentity{name: 'Antonia', surname: 'אבטי�
 user-account-sponsor-01,true,"UserIdentity{name: 'Lorem', surname: 'Ipsum', email: 'acme@lorem-ipsum.org'}",sponsor1,sponsor1
 user-account-sponsor-02,true,"UserIdentity{name: 'โลเร็ม อิปซัม', surname: 'لوريم إيبسوم', email: 'a@b.e'}",sponsor2,sponsor2
 user-account-sponsor-03,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor3,sponsor3
+user-account-sponsor-04,true,"UserIdentity{name: 'sponsor4', surname: 'ipsum', email: 'a@b.es'}",sponsor4,sponsor4
+user-account-sponsor-05,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.esx'}",sponsor5,sponsor5
+user-account-sponsor-06,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu'}",sponsor6,sponsor6
+user-account-sponsor-07,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org'}",sponsor7,sponsor7
+user-account-sponsor-08,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor8,sponsor8
+user-account-sponsor-09,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor9,sponsor9
+user-account-sponsor-10,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor10,sponsor10
+user-account-sponsor-11,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor11,sponsor11
+user-account-sponsor-12,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor12,sponsor12
+user-account-sponsor-13,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor13,sponsor13
+user-account-sponsor-14,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor14,sponsor14
+user-account-sponsor-15,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor15,sponsor15
+user-account-sponsor-16,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor16,sponsor16
+user-account-sponsor-17,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor17,sponsor17
+user-account-sponsor-18,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor18,sponsor18
+user-account-sponsor-19,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor19,sponsor19
+user-account-sponsor-20,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor20,sponsor20
+user-account-sponsor-21,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor21,sponsor21
