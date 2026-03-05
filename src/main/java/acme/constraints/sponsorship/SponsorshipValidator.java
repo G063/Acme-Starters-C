@@ -36,7 +36,7 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 
 		boolean result = true;
 
-		final boolean notPublished = value.getDraftMode().equals(false);
+		final boolean notPublished = value.getDraftMode() != null && !value.getDraftMode();
 		final Integer id = value.getId();
 
 		// 1. Sponsorships must have at least one donation to be published

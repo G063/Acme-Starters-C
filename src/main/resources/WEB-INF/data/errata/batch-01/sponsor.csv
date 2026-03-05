@@ -1,15 +1,13 @@
 key,address,im,gold,key:user-account
 #base-sponsor,"","","",""
-sponsor-err-00,,"",true,""
+sponsor-00,,"",true,""
 #bad-address,"","","",""
-sponsor-err-01,"","","",""
-sponsor-err-02,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i","Lorem ipsum dolor sit amet, consectetu",true,user-account-sponsor-01
+sponsor-01,"","","",""
+sponsor-02,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i","Lorem ipsum dolor sit amet, consectetu",true,user-account-sponsor-01
 #bad-im,"","","",""
-sponsor-err-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","",true,user-account-sponsor-01
-sponsor-err-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tem",true,user-account-sponsor-01
+sponsor-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","",true,user-account-sponsor-01
+sponsor-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tem",true,user-account-sponsor-01
 #bad-gold,"","","",""
-sponsor-err-05,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetu","",user-account-sponsor-01
-sponsor-err-06,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetu",maybe,user-account-sponsor-01
+sponsor-05,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetu","",user-account-sponsor-01
 #bad-user-acc,"","","",""
-sponsor-err-07,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetu",true,""
-sponsor-err-08,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetu",true,user-account-sponsor-9999
+sponsor-06,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*","Lorem ipsum dolor sit amet, consectetu",true,""
