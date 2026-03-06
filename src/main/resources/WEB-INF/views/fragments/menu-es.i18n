@@ -13,6 +13,11 @@
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
 
+# master.menu.any #############################################################
+
+master.menu.any = Patrocinios
+master.menu.any.list-published-sponsorships = Listar patrocinios publicados
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador

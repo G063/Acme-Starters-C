@@ -1,0 +1,6 @@
+any.donation.list.title = Donations
+
+any.donation.list.label.name = Name
+any.donation.list.label.kind = Kind
+any.donation.list.label.money = Money
+any.donation.list.label.notes = Notes
