@@ -1,17 +1,20 @@
+
 package acme.entities;
 
+import java.time.Duration;
+import java.util.Date;
+
 import javax.persistence.Column;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
-import java.util.Collection;
-import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.datatypes.Moment;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
@@ -19,10 +22,10 @@ import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
 import acme.client.helpers.SpringHelper;
-import acme.client.helpers.StringHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
+import acme.constraints.audit.ValidAuditReport;
 import acme.realms.Auditor;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,93 +33,83 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidAuditReport
 public class AuditReport extends AbstractEntity {
 
-    // Serialisation version --------------------------------------------------
+	// Serialisation version --------------------------------------------------
 
-    private static final long serialVersionUID = 1L;
+	private static final long		serialVersionUID	= 1L;
 
-    // Attributes -------------------------------------------------------------
+	// Attributes -------------------------------------------------------------
 
-    @Mandatory
-    @ValidTicker
-    @Column(unique = true)
-    private String ticker;
+	@Mandatory
+	@ValidTicker
+	@Column(unique = true)
+	private String					ticker;
 
-    @Mandatory
-    @ValidHeader
-    @Column
-    private String name;
+	@Mandatory
+	@ValidHeader
+	@Column
+	private String					name;
 
-    @Mandatory
-    @ValidText
-    @Column
-    private String description;
+	@Mandatory
+	@ValidText
+	@Column
+	private String					description;
 
-    @Mandatory
-    @ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
-    @Column
-    private Moment startMoment;
+	@Mandatory
+	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date					startMoment;
 
-    @Mandatory
-    @ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
-    @Column
-    private Moment endMoment;
+	@Mandatory
+	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date					endMoment;
 
-    public void setStartMoment(final String startMoment) {
-        assert !StringHelper.isBlank(startMoment);
-        java.util.Date date = MomentHelper.parse(startMoment, "yyyy/MM/dd HH:mm");
-        Moment moment = new Moment();
-        moment.setTime(date.getTime());
-        this.startMoment = moment;
-    }
+	@Optional
+	@ValidUrl
+	@Column
+	private String					moreInfo;
 
-    public void setEndMoment(final String endMoment) {
-        assert !StringHelper.isBlank(endMoment);
-        java.util.Date date = MomentHelper.parse(endMoment, "yyyy/MM/dd HH:mm");
-        Moment moment = new Moment();
-        moment.setTime(date.getTime());
-        this.endMoment = moment;
-    }
+	@Mandatory
+	@Valid
+	@Column
+	private Boolean					draftMode;
 
-    @Optional
-    @ValidUrl
-    @Column
-    private String moreInfo;
+	@Transient
+	@Autowired
+	private AuditReportRepository	repo;
 
-    @Mandatory
-    @Valid
-    @Column
-    private Boolean draftMode;
+	// Derived attributes -----------------------------------------------------
 
-    // Derived attributes -----------------------------------------------------
 
-    @Transient
-    public Double getMonthsActive() {
-        if (this.startMoment == null || this.endMoment == null)
-            return 0.0;
+	@Transient
+	public Double getMonthsActive() {
+		if (this.startMoment == null || this.endMoment == null)
+			return 0.0;
+		Duration diffInMillies = MomentHelper.computeDuration(this.startMoment, this.endMoment);
 
-        long diffInMillies = Math.abs(this.endMoment.getTime() - this.startMoment.getTime());
-        double days = (double) diffInMillies / (1000 * 60 * 60 * 24);
-        double months = days / 30.44;
-        return Math.round(months * 10.0) / 10.0;
-    }
+		double days = diffInMillies.getSeconds() / (60. * 60 * 24);
 
-    @Transient
-    public Integer getHours() {
-        AuditReportRepository repository = SpringHelper.getBean(AuditReportRepository.class);
-        Integer totalHours = repository.computeAuditReportHours(this.getId());
-        return totalHours != null ? totalHours : 0;
-    }
+		double months = days / 30.44;
 
-    // Relationships ----------------------------------------------------------
+		return Math.round(months * 10.0) / 10.0;
+	}
 
-    @Mandatory
-    @Valid
-    @ManyToOne
-    private Auditor auditor;
+	@Transient
+	public Integer getHours() {
+		AuditReportRepository repository = SpringHelper.getBean(AuditReportRepository.class);
+		Integer totalHours = repository.computeAuditReportHours(this.getId());
+		return totalHours != null ? totalHours : 0;
+	}
 
-    @OneToMany(mappedBy = "auditReport", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Collection<AuditSection> auditSections = new ArrayList<>();
+	// Relationships ----------------------------------------------------------
+
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Auditor auditor;
 
 }
