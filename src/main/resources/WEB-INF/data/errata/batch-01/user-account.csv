@@ -1,0 +1,7 @@
+key,enabled,identity,password,username
+user-account-sponsor-err-01,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>',  email: 'user:password@mail.com'}",sponsor01,sponsor01
+user-account-sponsor-err-02,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>',  email: 'user:password@mail.com'}",sponsor02,sponsor02
+user-account-sponsor-err-03,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>',  email: 'user:password@mail.com'}",sponsor03,sponsor03
+user-account-sponsor-err-04,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>',  email: 'user:password@mail.com'}",sponsor04,sponsor04
+user-account-sponsor-err-05,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>',  email: 'user:password@mail.com'}",sponsor05,sponsor05
+user-account-sponsor-err-06,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.est.com'}",sponsor06,sponsor06
