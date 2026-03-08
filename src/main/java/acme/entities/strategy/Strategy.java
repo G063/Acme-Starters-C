@@ -24,6 +24,7 @@ import acme.client.helpers.MomentHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
+import acme.constraints.strategy.ValidStrategy;
 import acme.realms.Fundraiser;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,6 +32,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidStrategy
 public class Strategy extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
