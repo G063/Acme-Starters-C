@@ -1,0 +1,44 @@
+key,ticker,name,description,startMoment,endMoment,moreInfo,draftMode,key:spokesperson
+# base entity
+camp-00,CM00-SAMP00,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,FALSE,spokesperson-01
+# ticker variations
+camp-01,CM01-SAMP01,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-02,CM02-SAMP02,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-03,CM03-SAMP03,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-04,CM04-SAMP04,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+# name variations (ValidHeader: 1-255 chars)
+camp-05,CM05-SAMP05,L,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-06,CM06-SAMP06,Lo,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-07,CM07-SAMP07,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-08,CM08-SAMP08,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+# name - non-latin
+camp-09,CM09-SAMP09,โลเร็ม อิปซัม,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-10,CM10-SAMP10,لوريم إيبسوم,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-11,CM11-SAMP11,洛伦·伊普森,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+# description variations (ValidText)
+camp-12,CM12-SAMP12,"Lorem ipsum dolor sit amet, consectetur adipiscing",L,2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-13,CM13-SAMP13,"Lorem ipsum dolor sit amet, consectetur adipiscing",Lo,2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-14,CM14-SAMP14,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+# description - non-latin
+camp-15,CM15-SAMP15,"Lorem ipsum dolor sit amet, consectetur adipiscing",โลเร็ม อิปซัม,2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-16,CM16-SAMP16,"Lorem ipsum dolor sit amet, consectetur adipiscing",لوريم إيبسوم,2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-17,CM17-SAMP17,"Lorem ipsum dolor sit amet, consectetur adipiscing",洛伦·伊普森,2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+# startMoment/endMoment - future moments (MIN: 2025/01/08 00:00 per project config)
+camp-18,CM18-SAMP18,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2025/01/08 00:00,2026/01/08 00:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-19,CM19-SAMP19,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2025/01/08 00:01,2026/01/08 00:01,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-20,CM20-SAMP20,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2200/12/31 23:58,2200/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
+# moreInfo - URL variations (optional)
+camp-21,CM21-SAMP21,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,,TRUE,spokesperson-01
+camp-22,CM22-SAMP22,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-23,CM23-SAMP23,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,https://a.org,TRUE,spokesperson-01
+camp-24,CM24-SAMP24,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://a.b,TRUE,spokesperson-01
+camp-25,CM25-SAMP25,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/",TRUE,spokesperson-01
+camp-26,CM26-SAMP26,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,https://www.lorem-ipsum.org,TRUE,spokesperson-01
+camp-27,CM27-SAMP27,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://www.lorem-ipsum.org/dolor/sit.html,TRUE,spokesperson-01
+camp-28,CM28-SAMP28,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://www.lorem-ipsum.org/dolor/sit.html#dolor,TRUE,spokesperson-01
+camp-29,CM29-SAMP29,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://example.org?a=1&b=2,TRUE,spokesperson-01
+camp-30,CM30-SAMP30,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://example.org/,TRUE,spokesperson-01
+camp-31,CM31-SAMP31,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://example.org/a/b?a&b,TRUE,spokesperson-01
+# draftMode variations
+camp-32,CM32-SAMP32,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-33,CM33-SAMP33,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
