@@ -27,7 +27,7 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 
 	    boolean result = true;
 
-	    // 1. start < end
+	    // startMoment < endMoment
 	    if (campaign.getStartMoment() != null && campaign.getEndMoment() != null) {
 
 	        boolean intervalValid =
@@ -40,7 +40,7 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 	            result = false;
 	    }
 
-	    // 2. moments in the future
+	    // startMoment/endMoment must be a valid time interval in future wrt. the moment when a campaign is published.
 	    if (campaign.getStartMoment() != null) {
 	        boolean startFuture = MomentHelper.isFuture(campaign.getStartMoment());
 
@@ -51,18 +51,9 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 	            result = false;
 	    }
 
-	    if (campaign.getEndMoment() != null) {
-	        boolean endFuture = MomentHelper.isFuture(campaign.getEndMoment());
 
-	        super.state(context, endFuture, "endMoment",
-	            "acme.validation.campaign.not-future");
-
-	        if (!endFuture)
-	            result = false;
-	    }
-
-	    // 3. published campaign must have milestones
-	    if (Boolean.FALSE.equals(campaign.getDraftMode()) && campaign.getId() != 0) {
+	    // Campaigns cannot be published unless they have at least one milestone.
+	    if (campaign.getDraftMode() != null && !campaign.getDraftMode() && campaign.getId() != 0) {
 
 	        Double sum = this.repository.sumEffortByCampaignId(campaign.getId());
 	        boolean hasMilestones = sum != null;

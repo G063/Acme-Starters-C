@@ -3,28 +3,45 @@ key,title,achievements,effort,kind,key:campaign
 ms-00,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",10.50,TEASER,camp-00
 # title variations (ValidHeader: 1-255)
 ms-01,L,"Lorem ipsum dolor sit amet, consectetur adipiscing",20.00,TEASER,camp-00
-ms-02,Lo,"Lorem ipsum dolor sit amet, consectetur adipiscing",30.00,TEASER,camp-00
+ms-02,Lo,"Lorem ipsum dolor sit amet, consectetur adipiscing",30.00,TEASER,camp-01
 ms-03,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te","Lorem ipsum dolor sit amet, consectetur adipiscing",40.00,TEASER,camp-00
 ms-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem","Lorem ipsum dolor sit amet, consectetur adipiscing",50.00,TEASER,camp-00
 # title - non-latin
-ms-05,โลเร็ม อิปซัม,"Lorem ipsum dolor sit amet, consectetur adipiscing",15.75,TEASER,camp-00
-ms-06,لوريم إيبسوم,"Lorem ipsum dolor sit amet, consectetur adipiscing",25.25,TEASER,camp-00
-ms-07,洛伦·伊普森,"Lorem ipsum dolor sit amet, consectetur adipiscing",35.50,TEASER,camp-00
+ms-05,โลเร็ม อิปซัม,"Lorem ipsum dolor sit amet, consectetur adipiscing",15.75,TEASER,camp-02
+ms-06,لوريم إيبسوم,"Lorem ipsum dolor sit amet, consectetur adipiscing",25.25,TEASER,camp-03
+ms-07,洛伦·伊普森,"Lorem ipsum dolor sit amet, consectetur adipiscing",35.50,TEASER,camp-04
 # achievements variations (ValidText)
-ms-08,"Lorem ipsum dolor sit amet, consectetur adipiscing",L,5.00,ENGAGING,camp-00
-ms-09,"Lorem ipsum dolor sit amet, consectetur adipiscing",Lo,10.00,ENGAGING,camp-00
+ms-08,"Lorem ipsum dolor sit amet, consectetur adipiscing",L,5.00,ENGAGING,camp-05
+ms-09,"Lorem ipsum dolor sit amet, consectetur adipiscing",Lo,10.00,ENGAGING,camp-06
 ms-10,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",15.00,ENGAGING,camp-00
 # achievements - non-latin
-ms-11,"Lorem ipsum dolor sit amet, consectetur adipiscing",โลเร็ม อิปซัม,20.00,ENGAGING,camp-00
-ms-12,"Lorem ipsum dolor sit amet, consectetur adipiscing",لوريم إيبسوم,25.00,ENGAGING,camp-00
-ms-13,"Lorem ipsum dolor sit amet, consectetur adipiscing",洛伦·伊普森,30.00,ENGAGING,camp-00
+ms-11,"Lorem ipsum dolor sit amet, consectetur adipiscing",โลเร็ม อิปซัม,20.00,ENGAGING,camp-07
+ms-12,"Lorem ipsum dolor sit amet, consectetur adipiscing",لوريم إيبسوم,25.00,ENGAGING,camp-08
+ms-13,"Lorem ipsum dolor sit amet, consectetur adipiscing",洛伦·伊普森,30.00,ENGAGING,camp-09
 # effort variations (Real: 0.00 to 1000000.00)
-ms-14,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",1.00,CONVERSION,camp-00
-ms-15,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",1.01,CONVERSION,camp-00
-ms-16,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",50.00,CONVERSION,camp-00
-ms-17,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",999999.99,CONVERSION,camp-00
-ms-18,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",999999.98,CONVERSION,camp-00
+ms-14,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",1.00,CONVERSION,camp-10
+ms-15,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",1.01,CONVERSION,camp-11
+ms-16,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",50.00,CONVERSION,camp-12
+ms-17,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",999999.99,CONVERSION,camp-13
+ms-18,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",999999.98,CONVERSION,camp-14
 # kind - all enum values
-ms-19,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-00
-ms-20,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",20.00,ENGAGING,camp-00
-ms-21,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",30.00,CONVERSION,camp-00
+ms-19,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-15
+ms-20,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",20.00,ENGAGING,camp-16
+ms-21,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",30.00,CONVERSION,camp-17
+# support milestones for additional campaigns
+ms-39,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-18
+ms-40,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-19
+ms-41,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-20
+ms-42,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-21
+ms-43,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-22
+ms-44,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-23
+ms-45,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-24
+ms-46,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-25
+ms-47,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-26
+ms-48,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-27
+ms-49,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-28
+ms-50,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-29
+ms-51,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-30
+ms-52,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-31
+ms-53,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-32
+ms-54,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",10.00,TEASER,camp-33
