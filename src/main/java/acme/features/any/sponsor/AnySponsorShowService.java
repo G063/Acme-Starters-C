@@ -1,3 +1,4 @@
+
 package acme.features.any.sponsor;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class AnySponsorShowService extends AbstractService<Any, Sponsor> {
 	@Autowired
 	private AnySponsorRepository	repository;
 
-	private Sponsor				sponsor;
-	private int					sponsorshipId;
+	private Sponsor					sponsor;
+	private int						sponsorshipId;
 
 
 	@Override

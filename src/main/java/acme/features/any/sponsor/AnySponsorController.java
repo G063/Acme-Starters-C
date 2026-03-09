@@ -1,3 +1,4 @@
+
 package acme.features.any.sponsor;
 
 import javax.annotation.PostConstruct;

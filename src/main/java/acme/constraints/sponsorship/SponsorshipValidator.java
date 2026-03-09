@@ -1,9 +1,6 @@
 
 package acme.constraints.sponsorship;
 
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,14 +47,14 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 			}
 			{
 				// 1. Sponsorships must have at least one donation to be published
-				boolean notPublished;
+				boolean published;
 				Integer id;
 				long donations;
 				boolean validDonations;
 
-				notPublished = value.getDraftMode() != null && value.getDraftMode().equals(false);
+				published = value.getDraftMode() != null && value.getDraftMode().equals(false);
 
-				if (notPublished) {
+				if (published) {
 					id = value.getId();
 					donations = id == null ? 0L : this.repository.countSponsorshipsDonations(id);
 					validDonations = donations >= 1L;
@@ -68,19 +65,13 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 			{
 				// 2. startMoment/endMoment must be a valid time interval in future wrt. the moment when a sponsorship is published
 				// end > start
-				boolean validStartMoment;
-				boolean validEndMoment;
+				boolean validInterval;
 				boolean published;
-				Date minimumInterval;
 
-				published = value.getDraftMode() != null && value.getDraftMode().equals(true);
-
+				published = value.getDraftMode() != null && value.getDraftMode().equals(false);
 				if (published && value.getStartMoment() != null && value.getEndMoment() != null) {
-					minimumInterval = MomentHelper.deltaFromBaseMoment(1, ChronoUnit.MINUTES);
-					validStartMoment = MomentHelper.isAfter(value.getStartMoment(), minimumInterval);
-					validEndMoment = MomentHelper.isAfter(value.getEndMoment(), value.getStartMoment());
-					super.state(context, validStartMoment, "startMoment", "acme.validation.sponsorship.invalid-interval.message");
-					super.state(context, validEndMoment, "endMoment", "acme.validation.sponsorship.invalid-interval.message");
+					validInterval = MomentHelper.isBefore(value.getStartMoment(), value.getEndMoment());
+					super.state(context, validInterval, "startMoment", "acme.validation.sponsorship.invalid-interval.message");
 				}
 			}
 			result = !super.hasErrors(context);

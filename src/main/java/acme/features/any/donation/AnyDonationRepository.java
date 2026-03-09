@@ -1,3 +1,4 @@
+
 package acme.features.any.donation;
 
 import java.util.Collection;
@@ -16,4 +17,7 @@ public interface AnyDonationRepository extends AbstractRepository {
 
 	@Query("select count(s) from Sponsorship s where s.id = :sponsorshipId and s.draftMode = false")
 	Long countPublishedSponsorshipById(int sponsorshipId);
+
+	@Query("select d from Donation d where d.id = :id")
+	Donation findDonationById(int id);
 }

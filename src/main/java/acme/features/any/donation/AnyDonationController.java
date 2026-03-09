@@ -1,3 +1,4 @@
+
 package acme.features.any.donation;
 
 import javax.annotation.PostConstruct;
@@ -17,5 +18,6 @@ public class AnyDonationController extends AbstractController<Any, Donation> {
 		super.setMediaType(MediaType.TEXT_HTML);
 
 		super.addBasicCommand("list", AnyDonationListService.class);
+		super.addBasicCommand("show", AnyDonationShowService.class);
 	}
 }
