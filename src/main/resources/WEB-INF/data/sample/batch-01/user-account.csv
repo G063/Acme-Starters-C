@@ -32,3 +32,6 @@ user-account-sponsor-18,true,"UserIdentity{name: '<marquee>Hacked</marquee>', su
 user-account-sponsor-19,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor19,sponsor19
 user-account-sponsor-20,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor20,sponsor20
 user-account-sponsor-21,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor21,sponsor21
+user-account-inventor-01,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor1,inventor1
+user-account-inventor-02,true,"UserIdentity{name: 'Nikola', surname: 'Tesla', email: 'nikola@inventor.com'}",inventor2,inventor2
+user-account-inventor-03,true,"UserIdentity{name: 'Marie', surname: 'Curie', email: 'marie@inventor.com'}",inventor3,inventor3
