@@ -1,0 +1,8 @@
+any.part.form.title = Detalles de la pieza
+any.part.label.name = Nombre
+any.part.label.kind = Tipo
+any.part.label.cost = Coste
+any.part.label.description = Descripción
+
+any.part.label.invention-info = Información del Invento
+any.part.label.invention.ticker = Ticker del invento
