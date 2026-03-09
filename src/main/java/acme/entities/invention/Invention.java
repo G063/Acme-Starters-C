@@ -11,6 +11,8 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
 import acme.client.components.validation.Mandatory;
@@ -18,7 +20,6 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
-import acme.client.helpers.SpringHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
@@ -74,7 +75,13 @@ public class Invention extends AbstractEntity {
 	@Column
 	private Boolean				draftMode;
 
+	@Transient
+	@Autowired
+	InventionRepository			repository;
 
+
+	@Mandatory
+	@Valid
 	@Transient
 	public Double getMonthsActive() {
 		if (this.startMoment == null || this.endMoment == null)
@@ -88,15 +95,19 @@ public class Invention extends AbstractEntity {
 		return Math.round(months * 10.0) / 10.0;
 	}
 
+	@Mandatory
+	@Valid
 	@Transient
 	public Money getCost() {
-		InventionRepository repository = SpringHelper.getBean(InventionRepository.class);
-		Double totalAmount = repository.computeInventionAmount(this.getId());
+		Double totalAmount = this.repository.computeInventionAmount(this.getId());
+
+		Double value = totalAmount != null ? totalAmount : 0.0;
+
+		Double roundedValue = Math.round(value * 100.0) / 100.0;
 
 		Money result = new Money();
-		result.setAmount(totalAmount != null ? totalAmount : 0.0);
+		result.setAmount(roundedValue);
 		result.setCurrency("EUR");
-
 		return result;
 	}
 
