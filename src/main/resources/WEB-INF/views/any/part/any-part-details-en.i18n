@@ -1,0 +1,8 @@
+any.part.form.title = Part details
+any.part.label.name = Name
+any.part.label.kind = Kind
+any.part.label.cost = Cost
+any.part.label.description = Description
+
+any.part.label.invention-info = Invention Information
+any.part.label.invention.ticker = Invention ticker
