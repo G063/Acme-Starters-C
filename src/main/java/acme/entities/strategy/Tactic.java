@@ -11,12 +11,14 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidScore;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
+import acme.constraints.tactic.ValidTactic;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidTactic
 public class Tactic extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
