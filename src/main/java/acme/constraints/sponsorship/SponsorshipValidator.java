@@ -36,6 +36,7 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 
 		else {
 			{
+				// 1. Sponsorship's tickers are unique  
 				boolean uniqueSponsorship;
 				Sponsorship existingSponsorship;
 
@@ -46,7 +47,7 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 
 			}
 			{
-				// 1. Sponsorships must have at least one donation to be published
+				// 2. Sponsorships must have at least one donation to be published
 				boolean published;
 				Integer id;
 				long donations;
@@ -63,7 +64,7 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 				}
 			}
 			{
-				// 2. startMoment/endMoment must be a valid time interval in future wrt. the moment when a sponsorship is published
+				// 3. startMoment/endMoment must be a valid time interval in future wrt. the moment when a sponsorship is published
 				// end > start
 				boolean validInterval;
 				boolean published;
