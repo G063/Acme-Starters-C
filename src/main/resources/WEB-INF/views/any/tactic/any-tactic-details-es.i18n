@@ -1,0 +1,8 @@
+any.tactic.form.title = Detalles de la táctica
+any.tactic.label.name = Nombre
+any.tactic.label.kind = Tipo
+any.tactic.label.expectedPercentage = Porcentaje esperado
+any.tactic.label.notes = Notas
+
+any.tactic.label.strategy-info = Información de la Estrategia
+any.tactic.label.strategy.ticker = Ticker de la estrategia
