@@ -1,0 +1,4 @@
+key,key:userAccount,bio,keyWords,licensed
+inventor-01,user-account-inventor-01,"Especialista en propulsión avanzada y sistemas aeroespaciales.","Aeronáutica,Física,I+D",true
+inventor-02,user-account-inventor-02,"Investigadora centrada en materiales sostenibles y bioplásticos.","Sostenibilidad,Química,Diseño",true
+inventor-03,user-account-inventor-03,"Desarrollador de software especializado en algoritmos de optimización.","Algoritmos,IA,Blockchain",false
