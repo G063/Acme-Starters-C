@@ -1,5 +1,5 @@
 
-package acme.constraints;
+package acme.constraints.audit;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -8,19 +8,15 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.ReportAsSingleViolation;
 
-import org.hibernate.validator.constraints.Length;
-
-@Target(ElementType.FIELD)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {})
-@ReportAsSingleViolation
-@Length(min = 1, max = 255)
-public @interface ValidText {
+@Constraint(validatedBy = AuditReportValidator.class)
+public @interface ValidAuditReport {
 
-	String message() default "{acme.validation.text.message}";
+	String message() default "";
 
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
+
 }
