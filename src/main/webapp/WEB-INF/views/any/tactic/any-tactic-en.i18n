@@ -1,0 +1,4 @@
+any.tactic.list.title = Tactic List
+any.tactic.list.label.name = Name
+any.tactic.list.label.kind = Kind
+any.tactic.list.label.expectedPercentage = Expected percentage
