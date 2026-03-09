@@ -1,0 +1,10 @@
+any.sponsor.form.title = Perfil del sponsor
+
+any.sponsor.form.label.name = Nombre
+any.sponsor.form.label.surname = Apellidos
+any.sponsor.form.label.email = Correo
+any.sponsor.form.label.address = Dirección
+any.sponsor.form.label.im = IM
+any.sponsor.form.label.gold = Gold
+
+any.sponsor.form.button.sponsorship = Volver al patrocinio
