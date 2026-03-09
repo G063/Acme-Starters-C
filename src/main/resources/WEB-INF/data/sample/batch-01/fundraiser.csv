@@ -2,13 +2,10 @@ key,bank,statement,agent,key:userAccount
 fundraiser1,Banco Santander,Declaracion de intenciones de Javier,true,user-account-fundraiser-01
 fundraiser2,BBVA,Declaracion de intenciones de Manuel,false,user-account-fundraiser-02
 fundraiser3,CaixaBank,Declaracion de intenciones de Rosa,true,user-account-fundraiser-03
-fundraiser-sample-01,Banco Santander,Statement for Santander,true,user-account-sample-fundraiser-01
-fundraiser-sample-02,BBVA,Statement for BBVA,false,user-account-sample-fundraiser-02
-fundraiser-sample-03,CaixaBank,Statement for CaixaBank,true,user-account-sample-fundraiser-03
-fundraiser-sample-04,ING Direct,Statement for ING,false,user-account-sample-fundraiser-04
-fundraiser-sample-05,B,S,true,user-account-sample-fundraiser-05
-fundraiser-sample-06,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod temp,Valid statement,true,user-account-sample-fundraiser-06
-fundraiser-sample-07,Valid Bank,"Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in rep",false,user-account-sample-fundraiser-07
-fundraiser-sample-08,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempo,"Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in rep",true,user-account-sample-fundraiser-08
-fundraiser-sample-09,Triodos Bank,Statement for Triodos,false,user-account-sample-fundraiser-09
-fundraiser-sample-10,Bankinter,Statement for Bankinter,true,user-account-sample-fundraiser-10
+fundraiser-sample-04,ING Direct,Statement for ING,false,user-account-fundraiser-04
+fundraiser-sample-05,B,S,true,user-account-fundraiser-05
+fundraiser-sample-06,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod temp,Valid statement,true,user-account-fundraiser-06
+fundraiser-sample-07,Valid Bank,"Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in rep",false,user-account-fundraiser-07
+fundraiser-sample-08,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempo,"Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in rep",true,user-account-fundraiser-08
+fundraiser-sample-09,Triodos Bank,Statement for Triodos,false,user-account-fundraiser-09
+fundraiser-sample-10,Bankinter,Statement for Bankinter,true,user-account-fundraiser-10
