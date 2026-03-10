@@ -1,0 +1,8 @@
+acme.validation.header.message=Debe tener entre 1 y 75 caracteres
+acme.validation.text.message=Debe tener entre 1 y 255 caracteres
+acme.validation.ticker.message=Debe seguir el patrón XX00-XXXXXXXXXX
+
+acme.validation.invention.ticker.non-unique=El ticker debe ser único
+acme.validation.invention.parts.message=Las invenciones no pueden ser publicadas a menos que tengan al menos una pieza
+acme.validation.invention.dates.message=Los momentos de inicio y fin deben ser un intervalo de tiempo válido en el futuro
+acme.validation.part.cost.currency=Solo se aceptan Euros

@@ -8,6 +8,9 @@ user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטי�
 user-account-spokesperson-01,true,"UserIdentity{name: 'John', surname: 'Spokesperson', email: 'spokesperson1@acme.com'}",spokesperson1,spokesperson1
 user-account-spokesperson-02,true,"UserIdentity{name: 'Jane', surname: 'Spokesperson', email: 'spokesperson2@acme.com'}",spokesperson2,spokesperson2
 user-account-spokesperson-03,true,"UserIdentity{name: 'Mark', surname: 'Spokesperson', email: 'spokesperson3@acme.com'}",spokesperson3,spokesperson3
+user-account-auditor-01,true,"UserIdentity{name: 'Auditor1', surname: 'Acme', email: 'auditor1@acme.com'}",auditor1,auditor1
+user-account-auditor-02,true,"UserIdentity{name: 'Auditor2', surname: 'Acme', email: 'auditor2@acme.com'}",auditor2,auditor2
+user-account-auditor-03,true,"UserIdentity{name: 'Auditor3', surname: 'Acme', email: 'auditor3@acme.com'}",auditor3,auditor3
 user-account-sponsor-01,true,"UserIdentity{name: 'Lorem', surname: 'Ipsum', email: 'acme@lorem-ipsum.org'}",sponsor1,sponsor1
 user-account-sponsor-02,true,"UserIdentity{name: 'โลเร็ม อิปซัม', surname: 'لوريم إيبسوم', email: 'a@b.e'}",sponsor2,sponsor2
 user-account-sponsor-03,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor3,sponsor3
@@ -29,3 +32,6 @@ user-account-sponsor-18,true,"UserIdentity{name: '<marquee>Hacked</marquee>', su
 user-account-sponsor-19,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor19,sponsor19
 user-account-sponsor-20,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor20,sponsor20
 user-account-sponsor-21,true,"UserIdentity{name: '<marquee>Hacked</marquee>', surname: '<script>alert(‘Hacked!’);</script>', email: 'a@b.es'}",sponsor21,sponsor21
+user-account-inventor-01,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor1,inventor1
+user-account-inventor-02,true,"UserIdentity{name: 'Nikola', surname: 'Tesla', email: 'nikola@inventor.com'}",inventor2,inventor2
+user-account-inventor-03,true,"UserIdentity{name: 'Marie', surname: 'Curie', email: 'marie@inventor.com'}",inventor3,inventor3

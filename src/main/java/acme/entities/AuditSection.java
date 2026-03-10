@@ -1,3 +1,4 @@
+
 package acme.entities;
 
 import javax.persistence.Column;
@@ -20,38 +21,38 @@ import lombok.Setter;
 @Setter
 public class AuditSection extends AbstractEntity {
 
-    // Serialisation version --------------------------------------------------
+	// Serialisation version --------------------------------------------------
 
-    private static final long serialVersionUID = 1L;
+	private static final long	serialVersionUID	= 1L;
 
-    // Attributes -------------------------------------------------------------
+	// Attributes -------------------------------------------------------------
 
-    @Mandatory
-    @ValidHeader
-    @Column
-    private String name;
+	@Mandatory
+	@ValidHeader
+	@Column
+	private String				name;
 
-    @Mandatory
-    @ValidText
-    @Column
-    private String notes;
+	@Mandatory
+	@ValidText
+	@Column
+	private String				notes;
 
-    @Mandatory
-    @ValidNumber(min = 1)
-    @Column
-    private Integer hours;
+	@Mandatory
+	@ValidNumber(min = 0)
+	@Column
+	private Integer				hours;
 
-    @Mandatory
-    @Valid
-    @Enumerated(EnumType.STRING)
-    @Column
-    private SectionKind kind;
+	@Mandatory
+	@Valid
+	@Enumerated(EnumType.STRING)
+	@Column
+	private SectionKind			kind;
 
-    // Relationships ----------------------------------------------------------
+	// Relationships ----------------------------------------------------------
 
-    @Mandatory
-    @Valid
-    @ManyToOne
-    private AuditReport auditReport;
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private AuditReport			auditReport;
 
 }

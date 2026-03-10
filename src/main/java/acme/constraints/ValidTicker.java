@@ -9,14 +9,12 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.ReportAsSingleViolation;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = {})
 @ReportAsSingleViolation
-@NotBlank
 @Pattern(regexp = "^[A-Z]{2}[0-9]{2}-\\w{5,10}$")
 public @interface ValidTicker {
 
