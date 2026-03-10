@@ -1,7 +1,5 @@
 package acme.features.any.campaign;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +16,7 @@ public class AnyCampaignShowService extends AbstractService<Any, Campaign>{
 
     @Override
     public void authorise() {
-        super.getResponse().setAuthorised(true);
+        super.setAuthorised(this.campaign != null && !this.campaign.getDraftMode());;
     }
 
     @Override
@@ -27,7 +25,7 @@ public class AnyCampaignShowService extends AbstractService<Any, Campaign>{
         int id;
 
         id = super.getRequest().getData("id", int.class);
-        campaign = this.repository.findCampaignById(id);
+        this.campaign = this.repository.findCampaignById(id);
 
     }
 
@@ -35,7 +33,7 @@ public class AnyCampaignShowService extends AbstractService<Any, Campaign>{
     public void unbind() {
 
 
-        super.unbindObject(campaign,
+        super.unbindObject(this.campaign,
             "ticker",
             "name",
             "description",
