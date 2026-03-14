@@ -60,20 +60,6 @@ public class InventorInventionUpdateService extends AbstractService<Inventor, In
 	@Override
 	public void validate() {
 		super.validateObject(this.invention);
-
-		acme.client.components.models.Errors errors = this.getResponse().getErrors();
-
-		// Validar Ticker único (excluyendo la propia invención que estamos editando)
-		if (this.invention.getTicker() != null && !errors.hasErrors("ticker")) {
-			Invention existing = this.repository.findInventionByTicker(this.invention.getTicker());
-			super.state(existing == null || existing.getId() == this.invention.getId(), "ticker", "inventor.invention.form.error.ticker-duplicated");
-		}
-
-		// Validar secuencia de fechas
-		if (this.invention.getStartMoment() != null && this.invention.getEndMoment() != null) {
-			boolean sequence = this.invention.getEndMoment().after(this.invention.getStartMoment());
-			super.state(sequence, "endMoment", "inventor.invention.form.error.invalid-sequence");
-		}
 	}
 
 	@Override

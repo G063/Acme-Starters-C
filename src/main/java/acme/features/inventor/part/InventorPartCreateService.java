@@ -75,19 +75,23 @@ public class InventorPartCreateService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void validate() {
-		System.out.println(">>> VALIDATE: Iniciando validación de la pieza");
-
-		// Esto disparará el PartValidator y el MoneyValidator
+		// 1. Validación automática de los campos de la entidad Part
+		// (Ahora no falla porque ya no hay un validador externo que "despierte" a la Invention)
 		super.validateObject(this.part);
 
-		System.out.println(">>> VALIDATE: ¿Hay errores tras validateObject? " + super.getErrors().hasErrors());
+		// 2. Validación manual de la Moneda (Sustituye al PartValidator borrado)
+		if (this.part.getCost() != null) {
+			final String currency = this.part.getCost().getCurrency();
+			final boolean isEuro = "EUR".equals(currency);
+			super.state(isEuro, "cost", "acme.validation.part.cost.currency");
+		}
 
-		super.state(this.part.getInvention() != null, "*", "inventor.part.error.no-invention");
-
-		if (super.getErrors().hasErrors())
-			System.out.println(">>> VALIDATE: Errores detectados: " + super.getErrors().toString());
-		else
-			System.out.println(">>> VALIDATE: Todo OK, procediendo a execute");
+		// 3. Validación de seguridad: Solo se puede crear/editar si la invención está en borrador
+		if (this.part.getInvention() != null) {
+			final boolean isDraft = this.part.getInvention().getDraftMode();
+			super.state(isDraft, "*", "inventor.part.form.error.not-draft-mode");
+		} else
+			super.state(false, "*", "inventor.part.error.no-invention");
 	}
 
 	@Override

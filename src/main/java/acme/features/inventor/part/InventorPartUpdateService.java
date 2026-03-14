@@ -54,12 +54,29 @@ public class InventorPartUpdateService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void validate() {
+		// 1. Validación automática de los campos de la entidad Part
+		// (Ahora no falla porque ya no hay un validador externo que "despierte" a la Invention)
 		super.validateObject(this.part);
+
+		// 2. Validación manual de la Moneda (Sustituye al PartValidator borrado)
+		if (this.part.getCost() != null) {
+			final String currency = this.part.getCost().getCurrency();
+			final boolean isEuro = "EUR".equals(currency);
+			super.state(isEuro, "cost", "acme.validation.part.cost.currency");
+		}
+
+		// 3. Validación de seguridad: Solo se puede crear/editar si la invención está en borrador
+		if (this.part.getInvention() != null) {
+			final boolean isDraft = this.part.getInvention().getDraftMode();
+			super.state(isDraft, "*", "inventor.part.form.error.not-draft-mode");
+		} else
+			super.state(false, "*", "inventor.part.error.no-invention");
 	}
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.part, "name", "description", "cost", "kind");
+		// CAMBIO CRÍTICO: Añadir "id" aquí para que el formulario sepa qué registro editar
+		super.unbindObject(this.part, "id", "name", "description", "cost", "kind");
 
 		super.getResponse().addGlobal("acme_id", this.part.getId());
 		super.getResponse().addGlobal("draftMode", this.part.getInvention().getDraftMode());
