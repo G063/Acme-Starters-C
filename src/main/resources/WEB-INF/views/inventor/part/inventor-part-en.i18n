@@ -1,0 +1,7 @@
+inventor.part.list.title = Parts list
+inventor.part.list.label.name = Name
+inventor.part.list.label.cost = Cost
+inventor.part.list.label.kind = Kind
+inventor.part.list.label.description = Description
+
+inventor.part.list.button.create = Create part
