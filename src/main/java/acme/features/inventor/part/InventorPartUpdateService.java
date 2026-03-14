@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.inventor.part;
+package acme.features.inventor.part;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,14 +54,7 @@ public class InventorPartUpdateService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void validate() {
-		super.state(this.part.getName() != null && !this.part.getName().isBlank(), "name", "javax.validation.constraints.NotBlank.message");
-		super.state(this.part.getDescription() != null && !this.part.getDescription().isBlank(), "description", "javax.validation.constraints.NotBlank.message");
-		super.state(this.part.getKind() != null, "kind", "javax.validation.constraints.NotNull.message");
-
-		if (this.part.getCost() != null) {
-			super.state("EUR".equals(this.part.getCost().getCurrency()), "cost", "inventor.part.error.currency");
-			super.state(this.part.getCost().getAmount() >= 0.0, "cost", "inventor.part.error.negative-amount");
-		}
+		super.validateObject(this.part);
 	}
 
 	@Override

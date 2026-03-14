@@ -4,6 +4,8 @@ inventor.invention.form.label.name = Name
 inventor.invention.form.label.description = Description
 inventor.invention.form.label.start-moment = Start moment
 inventor.invention.form.label.end-moment = End moment
+inventor.invention.form.label.cost = Cost
+inventor.invention.form.label.months = Months active
 inventor.invention.form.label.more-info = More info (URL)
 
 inventor.invention.form.button.create = Create invention

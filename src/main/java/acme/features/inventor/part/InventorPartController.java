@@ -1,5 +1,5 @@
 
-package acme.features.authenticated.inventor.part;
+package acme.features.inventor.part;
 
 import javax.annotation.PostConstruct;
 
