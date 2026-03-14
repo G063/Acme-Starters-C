@@ -25,9 +25,9 @@
 	<jstl:if test="${_command == 'update'}">
 		<acme:submit code="sponsor.sponsorship.form.button.update" action="/sponsor/sponsorship/update"/>
 	</jstl:if>
-<%-- 	<jstl:if test="${_command == 'delete'}">
+	<jstl:if test="${_command == 'delete'}">
 		<acme:submit code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
-	</jstl:if> --%>
+	</jstl:if>
 	<jstl:if test="${_command == 'publish'}">
 		<acme:submit code="sponsor.sponsorship.form.button.publish" action="/sponsor/sponsorship/publish"/>
 	</jstl:if>

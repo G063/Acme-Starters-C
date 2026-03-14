@@ -61,6 +61,8 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 		donations = this.repository.findDonationsBySponsorshipId(this.sponsorship.getId());
 		this.repository.deleteAll(donations);
 		this.repository.delete(this.sponsorship);
+
+		super.getResponse().setView("redirect:/sponsor/sponsorship/list");
 	}
 
 	@Override
