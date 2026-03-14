@@ -1,0 +1,18 @@
+any.campaign.list.label.ticker = Ticker
+any.campaign.list.label.name = Name
+any.campaign.list.label.startMoment = Start date
+any.campaign.list.label.endMoment = End date
+common.search = Search
+common.show = Show
+common.entries = entries
+any.campaign.label.ticker = Ticker
+any.campaign.label.name = Name
+any.campaign.label.description = Description
+any.campaign.label.startMoment = Start date
+any.campaign.label.endMoment = End date
+any.campaign.label.monthsActive = Active months
+any.campaign.button.spokesperson = View spokesperson Profile
+
+any.campaign.button.milestone = View milestones
+any.campaign.list.title = Campaign list
+any.campaign.form.title = Campaign details
