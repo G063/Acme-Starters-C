@@ -40,6 +40,8 @@ public class AnyCampaignShowService extends AbstractService<Any, Campaign>{
             "startMoment",
             "endMoment",
             "moreInfo");
+        
+    	super.unbindGlobal("monthsActive", this.campaign.getMonthsActive());
 
     }
 }

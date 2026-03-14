@@ -10,7 +10,7 @@
     <acme:form-textbox code="any.campaign.label.monthsActive" path="monthsActive" readonly="true"/>
     
     <hr/>
-    <acme:button code="any.campaign.button.parts" action="/any/milestone/list?campaignId=${id}"/>
+    <acme:button code="any.campaign.button.milestone" action="/any/milestone/list?campaignId=${id}"/>
 
-    <acme:return/>
+	<acme:button code="any.campaign.button.spokesperson" action="/any/spokesperson/show?campaignId=${id}"/>
 </acme:form>
