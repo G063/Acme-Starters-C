@@ -12,12 +12,14 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoney;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
+import acme.constraints.part.ValidPart;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+@ValidPart
 public class Part extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -37,7 +39,7 @@ public class Part extends AbstractEntity {
 	private String				description;
 
 	@Mandatory
-	@ValidMoney(min = 0.)
+	@ValidMoney
 	@Column
 	private Money				cost;
 
@@ -52,7 +54,7 @@ public class Part extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Invention			invention;
 
 }

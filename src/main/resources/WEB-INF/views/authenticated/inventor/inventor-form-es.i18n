@@ -1,0 +1,7 @@
+authenticated.inventor.form.title = Perfil de Inventor
+inventor.form.label.bio = Biografía
+inventor.form.label.key-words = Palabras clave
+inventor.form.label.licensed = ¿Posee licencia?
+
+inventor.form.button.create = Crear perfil
+inventor.form.button.update = Actualizar perfil

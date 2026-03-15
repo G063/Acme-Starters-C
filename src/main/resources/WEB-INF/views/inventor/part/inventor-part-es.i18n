@@ -1,0 +1,7 @@
+inventor.part.list.title = Listado de piezas
+inventor.part.list.label.name = Nombre
+inventor.part.list.label.cost = Coste
+inventor.part.list.label.kind = Tipo
+inventor.part.list.label.description = Descripción
+
+inventor.part.list.button.create = Crear pieza
