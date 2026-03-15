@@ -35,9 +35,6 @@ public class InventorPartShowService extends AbstractService<Inventor, Part> {
 	@Override
 	public void unbind() {
 		super.unbindObject(this.part, "name", "description", "cost", "kind");
-
-		// Variables locales para el JSP
-		this.getResponse().addGlobal("acme_id", this.part.getId());
 		this.getResponse().addGlobal("inventionId", this.part.getInvention().getId());
 		this.getResponse().addGlobal("draftMode", this.part.getInvention().getDraftMode());
 		this.getResponse().addGlobal("kind", this.part.getKind());
