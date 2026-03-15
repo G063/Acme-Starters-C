@@ -13,6 +13,11 @@
 master.menu.anonymous = Anonymous
 master.menu.anonymous.favourite-link = Favourite link
 
+# master.menu.any #############################################################
+
+master.menu.any = Sponsorships
+master.menu.any.list-published-sponsorships = List published sponsorships
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
@@ -45,5 +50,10 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
-master.menu.user-account.become-inventor = Become an inventor
-master.menu.user-account.inventor-profile = Inventor profile
+
+master.menu.list=Main Lists
+master.menu.invention=Inventions
+master.menu.strategy=Strategies
+master.menu.campaign=Campaigns
+master.menu.audit=Audits
+master.menu.sponsorship=Sponsorships

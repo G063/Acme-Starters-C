@@ -1,0 +1,10 @@
+any.sponsor.form.title = Sponsor profile
+
+any.sponsor.form.label.name = Name
+any.sponsor.form.label.surname = Surname
+any.sponsor.form.label.email = Email
+any.sponsor.form.label.address = Address
+any.sponsor.form.label.im = IM
+any.sponsor.form.label.gold = Gold
+
+any.sponsor.form.button.sponsorship = Back to sponsorship

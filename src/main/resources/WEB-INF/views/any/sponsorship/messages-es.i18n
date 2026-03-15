@@ -1,0 +1,21 @@
+any.sponsorship.list.title = Patrocinios
+any.sponsorship.form.title = Detalles del patrocinio
+
+any.sponsorship.list.label.ticker = Ticker
+any.sponsorship.list.label.name = Nombre
+any.sponsorship.list.label.start-moment = Inicio
+any.sponsorship.list.label.end-moment = Fin
+any.sponsorship.list.label.sponsor-im = IM del sponsor
+
+any.sponsorship.form.label.ticker = Ticker
+any.sponsorship.form.label.name = Nombre
+any.sponsorship.form.label.description = Descripción
+any.sponsorship.form.label.start-moment = Inicio
+any.sponsorship.form.label.end-moment = Fin
+any.sponsorship.form.label.more-info = Más información
+any.sponsorship.form.label.months-active = Meses activos
+any.sponsorship.form.label.total-money = Dinero total
+any.sponsorship.form.label.sponsor-im = IM del sponsor
+
+any.sponsorship.form.button.donations = Ver donaciones
+any.sponsorship.form.button.sponsor = Ver perfil del sponsor
