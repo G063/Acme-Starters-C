@@ -2,7 +2,7 @@ package acme.entities.campaign;
 
 import javax.persistence.Transient;
 
-import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -80,17 +80,12 @@ public class Campaign extends AbstractEntity{
 	
 	@Transient
 	public Double getMonthsActive() {
-
+		
 		if (this.startMoment == null || this.endMoment == null)
+			
 			return 0.0;
-
-	    Duration millis = MomentHelper.computeDuration(this.startMoment, this.endMoment);
-
-	    double days = millis.getSeconds() / (60.0 * 60.0 * 24.0);
-
-	    double months = days / 30.44;
-
-		return Math.round(months * 10.0) / 10.0;
+		
+		return MomentHelper.computeDifference(this.startMoment, this.endMoment, ChronoUnit.MONTHS);
 	}
 
 	@Transient
