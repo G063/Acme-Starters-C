@@ -17,14 +17,12 @@ public class InventorInventionController extends AbstractController<Inventor, In
 	protected void initialise() {
 		super.setMediaType(MediaType.TEXT_HTML);
 
-		// Registro de comandos básicos
 		super.addBasicCommand("list", InventorInventionListService.class);
 		super.addBasicCommand("show", InventorInventionShowService.class);
 		super.addBasicCommand("create", InventorInventionCreateService.class);
 		super.addBasicCommand("update", InventorInventionUpdateService.class);
 		super.addBasicCommand("delete", InventorInventionDeleteService.class);
 
-		// Comandos personalizados
 		super.addCustomCommand("publish", "update", InventorInventionPublishService.class);
 	}
 }

@@ -25,11 +25,12 @@ public class InventorInventionPublishService extends AbstractService<Inventor, I
 
 	@Override
 	public void authorise() {
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
 		int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
 		boolean isOwner = this.invention.getInventor().getId() == inventorId;
-
-		// Solo se puede publicar si ya es un borrador
-		super.setAuthorised(isOwner && this.invention.getDraftMode());
+		super.setAuthorised(isOwner && this.invention.getDraftMode() && status);
 	}
 
 	@Override
@@ -45,10 +46,7 @@ public class InventorInventionPublishService extends AbstractService<Inventor, I
 	@Override
 	public void validate() {
 		super.validateObject(this.invention);
-
-		// Comprobamos la restricción del modelo: "at least one part" 
 		int partCount = this.repository.countPartsByInventionId(this.invention.getId());
-
 		super.state(partCount > 0, "*", "inventor.invention.form.error.no-parts");
 	}
 

@@ -32,7 +32,10 @@ public class AuthenticatedInventorUpdateService extends AbstractService<Authenti
 
 	@Override
 	public void authorise() {
-		super.setAuthorised(true);
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
+		super.setAuthorised(status);
 	}
 
 	@Override

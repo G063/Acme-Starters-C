@@ -38,11 +38,6 @@ public class InventorInventionListService extends AbstractService<Inventor, Inve
 
 	@Override
 	public void unbind() {
-		// Primero desvinculamos los datos normales
 		super.unbindObjects(this.inventions, "ticker", "name", "cost", "draftMode");
-
-		// Intentaremos usar el unbind genérico para pasar los enlaces como strings
-		// Si el framework no te deja manipular la respuesta directamente, 
-		// la opción más limpia es la siguiente:
 	}
 }

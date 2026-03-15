@@ -23,28 +23,23 @@ public class InventorInventionUpdateService extends AbstractService<Inventor, In
 	public void load() {
 		int id = this.getRequest().getData("id", int.class);
 		this.invention = this.repository.findOneInventionById(id);
-
-		// BORRA ESTA LÍNEA:
-		// this.getResponse().addData(this.invention); 
 	}
 
 	@Override
 	public void authorise() {
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
 		int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
 		boolean isOwner = this.invention != null && this.invention.getInventor().getId() == inventorId;
-
-		// REQUISITO S1/4: Solo se puede actualizar si está en DRAFT MODE
 		boolean isDraft = this.invention != null && this.invention.getDraftMode();
 
-		super.setAuthorised(isOwner && isDraft);
+		super.setAuthorised(isOwner && isDraft && status);
 	}
 
 	@Override
 	public void bind() {
-		// Permitimos editar los campos básicos
 		super.bindObject(this.invention, "ticker", "name", "description", "moreInfo");
-
-		// Para las fechas usamos los setters de String que creaste en la entidad
 		Date start = this.getRequest().getData("startMoment", Date.class);
 		Date end = this.getRequest().getData("endMoment", Date.class);
 		this.invention.setStartMoment(start);
@@ -53,7 +48,6 @@ public class InventorInventionUpdateService extends AbstractService<Inventor, In
 
 	@Override
 	public void unbind() {
-		// Es CRÍTICO añadir "id" aquí para que aparezca el botón de borrado
 		super.unbindObject(this.invention, "id", "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
 	}
 
