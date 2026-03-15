@@ -1,0 +1,46 @@
+# messages-es.i18n
+
+# sponsorship list
+
+sponsor.sponsorship.list.title = Mis patrocinios
+sponsor.sponsorship.list.label.ticker = Ticker
+sponsor.sponsorship.list.label.name = Nombre
+sponsor.sponsorship.list.label.start-moment = Inicio
+sponsor.sponsorship.list.label.end-moment = Fin
+sponsor.sponsorship.list.label.draft-mode = Borrador
+sponsor.sponsorship.list.label.total-money = Dinero total
+sponsor.sponsorship.list.button.create = Crear patrocinio
+
+# sponsorship form
+
+sponsor.sponsorship.form.title = Detalles del patrocinio
+sponsor.sponsorship.form.label.ticker = Ticker
+sponsor.sponsorship.form.label.name = Nombre
+sponsor.sponsorship.form.label.description = Descripcion
+sponsor.sponsorship.form.label.start-moment = Inicio
+sponsor.sponsorship.form.label.end-moment = Fin
+sponsor.sponsorship.form.label.more-info = Mas informacion
+sponsor.sponsorship.form.label.draft-mode = Borrador
+sponsor.sponsorship.form.label.months-active = Meses activos
+sponsor.sponsorship.form.label.total-money = Dinero total
+
+# sponsorships features
+
+sponsor.sponsorship.form.button.create = Crear
+sponsor.sponsorship.form.button.update = Actualizar
+sponsor.sponsorship.form.button.delete = Borrar
+sponsor.sponsorship.form.button.publish = Publicar
+sponsor.sponsorship.form.button.donations = Gestionar donaciones
+
+# sponsorship draftmode
+
+sponsor.sponsorship.form.value.draft = Borrador
+sponsor.sponsorship.form.value.published = Publicado
+
+# validation texts
+
+acme.validation.duplicated-ticker.message = Este ticker ya está en uso.
+acme.validation.sponsorship.no-donations.message = Un patrocinio debe tener al menos una donación antes de poder publicarse.
+acme.validation.sponsorship.invalid-interval.message = La fecha de inicio debe ser anterior a la fecha de fin.
+acme.validation.sponsorship.start-must-be-future.message = La fecha de inicio debe estar en el futuro.
+acme.validation.sponsorship.end-must-be-future.message = La fecha de fin debe estar en el futuro.
