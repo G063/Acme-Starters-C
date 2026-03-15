@@ -1,8 +1,6 @@
 
 package acme.constraints.sponsorship;
 
-import java.util.Date;
-
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,42 +29,54 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 	public boolean isValid(final Sponsorship value, final ConstraintValidatorContext context) {
 		assert context != null;
 
-		boolean result = true;
+		boolean result;
 
 		if (value == null)
-			return result;
+			result = true;
 
-		final boolean published = value.getDraftMode() != null && !value.getDraftMode();
-		final Integer id = value.getId();
+		else {
+			{
+				// 1. Sponsorship's tickers are unique  
+				boolean uniqueSponsorship;
+				Sponsorship existingSponsorship;
 
-		// 1. Sponsorships must have at least one donation to be published
-		if (published) {
-			final long donations = id == null ? 0L : this.repository.countSponsorshipsDonations(id);
-			if (donations < 1L) {
-				super.state(context, false, "draftMode", "acme.validation.sponshorship.no-donations.message");
-				result = false;
+				existingSponsorship = this.repository.findSponsorshipByTicker(value.getTicker());
+				uniqueSponsorship = existingSponsorship == null || existingSponsorship.equals(value);
+
+				super.state(context, uniqueSponsorship, "ticker", "acme.validation.duplicated-ticker.message");
+
 			}
-		}
+			{
+				// 2. Sponsorships must have at least one donation to be published
+				boolean published;
+				Integer id;
+				long donations;
+				boolean validDonations;
 
-		// 2. startMoment/endMoment must be a valid time interval in future wrt. the moment when a sponsorship is notPublished
-		// end > start
+				published = value.getDraftMode() != null && value.getDraftMode().equals(false);
 
-		if (published && value.getStartMoment() != null && value.getEndMoment() != null) {
-			final Date now = MomentHelper.getCurrentMoment();
-			if (!(value.getStartMoment().after(now) && value.getEndMoment().after(value.getStartMoment()))) {
-				super.state(context, false, "startMoment", "acme.validation.sponsorship.invalid-interval.message");
-				super.state(context, false, "endMoment", "acme.validation.sponsorship.invalid-interval.message");
-				result = false;
+				if (published) {
+					id = value.getId();
+					donations = id == null ? 0L : this.repository.countSponsorshipsDonations(id);
+					validDonations = donations >= 1L;
+					super.state(context, validDonations, "draftMode", "acme.validation.sponshorship.no-donations.message");
+
+				}
 			}
+			{
+				// 3. startMoment/endMoment must be a valid time interval in future wrt. the moment when a sponsorship is published
+				// end > start
+				boolean validInterval;
+				boolean published;
+
+				published = value.getDraftMode() != null && value.getDraftMode().equals(false);
+				if (published && value.getStartMoment() != null && value.getEndMoment() != null) {
+					validInterval = MomentHelper.isBefore(value.getStartMoment(), value.getEndMoment());
+					super.state(context, validInterval, "startMoment", "acme.validation.sponsorship.invalid-interval.message");
+				}
+			}
+			result = !super.hasErrors(context);
 		}
-
-		// 3. The total money of a sponsorship is the sum of money in the corresponding donations. Only Euros are accepted
-
-		if (published && id != null && this.repository.countNonEurDonations(id) > 0L) {
-			super.state(context, false, "draftMode", "acme.validation.sponsorship.only-eur.message");
-			result = false;
-		}
-
 		return result;
 
 	}

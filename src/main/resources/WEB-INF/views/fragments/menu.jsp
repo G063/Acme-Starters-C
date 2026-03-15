@@ -21,6 +21,18 @@
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.list">
+			<acme:menu-suboption code="master.menu.invention" action="/any/invention/list"/>
+			<acme:menu-suboption code="master.menu.strategy" action="/any/strategy/list"/>
+			<acme:menu-suboption code="master.menu.campaign" action="/any/campaign/list"/>
+			<acme:menu-suboption code="master.menu.audit" action="/any/audit/list"/>
+			<acme:menu-suboption code="master.menu.sponsorship" action="/any/sponsorship/list"/>
+		</acme:menu-option>
+
+		<acme:menu-option code="master.menu.any">
+			<acme:menu-suboption code="master.menu.any.list-published-sponsorships" action="/any/sponsorship/list"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.list-user-accounts" action="/administrator/user-account/list"/>
@@ -57,4 +69,3 @@
 		</acme:menu-option>
 	</acme:menu-right>
 </acme:menu-bar>
-
