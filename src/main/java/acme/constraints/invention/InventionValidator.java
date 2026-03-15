@@ -41,7 +41,6 @@ public class InventionValidator extends AbstractValidator<ValidInvention, Invent
 		final boolean published = value.getDraftMode() != null && !value.getDraftMode();
 		final int id = value.getId();
 
-		// 1. Validation of Ticker (Must be unique if present)
 		if (value.getTicker() != null) {
 			final Invention inv = this.inventionRepo.findInventionByTicker(value.getTicker());
 			final boolean isUnique = inv == null || inv.getId() == id;
@@ -51,7 +50,6 @@ public class InventionValidator extends AbstractValidator<ValidInvention, Invent
 			}
 		}
 
-		// 2. Inventions must have at least one part to be published and must already exist
 		if (published)
 			if (id != 0) {
 				final Collection<Part> linkedParts = this.inventionRepo.findPartsByInventionId(id);
@@ -61,25 +59,25 @@ public class InventionValidator extends AbstractValidator<ValidInvention, Invent
 					result = false;
 				}
 			} else {
-				// Cannot publish an invention that has not been created yet
 				super.state(context, false, "draftMode", "acme.validation.invention.parts.message");
 				result = false;
 			}
 
-		// 3. startMoment/endMoment validation
 		if (value.getStartMoment() != null && value.getEndMoment() != null) {
-			// Referencia: 01/01/2025 (según tu application.properties)
+
 			final Date reference = MomentHelper.getBaseMoment();
 
-			// REGLA 1: El fin SIEMPRE debe ser después del inicio
+			final boolean futureOk = !value.getStartMoment().before(reference);
+
 			final boolean chronologyOk = value.getEndMoment().after(value.getStartMoment());
 
-			// REGLA 2: El inicio SIEMPRE debe ser futuro respecto a la referencia (incluso en borrador)
-			final boolean futureOk = value.getStartMoment().after(reference);
+			if (!futureOk) {
+				super.state(context, false, "startMoment", "acme.validation.invention.dates.future-threshold");
+				result = false;
+			}
 
-			if (!chronologyOk || !futureOk) {
-				super.state(context, false, "startMoment", "acme.validation.invention.dates.message");
-				super.state(context, false, "endMoment", "acme.validation.invention.dates.message");
+			if (!chronologyOk) {
+				super.state(context, false, "endMoment", "acme.validation.invention.dates.invalid-interval");
 				result = false;
 			}
 		}
