@@ -36,6 +36,12 @@ master.menu.provider.favourite-link = Enlace favorito
 master.menu.consumer = Consumidor
 master.menu.consumer.favourite-link = Enlace favorito
 
+# master.menu.inventor ##########################################################
+
+master.menu.inventor = Inventor
+master.menu.inventor.list-inventions = Mis invenciones
+master.menu.inventor.create-inventions = Crear invención
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta

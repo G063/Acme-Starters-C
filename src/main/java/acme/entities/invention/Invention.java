@@ -19,7 +19,6 @@ import acme.client.components.datatypes.Money;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
 import acme.constraints.ValidHeader;
@@ -58,12 +57,12 @@ public class Invention extends AbstractEntity {
 	private String				description;
 
 	@Mandatory
-	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				startMoment;
 
 	@Mandatory
-	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				endMoment;
 
@@ -95,22 +94,28 @@ public class Invention extends AbstractEntity {
 	@Valid
 	@Transient
 	public Money getCost() {
-		Double totalAmount = this.repository.computeInventionAmount(this.getId());
 
+		Money result = new Money();
+		result.setCurrency("EUR");
+
+		if (this.repository == null || this.getId() == 0) {
+			result.setAmount(0.0);
+			return result;
+		}
+
+		Double totalAmount = this.repository.computeInventionAmount(this.getId());
 		Double value = totalAmount != null ? totalAmount : 0.0;
 
 		Double roundedValue = Math.round(value * 100.0) / 100.0;
 
-		Money result = new Money();
 		result.setAmount(roundedValue);
-		result.setCurrency("EUR");
 		return result;
 	}
 
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Inventor inventor;
 
 }
