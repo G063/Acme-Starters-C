@@ -44,6 +44,7 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
+master.menu.user-account.spokesperson-profile = Spokesperson profile
 
 master.menu.list=Main Lists
 master.menu.invention=Inventions
@@ -51,3 +52,6 @@ master.menu.strategy=Strategies
 master.menu.campaign=Campaigns
 master.menu.audit=Audits
 master.menu.sponsorship=Sponsorships
+
+master.menu.spokesperson = Spokesperson
+master.menu.sponsor.list-my-sponsorships = Mis patrocinios

@@ -11,8 +11,8 @@ any.campaign.label.description = Descripción
 any.campaign.label.startMoment = Fecha de inicio
 any.campaign.label.endMoment = Fecha de final
 any.campaign.label.monthsActive = Meses activo
-any.campaign.button.spokesperson = Ver perfil spokesperson
+any.campaign.button.spokesperson = Ver perfil del portavoz
 
-any.campaign.button.milestone = Ver milestones
+any.campaign.button.milestone = Ver hitos
 any.campaign.list.title = Lista de campañas
 any.campaign.form.title = Detalles de la campaña
