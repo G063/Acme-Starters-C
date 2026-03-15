@@ -31,7 +31,6 @@
     <acme:form-textbox code="inventor.invention.form.label.end-moment" path="endMoment" 
                placeholder="inventor.invention.form.placeholder.date" readonly="${isReadonly}"/>
 
-    <%-- Solo mostramos el coste y los meses si el comando es 'show' --%>
     <jstl:if test="${_command == 'show'}">
         <acme:form-money code="inventor.invention.form.label.cost" path="cost" readonly="true"/>
         <acme:form-textbox code="inventor.invention.form.label.months" path="monthsActive" readonly="true"/>
@@ -41,7 +40,6 @@
 
     <hr/>
 
-    <%-- BOTONES DE NAVEGACIÓN Y ACCIONES --%>
     <jstl:if test="${_command == 'show' && draftMode}">
         <acme:button code="inventor.invention.form.button.navigate" action="/inventor/invention/update?id=${id}"/>
         <acme:submit code="inventor.invention.form.button.delete" action="/inventor/invention/delete"/>
