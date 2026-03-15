@@ -19,11 +19,11 @@ public class InventorInventionCreateService extends AbstractService<Inventor, In
 
 	@Override
 	public void load() {
-		int userAccountId;
+		int inventorId;
 		Inventor inventor;
 
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		inventor = this.repository.findInventorByUserAccountId(userAccountId);
+		inventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		inventor = this.repository.findInventorByInventorId(inventorId);
 
 		this.invention = this.newObject(Invention.class);
 		this.invention.setDraftMode(true);
