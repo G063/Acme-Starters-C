@@ -29,8 +29,8 @@
 		<acme:button code="sponsor.sponsorship.form.button.donations" action="/sponsor/donation/list?sponsorshipId=${id}"/>
 		<jstl:if test="${draftMode == true}">
 			<acme:button code="sponsor.sponsorship.form.button.update" action="/sponsor/sponsorship/update?id=${id}"/>
-			<acme:button code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
-			<acme:button code="sponsor.sponsorship.form.button.publish" action="/sponsor/sponsorship/publish"/>
+			<acme:submit code="sponsor.sponsorship.form.button.delete" action="/sponsor/sponsorship/delete"/>
+			<acme:submit code="sponsor.sponsorship.form.button.publish" action="/sponsor/sponsorship/publish"/>
 		</jstl:if>
 	</jstl:if>
 </acme:form>

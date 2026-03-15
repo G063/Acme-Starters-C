@@ -23,14 +23,11 @@
 	<jstl:if test="${_command == 'update'}">
 		<acme:submit code="sponsor.donation.form.button.update" action="/sponsor/donation/update"/>
 	</jstl:if>
-	<jstl:if test="${_command == 'delete'}">
-		<acme:submit code="sponsor.donation.form.button.delete" action="/sponsor/donation/delete"/>
-	</jstl:if>
 
 	<jstl:if test="${_command == 'show'}">
-		<jstl:if test="${sponsorshipDraftMode}">
+		<jstl:if test="${sponsorshipDraftMode == true}">
 			<acme:button code="sponsor.donation.form.button.update" action="/sponsor/donation/update?id=${id}"/>
-			<acme:button code="sponsor.donation.form.button.delete" action="/sponsor/donation/delete?id=${id}"/>
+			<acme:submit code="sponsor.donation.form.button.delete" action="/sponsor/donation/delete"/>
 		</jstl:if>
 	</jstl:if>
 </acme:form>

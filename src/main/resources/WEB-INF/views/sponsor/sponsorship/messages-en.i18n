@@ -39,8 +39,7 @@ sponsor.sponsorship.form.value.published = Published
 
 # sponsorship validation
 
-acme.validation.duplicated-ticker.message = This ticker is already in use.
-acme.validation.sponsorship.no-donations.message = A sponsorship must have at least one donation before being published.
-acme.validation.sponsorship.invalid-interval.message = The start moment must be before the end moment.
-acme.validation.sponsorship.start-must-be-future.message = The start moment must be in the future.
-acme.validation.sponsorship.end-must-be-future.message = The end moment must be in the future.
+acme.validation.duplicated-ticker.message = This ticker is already in use
+acme.validation.sponsorship.no-donations.message = A sponsorship must have at least one donation before being published
+acme.validation.sponsorship.invalid-interval.message = The start moment must be before the end moment
+acme.validation.donation.money.currency.message = Only Euros are accepted

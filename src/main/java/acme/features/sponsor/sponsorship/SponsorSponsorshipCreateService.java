@@ -21,11 +21,11 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void load() {
-		int userAccountId;
+		int sponsorId;
 		Sponsor sponsor;
 
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		sponsor = this.repository.findSponsorByUserAccountId(userAccountId);
+		sponsorId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		sponsor = this.repository.findSponsorBySponsorId(sponsorId);
 
 		this.sponsorship = this.newObject(Sponsorship.class);
 		this.sponsorship.setDraftMode(true);

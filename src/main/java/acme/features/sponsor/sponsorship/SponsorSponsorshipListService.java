@@ -1,3 +1,4 @@
+
 package acme.features.sponsor.sponsorship;
 
 import java.util.Collection;
@@ -5,36 +6,34 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.realms.Sponsor;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorship.Sponsorship;
+import acme.realms.Sponsor;
 
 @Service
 public class SponsorSponsorshipListService extends AbstractService<Sponsor, Sponsorship> {
 
 	@Autowired
-	private SponsorSponsorshipRepository repository;
+	private SponsorSponsorshipRepository	repository;
 
-	private Collection<Sponsorship> sponsorships;
+	private Collection<Sponsorship>			sponsorships;
 
 
 	@Override
 	public void load() {
-		int userAccountId;
+		int sponsorId;
 
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		this.sponsorships = this.repository.findSponsorshipsByUserAccountId(userAccountId);
+		sponsorId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		this.sponsorships = this.repository.findSponsorshipsBySponsorId(sponsorId);
 	}
 
 	@Override
 	public void authorise() {
-		super.setAuthorised(true);
+		super.setAuthorised(this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class));
 	}
 
 	@Override
 	public void unbind() {
-		for (Sponsorship sponsorship : this.sponsorships)
-			super.unbindObject(sponsorship, "ticker", "name", "startMoment", "endMoment", "draftMode", "totalMoney");
+		super.unbindObjects(this.sponsorships, "ticker", "name", "startMoment", "endMoment", "draftMode");
 	}
 }
-

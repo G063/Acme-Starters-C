@@ -29,21 +29,22 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 	@Override
 	public void authorise() {
-		int id;
-		int userAccountId;
-		Long count;
-		boolean status;
+		int sponsorId;
+		boolean isOwner;
+		boolean isDraft;
 
-		id = super.getRequest().getData("id", int.class);
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		count = this.repository.countOwnedDraftSponsorshipById(id, userAccountId);
-		status = count != null && count > 0;
-		super.setAuthorised(status);
+		sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+
+		isOwner = this.sponsorship != null && this.sponsorship.getSponsor().getId() == sponsorId;
+
+		isDraft = this.sponsorship != null && this.sponsorship.getDraftMode();
+
+		super.setAuthorised(isOwner && isDraft);
 	}
 
 	@Override
 	public void bind() {
-		;
+		super.bindObject(this.sponsorship);
 	}
 
 	@Override
@@ -56,13 +57,18 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	public void execute() {
 		this.sponsorship.setDraftMode(false);
 		this.repository.save(this.sponsorship);
+
+		super.getResponse().setView("redirect:/sponsor/sponsorship/list");
 	}
 
 	@Override
 	public void unbind() {
 		Tuple tuple;
 
-		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode", "monthsActive", "totalMoney");
+		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
+
+		tuple.put("monthsActive", this.sponsorship.getMonthsActive());
+		tuple.put("totalMoney", this.sponsorship.getTotalMoney());
 		tuple.put("draftModes", this.getDraftModeChoices(this.sponsorship.getDraftMode()));
 	}
 

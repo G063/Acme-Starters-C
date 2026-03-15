@@ -1,3 +1,4 @@
+
 package acme.features.sponsor.donation;
 
 import java.util.Collection;
@@ -20,17 +21,4 @@ public interface SponsorDonationRepository extends AbstractRepository {
 
 	@Query("select d from Donation d where d.id = :id")
 	Donation findDonationById(int id);
-
-	@Query("select count(s) from Sponsorship s where s.id = :id and s.sponsor.userAccount.id = :userAccountId")
-	Long countOwnedSponsorshipById(int id, int userAccountId);
-
-	@Query("select count(s) from Sponsorship s where s.id = :id and s.sponsor.userAccount.id = :userAccountId and s.draftMode = true")
-	Long countOwnedDraftSponsorshipById(int id, int userAccountId);
-
-	@Query("select count(d) from Donation d where d.id = :id and d.sponsorship.sponsor.userAccount.id = :userAccountId")
-	Long countOwnedDonationById(int id, int userAccountId);
-
-	@Query("select count(d) from Donation d where d.id = :id and d.sponsorship.sponsor.userAccount.id = :userAccountId and d.sponsorship.draftMode = true")
-	Long countOwnedDraftDonationById(int id, int userAccountId);
 }
-

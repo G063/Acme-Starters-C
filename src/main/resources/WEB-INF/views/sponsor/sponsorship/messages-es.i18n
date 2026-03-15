@@ -39,8 +39,7 @@ sponsor.sponsorship.form.value.published = Publicado
 
 # validation texts
 
-acme.validation.duplicated-ticker.message = Este ticker ya está en uso.
-acme.validation.sponsorship.no-donations.message = Un patrocinio debe tener al menos una donación antes de poder publicarse.
-acme.validation.sponsorship.invalid-interval.message = La fecha de inicio debe ser anterior a la fecha de fin.
-acme.validation.sponsorship.start-must-be-future.message = La fecha de inicio debe estar en el futuro.
-acme.validation.sponsorship.end-must-be-future.message = La fecha de fin debe estar en el futuro.
+acme.validation.duplicated-ticker.message = Este ticker ya está en uso
+acme.validation.sponsorship.no-donations.message = Un patrocinio debe tener al menos una donación antes de poder publicarse
+acme.validation.sponsorship.invalid-interval.message = La fecha de inicio debe ser anterior a la fecha de fin
+acme.validation.donation.money.currency.message = Solo se aceptan Euros

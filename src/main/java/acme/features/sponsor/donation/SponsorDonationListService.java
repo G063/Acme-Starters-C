@@ -1,3 +1,4 @@
+
 package acme.features.sponsor.donation;
 
 import java.util.Collection;
@@ -5,19 +6,19 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.realms.Sponsor;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorship.Donation;
 import acme.entities.sponsorship.Sponsorship;
+import acme.realms.Sponsor;
 
 @Service
 public class SponsorDonationListService extends AbstractService<Sponsor, Donation> {
 
 	@Autowired
-	private SponsorDonationRepository repository;
+	private SponsorDonationRepository	repository;
 
-	private Collection<Donation> donations;
-	private Sponsorship sponsorship;
+	private Collection<Donation>		donations;
+	private Sponsorship					sponsorship;
 
 
 	@Override
@@ -31,25 +32,14 @@ public class SponsorDonationListService extends AbstractService<Sponsor, Donatio
 
 	@Override
 	public void authorise() {
-		int sponsorshipId;
-		int userAccountId;
-		Long count;
-		boolean status;
-
-		sponsorshipId = super.getRequest().getData("sponsorshipId", int.class);
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		count = this.repository.countOwnedSponsorshipById(sponsorshipId, userAccountId);
-		status = count != null && count > 0;
-		super.setAuthorised(status);
+		super.setAuthorised(this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class));
 	}
 
 	@Override
 	public void unbind() {
-		for (Donation donation : this.donations)
-			super.unbindObject(donation, "name", "kind", "money", "notes");
+		super.unbindObjects(this.donations, "name", "kind", "money", "notes");
 
 		super.unbindGlobal("sponsorshipId", this.sponsorship == null ? null : this.sponsorship.getId());
 		super.unbindGlobal("sponsorshipDraftMode", this.sponsorship != null && Boolean.TRUE.equals(this.sponsorship.getDraftMode()));
 	}
 }
-

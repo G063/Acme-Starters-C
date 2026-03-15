@@ -19,15 +19,15 @@ public class SponsorDonationCreateService extends AbstractService<Sponsor, Donat
 	private SponsorDonationRepository	repository;
 
 	private Donation					donation;
-	private int							sponsorshipId;
 
 
 	@Override
 	public void load() {
+		int sponsorshipId;
 		Sponsorship sponsorship;
 
-		this.sponsorshipId = super.getRequest().getData("sponsorshipId", int.class);
-		sponsorship = this.repository.findSponsorshipById(this.sponsorshipId);
+		sponsorshipId = super.getRequest().getData("sponsorshipId", int.class);
+		sponsorship = this.repository.findSponsorshipById(sponsorshipId);
 
 		this.donation = this.newObject(Donation.class);
 		this.donation.setSponsorship(sponsorship);
@@ -35,14 +35,7 @@ public class SponsorDonationCreateService extends AbstractService<Sponsor, Donat
 
 	@Override
 	public void authorise() {
-		int userAccountId;
-		Long count;
-		boolean status;
-
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		count = this.repository.countOwnedDraftSponsorshipById(this.sponsorshipId, userAccountId);
-		status = count != null && count > 0;
-		super.setAuthorised(status);
+		super.setAuthorised(this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class));
 	}
 
 	@Override
@@ -66,7 +59,7 @@ public class SponsorDonationCreateService extends AbstractService<Sponsor, Donat
 
 		tuple = super.unbindObject(this.donation, "name", "kind", "money", "notes");
 		tuple.put("kinds", SelectChoices.from(DonationKind.class, this.donation.getKind()));
-		tuple.put("sponsorshipId", this.sponsorshipId);
+		tuple.put("sponsorshipId", this.donation.getSponsorship().getId());
 		tuple.put("sponsorshipDraftMode", this.donation.getSponsorship() != null && Boolean.TRUE.equals(this.donation.getSponsorship().getDraftMode()));
 	}
 }

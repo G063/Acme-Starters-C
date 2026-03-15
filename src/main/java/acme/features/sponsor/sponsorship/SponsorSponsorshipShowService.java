@@ -29,23 +29,28 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 
 	@Override
 	public void authorise() {
-		int id;
-		int userAccountId;
-		Long count;
-		boolean status;
+		int sponsorId;
+		boolean isOwner;
 
-		id = super.getRequest().getData("id", int.class);
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		count = this.repository.countOwnedSponsorshipById(id, userAccountId);
-		status = count != null && count > 0;
-		super.setAuthorised(status);
+		if (this.getRequest().getPrincipal() == null || !this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class))
+			isOwner = false;
+		else {
+			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+
+			isOwner = this.sponsorship != null && this.sponsorship.getSponsor().getId() == sponsorId;
+		}
+
+		super.setAuthorised(isOwner);
 	}
 
 	@Override
 	public void unbind() {
 		Tuple tuple;
 
-		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode", "monthsActive", "totalMoney");
+		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
+
+		tuple.put("monsthsActive", this.sponsorship.getMonthsActive());
+		tuple.put("totalMoney", this.sponsorship.getTotalMoney());
 		tuple.put("draftModes", this.getDraftModeChoices(this.sponsorship.getDraftMode()));
 	}
 

@@ -6,8 +6,6 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.components.models.Tuple;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorship.Donation;
 import acme.entities.sponsorship.Sponsorship;
@@ -32,26 +30,28 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void authorise() {
-		int id;
-		int userAccountId;
-		Long count;
-		boolean status;
+		int sponsorId;
+		boolean isOwner;
+		boolean isDraft;
 
-		id = super.getRequest().getData("id", int.class);
-		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		count = this.repository.countOwnedDraftSponsorshipById(id, userAccountId);
-		status = count != null && count > 0;
-		super.setAuthorised(status);
+		sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+
+		isOwner = this.sponsorship != null && this.sponsorship.getSponsor().getId() == sponsorId;
+
+		isDraft = this.sponsorship != null && this.sponsorship.getDraftMode();
+
+		super.setAuthorised(isOwner && isDraft);
+
 	}
 
 	@Override
 	public void bind() {
-		;
+		super.bindObject(this.sponsorship, "id");
 	}
 
 	@Override
 	public void validate() {
-		;
+		super.state(this.sponsorship != null, "*", "sponsor.sponsorship.error.not-found");
 	}
 
 	@Override
@@ -67,19 +67,6 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void unbind() {
-		Tuple tuple;
-
-		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode", "monthsActive", "totalMoney");
-		tuple.put("draftModes", this.getDraftModeChoices(this.sponsorship.getDraftMode()));
-	}
-
-	private SelectChoices getDraftModeChoices(final Boolean draftMode) {
-		SelectChoices choices;
-
-		choices = this.newObject(SelectChoices.class);
-		choices.add("true", "sponsor.sponsorship.form.value.draft", Boolean.TRUE.equals(draftMode));
-		choices.add("false", "sponsor.sponsorship.form.value.published", Boolean.FALSE.equals(draftMode));
-
-		return choices;
+		super.getResponse().addGlobal("confirmation", "sponsor.sponsorship.delete.success");
 	}
 }

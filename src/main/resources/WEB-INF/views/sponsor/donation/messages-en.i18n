@@ -18,7 +18,6 @@ sponsor.donation.form.button.create = Create
 sponsor.donation.form.button.update = Update
 sponsor.donation.form.button.delete = Delete
 
-
 ALTRUIST = Altruist
 REWARDED = Rewarded
 CELEBRATED = Celebrated
