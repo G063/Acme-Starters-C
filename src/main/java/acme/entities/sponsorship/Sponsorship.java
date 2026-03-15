@@ -90,13 +90,19 @@ public class Sponsorship extends AbstractEntity {
 
 	@Transient
 	public Money getTotalMoney() {
-		Double totalAmount = this.repo.sumMoney(this.getId());
-		if (totalAmount == null)
-			totalAmount = 0.;
 
 		Money totalMoney = new Money();
-		totalMoney.setAmount(totalAmount);
 		totalMoney.setCurrency("EUR");
+		if (this.repo == null || this.getId() == 0) {
+			totalMoney.setAmount(0.0);
+			return totalMoney;
+		}
+		Double totalAmount = this.repo.sumMoney(this.getId());
+		Double value = totalAmount != null ? totalAmount : 0.0;
+
+		Double roundedValue = Math.round(value * 100.0) / 100.0;
+
+		totalMoney.setAmount(roundedValue);
 
 		return totalMoney;
 	}
