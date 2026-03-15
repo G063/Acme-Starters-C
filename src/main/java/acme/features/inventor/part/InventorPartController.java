@@ -17,7 +17,6 @@ public class InventorPartController extends AbstractController<Inventor, Part> {
 	protected void initialise() {
 		super.setMediaType(MediaType.TEXT_HTML);
 
-		// Estos servicios gestionarán las piezas
 		super.addBasicCommand("create", InventorPartCreateService.class);
 		super.addBasicCommand("list", InventorPartListService.class);
 		super.addBasicCommand("show", InventorPartShowService.class);

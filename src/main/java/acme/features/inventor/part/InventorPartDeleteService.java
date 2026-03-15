@@ -19,14 +19,12 @@ public class InventorPartDeleteService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void load() {
-		// Obtenemos el id de la pieza (Part)
 		int id = this.getRequest().getData("id", int.class);
 		this.part = this.repository.findPartById(id);
 	}
 
 	@Override
 	public void authorise() {
-		// 1. Debe ser un Inventor
 		boolean isInventor = this.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
 
 		int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();

@@ -4,6 +4,7 @@ package acme.features.inventor.part;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.components.models.Tuple;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractService;
 import acme.entities.invention.Invention;
@@ -20,111 +21,52 @@ public class InventorPartCreateService extends AbstractService<Inventor, Part> {
 
 
 	@Override
-	public void authorise() {
-		// 1. Es inventor
-		boolean isInventor = this.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
+	public void load() {
+		int inventionId;
+		Invention invention;
 
-		// 2. Seguridad: ¿Es el dueño de la invención?
-		final String inventionIdStr = this.getRequest().getData("inventionId", String.class);
-		boolean isOwner = false;
-		if (inventionIdStr != null && !inventionIdStr.isBlank()) {
-			int invId = Integer.parseInt(inventionIdStr);
-			Invention inv = this.repository.findOneInventionById(invId);
-			int activeInventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
-			isOwner = inv != null && inv.getInventor().getId() == activeInventorId;
-		}
+		inventionId = super.getRequest().getData("inventionId", int.class);
+		invention = this.repository.findOneInventionById(inventionId);
 
-		super.setAuthorised(isInventor && isOwner);
+		this.part = this.newObject(Part.class);
+		this.part.setInvention(invention);
 	}
 
 	@Override
-	public void load() {
-		System.out.println(">>> LOAD: Iniciando carga de la pieza");
-		this.part = this.newObject(Part.class);
+	public void authorise() {
+		boolean status;
+		int inventorId;
 
-		final String inventionIdStr = this.getRequest().getData("inventionId", String.class);
-		System.out.println(">>> LOAD: inventionId recibido = " + inventionIdStr);
+		inventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class) && this.part.getInvention() != null && this.part.getInvention().getInventor().getId() == inventorId && this.part.getInvention().getDraftMode();
 
-		if (inventionIdStr != null && !inventionIdStr.isBlank()) {
-			final int inventionId = Integer.parseInt(inventionIdStr);
-			final Invention invention = this.repository.findOneInventionById(inventionId);
-			this.part.setInvention(invention);
-			System.out.println(">>> LOAD: Invención encontrada y asignada: " + (invention != null));
-		}
+		super.setAuthorised(status);
 	}
 
 	@Override
 	public void bind() {
-		System.out.println(">>> BIND: Iniciando bindObject");
 		super.bindObject(this.part, "name", "description", "cost", "kind");
-
-		if (this.part.getInvention() == null) {
-			System.out.println(">>> BIND: La invención era null tras el bind, intentando recuperar...");
-			final String reqId = this.getRequest().getData("inventionId", String.class);
-			if (reqId != null && !reqId.isBlank()) {
-				final int inventionId = Integer.parseInt(reqId);
-				final Invention invention = this.repository.findOneInventionById(inventionId);
-				this.part.setInvention(invention);
-				System.out.println(">>> BIND: Invención recuperada manualmente: " + (invention != null));
-			}
-		}
-
-		if (this.part.getCost() != null)
-			System.out.println(">>> BIND: Coste bindeado = " + this.part.getCost().getAmount() + " " + this.part.getCost().getCurrency());
 	}
 
 	@Override
 	public void validate() {
-		// 1. Validación automática de los campos de la entidad Part
-		// (Ahora no falla porque ya no hay un validador externo que "despierte" a la Invention)
 		super.validateObject(this.part);
-
-		// 2. Validación manual de la Moneda (Sustituye al PartValidator borrado)
-		if (this.part.getCost() != null) {
-			final String currency = this.part.getCost().getCurrency();
-			final boolean isEuro = "EUR".equals(currency);
-			super.state(isEuro, "cost", "acme.validation.part.cost.currency");
-		}
-
-		// 3. Validación de seguridad: Solo se puede crear/editar si la invención está en borrador
-		if (this.part.getInvention() != null) {
-			final boolean isDraft = this.part.getInvention().getDraftMode();
-			super.state(isDraft, "*", "inventor.part.form.error.not-draft-mode");
-		} else
-			super.state(false, "*", "inventor.part.error.no-invention");
-	}
-
-	@Override
-	public void unbind() {
-		super.unbindObject(this.part, "name", "description", "cost", "kind");
-
-		int inventionId = 0;
-		if (this.part.getInvention() != null)
-			inventionId = this.part.getInvention().getId();
-		else {
-			final String reqId = this.getRequest().getData("inventionId", String.class);
-			if (reqId != null && !reqId.isBlank())
-				inventionId = Integer.parseInt(reqId);
-		}
-
-		this.getResponse().addGlobal("inventionId", inventionId);
-
-		final SelectChoices choices = SelectChoices.from(PartKind.class, this.part.getKind());
-		this.getResponse().addGlobal("kinds", choices);
 	}
 
 	@Override
 	public void execute() {
-		System.out.println(">>> EXECUTE: Guardando pieza en el repositorio...");
-		try {
-			this.repository.save(this.part);
-			System.out.println(">>> EXECUTE: ¡Guardado exitoso!");
+		this.repository.save(this.part);
+	}
 
-			final int inventionId = this.part.getInvention().getId();
-			super.getResponse().setView("redirect:list?inventionId=" + inventionId);
-		} catch (Exception e) {
-			System.out.println(">>> EXECUTE: ERROR FATAL al guardar: " + e.getMessage());
-			e.printStackTrace();
-		}
+	@Override
+	public void unbind() {
+		Tuple tuple;
+		SelectChoices choices;
+
+		choices = SelectChoices.from(PartKind.class, this.part.getKind());
+		tuple = super.unbindObject(this.part, "name", "description", "cost", "kind");
+
+		tuple.put("kinds", choices);
+		tuple.put("inventionId", this.part.getInvention().getId());
 	}
 }

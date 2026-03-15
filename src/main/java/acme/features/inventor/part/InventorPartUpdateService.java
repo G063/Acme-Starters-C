@@ -4,7 +4,6 @@ package acme.features.inventor.part;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractService;
 import acme.entities.invention.Part;
 import acme.entities.invention.PartKind;
@@ -20,6 +19,9 @@ public class InventorPartUpdateService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void authorise() {
+		boolean status;
+
+		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
 		final int id = super.getRequest().getData("id", int.class);
 		this.part = this.repository.findPartById(id);
 
@@ -28,7 +30,7 @@ public class InventorPartUpdateService extends AbstractService<Inventor, Part> {
 			final int inventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
 			final boolean isOwner = this.part.getInvention().getInventor().getId() == inventorId;
 			final boolean isDraft = this.part.getInvention().getDraftMode();
-			result = isOwner && isDraft;
+			result = isOwner && isDraft && status;
 		}
 		super.setAuthorised(result);
 	}
@@ -54,43 +56,17 @@ public class InventorPartUpdateService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void validate() {
-		// 1. Validación automática de los campos de la entidad Part
-		// (Ahora no falla porque ya no hay un validador externo que "despierte" a la Invention)
 		super.validateObject(this.part);
-
-		// 2. Validación manual de la Moneda (Sustituye al PartValidator borrado)
-		if (this.part.getCost() != null) {
-			final String currency = this.part.getCost().getCurrency();
-			final boolean isEuro = "EUR".equals(currency);
-			super.state(isEuro, "cost", "acme.validation.part.cost.currency");
-		}
-
-		// 3. Validación de seguridad: Solo se puede crear/editar si la invención está en borrador
-		if (this.part.getInvention() != null) {
-			final boolean isDraft = this.part.getInvention().getDraftMode();
-			super.state(isDraft, "*", "inventor.part.form.error.not-draft-mode");
-		} else
-			super.state(false, "*", "inventor.part.error.no-invention");
 	}
 
 	@Override
 	public void unbind() {
-		// CAMBIO CRÍTICO: Añadir "id" aquí para que el formulario sepa qué registro editar
 		super.unbindObject(this.part, "id", "name", "description", "cost", "kind");
-
-		super.getResponse().addGlobal("acme_id", this.part.getId());
-		super.getResponse().addGlobal("draftMode", this.part.getInvention().getDraftMode());
 		super.getResponse().addGlobal("inventionId", this.part.getInvention().getId());
-
-		final SelectChoices choices = SelectChoices.from(PartKind.class, this.part.getKind());
-		super.getResponse().addGlobal("kinds", choices);
 	}
 
 	@Override
 	public void execute() {
 		this.repository.save(this.part);
-
-		final int inventionId = this.part.getInvention().getId();
-		super.getResponse().setView("redirect:list?inventionId=" + inventionId);
 	}
 }

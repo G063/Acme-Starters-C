@@ -21,10 +21,7 @@ public class InventorPartShowService extends AbstractService<Inventor, Part> {
 	@Override
 	public void load() {
 		int id;
-
-		Object idObject = super.getRequest().getData().get("id");
-		id = Integer.parseInt(idObject.toString());
-
+		id = super.getRequest().getData("id", int.class);
 		this.part = this.repository.findPartById(id);
 	}
 
