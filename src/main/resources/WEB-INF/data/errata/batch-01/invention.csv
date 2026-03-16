@@ -20,10 +20,15 @@ invention-12,AB12-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit ame
 invention-13,AB13-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2025/01/01 0:00,http://lorem.com,true,inventor-01
 invention-14,AB14-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2024/12/31 23:59,2025/02/01 0:00,http://lorem.com,true,inventor-01
 invention-15,AB15-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/02/01 0:00,2025/01/01 0:00,http://lorem.com,true,inventor-01
-invention-16,AB16-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2299/01/01 0:00,http://lorem.com,true,inventor-01
+invention-16,AB16-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2201/01/01 0:00,http://lorem.com,true,inventor-01
 # moreInfo
 invention-17,AB17-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2025/02/01 0:00,http://,true,inventor-01
 invention-18,AB18-\aaaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2025/02/01 0:00,ftp://,true,inventor-01
 invention-19,AB19-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2025/02/01 0:00,http://a,true,inventor-01
-invention-20,AB20-\aaaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2299/01/01 0:00,ftp://a,true,inventor-01
-invention-21,AB21-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2345/01/01 0:00,3456/01/01 0:00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/xi",true,inventor-01
+invention-20,AB20-\aaaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2026/01/01 0:00,ftp://a,true,inventor-01
+invention-21,AB21-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2345/01/01 0:00,2346/01/01 0:00,"http://www.lorem-ipsum.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/xi",true,inventor-01
+#draftMode
+invention-22,AB22-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2026/01/01 0:00,http://lorem.com,,inventor-01
+invention-23,AB23-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2026/01/01 0:00,http://lorem.com,false,inventor-01
+#inventor
+invention-24,AB24-\aaaaaa,Lorem ipsum dolor sit amet.,"Lorem ipsum dolor sit amet, consectetur adipiscing elit",2025/01/01 0:00,2026/01/01 0:00,http://lorem.com,true,

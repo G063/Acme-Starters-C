@@ -11,5 +11,3 @@
     <acme:list-hidden path="description"/>
     <acme:list-hidden path="inventor.bio"/>
 </acme:list>
-
-<acme:return/>

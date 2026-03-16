@@ -45,3 +45,25 @@ user-account-fundraiser-10,true,"UserIdentity{name: 'Sample', surname: 'Ten', em
 user-account-inventor-01,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor1,inventor1
 user-account-inventor-02,true,"UserIdentity{name: 'Nikola', surname: 'Tesla', email: 'nikola@inventor.com'}",inventor2,inventor2
 user-account-inventor-03,true,"UserIdentity{name: 'Marie', surname: 'Curie', email: 'marie@inventor.com'}",inventor3,inventor3
+user-account-inventor-04,true,"UserIdentity{name: 'Isaac', surname: 'Newton', email: 'isaac@inventor.com'}",inventor4,inventor4
+user-account-inventor-05,true,"UserIdentity{name: 'Galileo', surname: 'Galilei', email: 'galileo@inventor.com'}",inventor5,inventor5
+user-account-inventor-06,true,"UserIdentity{name: 'Ada', surname: 'Lovelace', email: 'ada@inventor.com'}",inventor6,inventor6
+user-account-inventor-07,true,"UserIdentity{name: 'Thomas', surname: 'Edison', email: 'thomas@inventor.com'}",inventor7,inventor7
+user-account-inventor-08,true,"UserIdentity{name: 'Alexander', surname: 'Graham Bell', email: 'alexander@inventor.com'}",inventor8,inventor8
+user-account-inventor-09,true,"UserIdentity{name: 'Wright', surname: 'Brothers', email: 'wright@inventor.com'}",inventor9,inventor9
+user-account-inventor-10,true,"UserIdentity{name: 'James', surname: 'Watt', email: 'james@inventor.com'}",inventor10,inventor10
+user-account-inventor-11,true,"UserIdentity{name: 'Benjamin', surname: 'Franklin', email: 'benjamin@inventor.com'}",inventor11,inventor11
+user-account-inventor-12,true,"UserIdentity{name: 'Elon', surname: 'Musk', email: 'elon@inventor.com'}",inventor12,inventor12
+user-account-inventor-13,true,"UserIdentity{name: 'Hedy', surname: 'Lamarr', email: 'hedy@inventor.com'}",inventor13,inventor13
+user-account-inventor-14,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor14,inventor14
+user-account-inventor-15,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor15,inventor15
+user-account-inventor-16,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor16,inventor16
+user-account-inventor-17,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor17,inventor17
+user-account-inventor-18,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor18,inventor18
+user-account-inventor-19,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor19,inventor19
+user-account-inventor-20,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor20,inventor20
+user-account-inventor-21,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor21,inventor21
+user-account-inventor-22,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor22,inventor22
+user-account-inventor-23,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor23,inventor23
+user-account-inventor-24,true,"UserIdentity{name: 'Leonardo', surname: 'DaVinci', email: 'leo@inventor.com'}",inventor24,inventor24
+

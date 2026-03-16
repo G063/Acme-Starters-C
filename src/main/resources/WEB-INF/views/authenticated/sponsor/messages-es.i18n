@@ -1,0 +1,9 @@
+
+authenticated.sponsor.form.title = Detalles de patrocinador
+
+authenticated.sponsor.form.label.address = Direccion
+authenticated.sponsor.form.label.im = Contacto de mensajeria instantanea
+authenticated.sponsor.form.label.gold = Patrocinador oro
+
+authenticated.sponsor.form.button.create = Registrar
+authenticated.sponsor.form.button.update = Actualizar
