@@ -1,9 +1,12 @@
 
 package acme.features.fundraiser.strategy;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.strategy.Strategy;
 import acme.realms.Fundraiser;
@@ -38,6 +41,9 @@ public class FundraiserStrategyPublishService extends AbstractService<Fundraiser
 
 	@Override
 	public void validate() {
+		Date base = MomentHelper.getBaseMoment();
+		Date start = this.strategy.getStartMoment();
+		super.state(MomentHelper.isAfter(start, base), "*", "fundraiser.strategy.form.error.date-incorrect");
 		super.validateObject(this.strategy);
 		int tacticsCount = this.repository.countTacticsByStrategyId(this.strategy.getId());
 		super.state(tacticsCount > 0, "*", "fundraiser.strategy.form.error.no-tactics");

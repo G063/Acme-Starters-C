@@ -26,4 +26,8 @@ fundraiser.strategy.form.title.update = Editando mi estrategia
 fundraiser.strategy.form.title.show = Detalles de la estrategia
 
 fundraiser.strategy.form.placeholder.date = aaaa/mm/dd hh:mm
-fundraiser.strategy.form.error.no-tactics = Esta estrategia necesita al menos una táctica para publicarse.
+fundraiser.strategy.form.error.no-tactics = Esta estrategia necesita al menos una táctica para publicarse
+acme.validation.strategy.ticker.non-unique = Ya existe una estrategia con este ticker. Por favor, introduzca uno diferente
+acme.validation.strategy.future-threshold = La fecha de inicio debe ser en el futuro
+acme.validation.strategy.invalid-interval = La fecha de finalización debe ser posterior a la de inicio
+acme.validation.strategy.no-tactics = Esta estrategia necesita al menos una táctica para publicarse
