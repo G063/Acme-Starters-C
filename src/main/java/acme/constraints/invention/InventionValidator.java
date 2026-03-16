@@ -2,7 +2,6 @@
 package acme.constraints.invention;
 
 import java.util.Collection;
-import java.util.Date;
 
 import javax.validation.ConstraintValidatorContext;
 
@@ -63,23 +62,10 @@ public class InventionValidator extends AbstractValidator<ValidInvention, Invent
 				result = false;
 			}
 
-		if (value.getStartMoment() != null && value.getEndMoment() != null) {
-
-			final Date reference = MomentHelper.getBaseMoment();
-
-			final boolean futureOk = !value.getStartMoment().before(reference);
-
-			final boolean chronologyOk = value.getEndMoment().after(value.getStartMoment());
-
-			if (!futureOk) {
-				super.state(context, false, "startMoment", "acme.validation.invention.dates.future-threshold");
-				result = false;
-			}
-
-			if (!chronologyOk) {
-				super.state(context, false, "endMoment", "acme.validation.invention.dates.invalid-interval");
-				result = false;
-			}
+		boolean validInterval;
+		if (published && value.getStartMoment() != null && value.getEndMoment() != null) {
+			validInterval = MomentHelper.isBefore(value.getStartMoment(), value.getEndMoment());
+			super.state(context, validInterval, "startMoment", "acme.validation.invention.invalid-interval.message");
 		}
 
 		return result;
