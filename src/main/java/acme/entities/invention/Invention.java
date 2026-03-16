@@ -1,7 +1,7 @@
 
 package acme.entities.invention;
 
-import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -19,12 +19,12 @@ import acme.client.components.datatypes.Money;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
+import acme.constraints.invention.ValidInvention;
 import acme.realms.Inventor;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +32,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidInvention
 public class Invention extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -56,12 +57,12 @@ public class Invention extends AbstractEntity {
 	private String				description;
 
 	@Mandatory
-	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				startMoment;
 
 	@Mandatory
-	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				endMoment;
 
@@ -75,42 +76,46 @@ public class Invention extends AbstractEntity {
 	@Column
 	private Boolean				draftMode;
 
+	@Transient
+	@Autowired
+	InventionRepository			repository;
 
+
+	@Mandatory
+	@Valid
 	@Transient
 	public Double getMonthsActive() {
 		if (this.startMoment == null || this.endMoment == null)
 			return 0.0;
-		Duration diffInMillies = MomentHelper.computeDuration(this.startMoment, this.endMoment);
-
-		double days = diffInMillies.getSeconds() / (60. * 60 * 24);
-
-		double months = days / 30.44;
-
-		return Math.round(months * 10.0) / 10.0;
+		return MomentHelper.computeDifference(this.startMoment, this.endMoment, ChronoUnit.MONTHS);
 	}
 
-
-	@Transient
-	@Autowired
-	private InventionRepository repo;
-
-
+	@Mandatory
+	@Valid
 	@Transient
 	public Money getCost() {
-		Double totalAmount = this.repo.computeInventionAmount(this.getId());
 
 		Money result = new Money();
-		result.setAmount(totalAmount != null ? totalAmount : 0.0);
 		result.setCurrency("EUR");
 
+		if (this.repository == null || this.getId() == 0) {
+			result.setAmount(0.0);
+			return result;
+		}
+
+		Double totalAmount = this.repository.computeInventionAmount(this.getId());
+		Double value = totalAmount != null ? totalAmount : 0.0;
+
+		Double roundedValue = Math.round(value * 100.0) / 100.0;
+
+		result.setAmount(roundedValue);
 		return result;
 	}
 
 
 	@Mandatory
 	@Valid
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Inventor inventor;
-	//Crear validadores
 
 }

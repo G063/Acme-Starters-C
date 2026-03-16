@@ -1,0 +1,45 @@
+# messages-en.i18n
+
+# sponsorship list
+
+sponsor.sponsorship.list.title = My sponsorships
+sponsor.sponsorship.list.label.ticker = Ticker
+sponsor.sponsorship.list.label.name = Name
+sponsor.sponsorship.list.label.start-moment = Start moment
+sponsor.sponsorship.list.label.end-moment = End moment
+sponsor.sponsorship.list.label.draft-mode = Draft mode
+sponsor.sponsorship.list.label.total-money = Total money
+sponsor.sponsorship.list.button.create = Create sponsorship
+
+# sponsorship form
+
+sponsor.sponsorship.form.title = Sponsorship details
+sponsor.sponsorship.form.label.ticker = Ticker
+sponsor.sponsorship.form.label.name = Name
+sponsor.sponsorship.form.label.description = Description
+sponsor.sponsorship.form.label.start-moment = Start moment
+sponsor.sponsorship.form.label.end-moment = End moment
+sponsor.sponsorship.form.label.more-info = More info
+sponsor.sponsorship.form.label.draft-mode = Draft mode
+sponsor.sponsorship.form.label.months-active = Months active
+sponsor.sponsorship.form.label.total-money = Total money
+
+# sponsorship features
+
+sponsor.sponsorship.form.button.create = Create
+sponsor.sponsorship.form.button.update = Update
+sponsor.sponsorship.form.button.delete = Delete
+sponsor.sponsorship.form.button.publish = Publish
+sponsor.sponsorship.form.button.donations = Manage donations
+
+# sponsorship draftmode
+
+sponsor.sponsorship.form.value.draft = Draft
+sponsor.sponsorship.form.value.published = Published
+
+# sponsorship validation
+
+acme.validation.duplicated-ticker.message = This ticker is already in use
+acme.validation.sponsorship.no-donations.message = A sponsorship must have at least one donation before being published
+acme.validation.sponsorship.invalid-interval.message = The start moment must be before the end moment
+acme.validation.donation.money.currency.message = Only Euros are accepted

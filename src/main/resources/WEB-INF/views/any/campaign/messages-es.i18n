@@ -1,0 +1,18 @@
+any.campaign.list.label.ticker = Ticker
+any.campaign.list.label.name = Nombre
+any.campaign.list.label.startMoment = Fecha inicio
+any.campaign.list.label.endMoment = fecha fin
+common.search = Buscar
+common.show = Mostrar
+common.entries = datos
+any.campaign.label.ticker = Ticker
+any.campaign.label.name = Nombre
+any.campaign.label.description = Descripción
+any.campaign.label.startMoment = Fecha de inicio
+any.campaign.label.endMoment = Fecha de final
+any.campaign.label.monthsActive = Meses activo
+any.campaign.button.spokesperson = Ver perfil del portavoz
+
+any.campaign.button.milestone = Ver hitos
+any.campaign.list.title = Lista de campañas
+any.campaign.form.title = Detalles de la campaña

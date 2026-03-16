@@ -1,0 +1,35 @@
+key,name,description,cost,kind,key:invention
+# base
+part-01,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+# name
+part-02,"L","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+part-03,"Lo","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+part-04,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod t","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+part-05,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod te","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+part-06,โลเร็ม อิปซัม,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+part-07,لوريم إيبسوم,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+part-08,洛伦·伊普森,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+part-09,<marquee>Hacked</marquee>,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+part-10,<script>alert(‘Hacked!’);</script>,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+part-11,' or 'A' = 'A ,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-01
+# description
+part-12,"Lorem ipsum dolor sit amet, consectetu","L",EUR 200000.00,CORE,invention-01
+part-13,"Lorem ipsum dolor sit amet, consectetu","Lo",EUR 200000.00,CORE,invention-01
+part-14,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod t",EUR 200000.00,CORE,invention-01
+part-15,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod te",EUR 200000.00,CORE,invention-01
+part-16,"Lorem ipsum dolor sit amet, consectetu","โลเร็ม อิปซัม",EUR 200000.00,CORE,invention-01
+part-17,"Lorem ipsum dolor sit amet, consectetu","لوريم إيبسوم",EUR 200000.00,CORE,invention-01
+part-18,"Lorem ipsum dolor sit amet, consectetu","洛伦·伊普森",EUR 200000.00,CORE,invention-01
+part-19,"Lorem ipsum dolor sit amet, consectetu",<marquee>Hacked</marquee>,EUR 200000.00,CORE,invention-01
+part-20,"Lorem ipsum dolor sit amet, consectetu",<script>alert(‘Hacked!’);</script>,EUR 200000.00,CORE,invention-01
+part-21,"Lorem ipsum dolor sit amet, consectetu",' or 'A' = 'A,EUR 200000.00,CORE,invention-01
+# cost
+part-22,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 0.00,CORE,invention-01
+part-23,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 0.01,CORE,invention-01
+part-24,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 999999.99,CORE,invention-01
+part-25,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 1000000.00,CORE,invention-01
+# kind
+part-26,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,MANDATORY,invention-01
+part-27,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,OPTIONAL,invention-01
+# invention
+part-28,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",EUR 200000.00,CORE,invention-57
