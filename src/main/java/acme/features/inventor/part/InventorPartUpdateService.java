@@ -4,6 +4,8 @@ package acme.features.inventor.part;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.components.models.Tuple;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractService;
 import acme.entities.invention.Part;
 import acme.entities.invention.PartKind;
@@ -12,46 +14,38 @@ import acme.realms.Inventor;
 @Service
 public class InventorPartUpdateService extends AbstractService<Inventor, Part> {
 
+	// Internal state ---------------------------------------------------------
+
 	@Autowired
 	protected InventorPartRepository	repository;
+
 	protected Part						part;
 
+	// AbstractService interface -------------------------------------------
+
+
+	@Override
+	public void load() {
+		int id;
+		id = super.getRequest().getData("id", int.class);
+		this.part = this.repository.findPartById(id);
+	}
 
 	@Override
 	public void authorise() {
 		boolean status;
+		Inventor inventor;
 
-		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
-		final int id = super.getRequest().getData("id", int.class);
-		this.part = this.repository.findPartById(id);
+		inventor = this.part.getInvention().getInventor();
 
-		boolean result = false;
-		if (this.part != null) {
-			final int inventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			final boolean isOwner = this.part.getInvention().getInventor().getId() == inventorId;
-			final boolean isDraft = this.part.getInvention().getDraftMode();
-			result = isOwner && isDraft && status;
-		}
-		super.setAuthorised(result);
-	}
+		status = this.part != null && this.part.getInvention().getDraftMode() && inventor.isPrincipal();
 
-	@Override
-	public void load() {
-		final int id = super.getRequest().getData("id", int.class);
-		this.part = this.repository.findPartById(id);
+		super.setAuthorised(status);
 	}
 
 	@Override
 	public void bind() {
-		super.bindObject(this.part, "name", "description", "cost");
-
-		final String kindValue = super.getRequest().getData("kind", String.class);
-		try {
-			if (kindValue != null)
-				this.part.setKind(PartKind.valueOf(kindValue));
-		} catch (final Exception e) {
-			this.part.setKind(null);
-		}
+		super.bindObject(this.part, "name", "description", "cost", "kind");
 	}
 
 	@Override
@@ -60,13 +54,20 @@ public class InventorPartUpdateService extends AbstractService<Inventor, Part> {
 	}
 
 	@Override
-	public void unbind() {
-		super.unbindObject(this.part, "id", "name", "description", "cost", "kind");
-		super.getResponse().addGlobal("inventionId", this.part.getInvention().getId());
+	public void execute() {
+		this.repository.save(this.part);
 	}
 
 	@Override
-	public void execute() {
-		this.repository.save(this.part);
+	public void unbind() {
+		Tuple tuple;
+		SelectChoices choices;
+
+		choices = SelectChoices.from(PartKind.class, this.part.getKind());
+		tuple = super.unbindObject(this.part, "name", "description", "cost", "kind");
+
+		tuple.put("kinds", choices);
+		tuple.put("inventionId", this.part.getInvention().getId());
+		tuple.put("draftMode", this.part.getInvention().getDraftMode());
 	}
 }
