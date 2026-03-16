@@ -29,12 +29,9 @@ public class SpokespersonCampaignUpdateService extends AbstractService<Spokesper
 	public void authorise() {
 		boolean status;
 
-		status = super.getRequest().getPrincipal().hasRealmOfType(Spokesperson.class);
-		int campaignId = this.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.campaign != null && this.campaign.getSpokesperson().getId() == campaignId;
-		boolean isDraft = this.campaign != null && this.campaign.getDraftMode();
+		status = this.campaign != null && this.campaign.getDraftMode() && this.campaign.getSpokesperson().isPrincipal();
 
-		super.setAuthorised(isOwner && isDraft && status);
+		super.setAuthorised(status);
 	}
 
 	@Override
@@ -48,13 +45,7 @@ public class SpokespersonCampaignUpdateService extends AbstractService<Spokesper
 
 	@Override
 	public void validate() {
-
-		Campaign existing;
-
-		existing = this.repository.findCampaignByTicker(this.campaign.getTicker());
-
-		if (existing != null && existing.getId() != this.campaign.getId())
-			super.state(false, "ticker", "spokesperson.campaign.form.error.duplicated-ticker");
+		super.validateObject(this.campaign);
 	}
 
 

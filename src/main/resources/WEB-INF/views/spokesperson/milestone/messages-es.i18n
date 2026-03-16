@@ -16,3 +16,6 @@ spokesperson.milestone.form.label.kind = Tipo
 spokesperson.milestone.form.button.create = Crear
 spokesperson.milestone.form.button.update = Actualizar
 spokesperson.milestone.form.button.delete = Eliminar
+
+spokesperson.milestone.error.not-found = El hito no existe.
+spokesperson.milestone.delete.success = Hito eliminado correctamente.

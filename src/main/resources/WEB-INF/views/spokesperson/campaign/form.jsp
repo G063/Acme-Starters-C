@@ -17,7 +17,7 @@
 	<jstl:if test="${!isCreate}">
 		<acme:form-textbox code="spokesperson.campaign.form.label.monthsActive" path="monthsActive" readonly="true"/>
 		<acme:form-textbox code="spokesperson.campaign.form.label.effort" path="effort" readonly="true"/>
-		<acme:form-checkbox code="spokesperson.campaign.form.label.draftMode" path="draftMode" readonly="true"/>
+		<acme:form-textbox code="spokesperson.campaign.form.label.draftMode" path="draftMode" readonly="true"/>
 	</jstl:if>
 
 	<jstl:if test="${!isCreate}">
@@ -40,13 +40,12 @@
 
 	<jstl:if test="${_command == 'show' && isDraft}">
 		<acme:button code="spokesperson.campaign.form.button.update" action="/spokesperson/campaign/update?id=${id}"/>
-		<acme:button code="spokesperson.campaign.form.button.delete" action="/spokesperson/campaign/delete?id=${id}"/>
-		<acme:button code="spokesperson.campaign.form.button.publish" action="/spokesperson/campaign/publish?id=${id}"/>
+		<acme:submit code="spokesperson.campaign.form.button.delete" action="/spokesperson/campaign/delete"/>
+		<acme:submit code="spokesperson.campaign.form.button.publish" action="/spokesperson/campaign/publish"/>
 	</jstl:if>
 
 	<jstl:if test="${!isCreate}">
 		<acme:button code="spokesperson.campaign.form.button.milestones" action="/spokesperson/milestone/list?campaignId=${id}"/>
 	</jstl:if>
 
-	<acme:return/>
 </acme:form>

@@ -16,3 +16,6 @@ spokesperson.milestone.form.label.kind = Kind
 spokesperson.milestone.form.button.create = Create
 spokesperson.milestone.form.button.update = Update
 spokesperson.milestone.form.button.delete = Delete
+
+spokesperson.milestone.error.not-found = The milestone does not exist.
+spokesperson.milestone.delete.success = Milestone deleted successfully.
