@@ -1,0 +1,10 @@
+key,name,notes,expectedPercentage,kind,key:strategy
+errata-tactic-01,,Notas validas,50.0,SUBTLE,
+errata-tactic-02,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor,Notas validas,50.0,AGGRESSIVE,
+errata-tactic-03,Tactica valida,,50.0,TENDER,
+errata-tactic-04,Tactica valida,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in repx,50.0,SUBTLE,
+errata-tactic-05,Tactica valida,Notas validas,,AGGRESSIVE,
+errata-tactic-06,Tactica valida,Notas validas,-0.01,TENDER,
+errata-tactic-07,Tactica valida,Notas validas,100.01,SUBTLE,
+errata-tactic-08,Tactica valida,Notas validas,50.123,AGGRESSIVE,
+errata-tactic-09,Tactica valida,Notas validas,50.0,,

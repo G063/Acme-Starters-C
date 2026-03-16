@@ -1,0 +1,23 @@
+fundraiser.tactic.list.title = Strategy Tactics
+fundraiser.tactic.list.title.show = Tactics
+
+
+fundraiser.tactic.list.label.name = Name
+fundraiser.tactic.list.label.expectedPercentage = Expected Percentage
+fundraiser.tactic.list.label.kind = Kind
+fundraiser.tactic.list.button.create = Add new tactic
+
+fundraiser.tactic.form.title = Tactic details
+fundraiser.tactic.form.title.create = Create tactic
+fundraiser.tactic.form.title.update = Update tactic
+fundraiser.tactic.form.label.name = Name
+fundraiser.tactic.form.label.notes = Notes
+fundraiser.tactic.form.label.expectedPercentage = Expected Percentage
+fundraiser.tactic.form.label.kind = Kind
+fundraiser.tactic.form.button.create = Create tactic
+fundraiser.tactic.form.button.update = Edit tactic
+fundraiser.tactic.form.button.delete = Delete tactic
+fundraiser.tactic.list.button.edit = Edit tactic
+
+fundraiser.tactic.error.not-found = The tactic does not exist or you do not have permission to access it.
+fundraiser.tactic.delete.success = The tactic was successfully deleted.
