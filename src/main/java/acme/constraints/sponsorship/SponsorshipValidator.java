@@ -75,6 +75,7 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 				if (published && value.getStartMoment() != null && value.getEndMoment() != null) {
 					validInterval = MomentHelper.isBefore(value.getStartMoment(), value.getEndMoment());
 					super.state(context, validInterval, "startMoment", "acme.validation.sponsorship.invalid-interval.message");
+					super.state(context, validInterval, "endMoment", "acme.validation.sponsorship.invalid-interval.message");
 				}
 			}
 			{
