@@ -41,16 +41,16 @@
     <jstl:if test="${_command == 'show' && draftMode}">
         <acme:button code="fundraiser.strategy.form.button.navigate" action="/fundraiser/strategy/update?id=${id}"/>
         <acme:submit code="fundraiser.strategy.form.button.delete" action="/fundraiser/strategy/delete"/>
+        <acme:submit code="fundraiser.strategy.form.button.publish" action="/fundraiser/strategy/publish"/>
+        <acme:button code="fundraiser.strategy.form.button.manage-tactics" action="/fundraiser/tactic/list?strategyId=${id}"/>
+        
     </jstl:if>
-    
     <jstl:if test="${_command == 'create'}">
         <acme:submit code="fundraiser.strategy.form.button.create" action="/fundraiser/strategy/create"/>
     </jstl:if>
     
     <jstl:if test="${_command == 'update' && draftMode}">
-        <acme:button code="fundraiser.strategy.form.button.manage-tactics" action="/fundraiser/tactic/list?strategyId=${id}"/>
         <acme:submit code="fundraiser.strategy.form.button.update" action="/fundraiser/strategy/update"/>
-        <acme:submit code="fundraiser.strategy.form.button.publish" action="/fundraiser/strategy/publish"/>
     </jstl:if>
     
     <acme:return/>
