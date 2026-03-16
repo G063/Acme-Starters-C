@@ -11,8 +11,13 @@
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.anonymous.list-audit-reports = Informes de auditoría publicados
 master.menu.anonymous.favourite-link = Enlace favorito
 
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.list-audit-reports = Informes de auditoría publicados
 # master.menu.any #############################################################
 
 master.menu.any = Patrocinios

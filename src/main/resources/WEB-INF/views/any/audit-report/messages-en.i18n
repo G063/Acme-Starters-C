@@ -1,0 +1,36 @@
+# messages-en.i18n
+#
+# Copyright (C) 2012-2026 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+any.audit-report.form.title = Audit Report Details
+any.audit-report.list.title = Published Audit Reports
+
+any.audit-report.form.label.ticker = Ticker:
+any.audit-report.form.label.name = Name:
+any.audit-report.form.label.description = Description:
+any.audit-report.form.label.startMoment = Start:
+any.audit-report.form.label.endMoment = End:
+any.audit-report.form.label.monthsActive = Months active:
+any.audit-report.form.label.hours = Total hours:
+any.audit-report.form.label.moreInfo = More info: (Optional)
+
+any.audit-report.form.label.auditorProfile = Auditor Profile
+any.audit-report.form.label.auditorName = Name:
+any.audit-report.form.label.auditorSurname = Surname:
+any.audit-report.form.label.auditorEmail = Email:
+any.audit-report.form.label.auditorFirm = Firm:
+any.audit-report.form.label.auditorHighlights = Highlights:
+any.audit-report.form.label.auditorSolicitor = Solicitor:
+
+any.audit-report.form.button.auditSections = Audit Sections
+
+any.audit-report.list.label.ticker = Ticker
+any.audit-report.list.label.name = Name
+any.audit-report.list.label.startMoment = Start
+any.audit-report.list.label.endMoment = End

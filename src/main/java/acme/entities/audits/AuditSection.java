@@ -1,10 +1,8 @@
 
-package acme.entities;
+package acme.entities.audits;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
@@ -13,6 +11,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidNumber;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
+import acme.datatypes.SectionKind;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -44,7 +43,6 @@ public class AuditSection extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@Enumerated(EnumType.STRING)
 	@Column
 	private SectionKind			kind;
 
