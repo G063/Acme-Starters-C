@@ -10,5 +10,4 @@
     <acme:list-hidden path="description"/>
 </acme:list>
 
-<acme:return/>
 <acme:button action="/inventor/part/create?inventionId=${inventionId}" code="inventor.part.list.button.create"/>

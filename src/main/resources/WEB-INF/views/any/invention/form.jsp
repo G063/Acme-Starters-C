@@ -21,5 +21,4 @@
 
     <acme:button code="any.invention.button.parts" action="/any/part/list?inventionId=${id}"/>
 
-    <acme:return/>
 </acme:form>
