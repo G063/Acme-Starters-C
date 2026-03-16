@@ -1,4 +1,4 @@
-package acme.constraints;
+package acme.constraints.campaign;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package acme.constraints;
+package acme.constraints.campaign;
 
 import javax.validation.ConstraintValidatorContext;
 

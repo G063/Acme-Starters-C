@@ -50,6 +50,7 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
+master.menu.user-account.spokesperson-profile = Spokesperson profile
 master.menu.user-account.become-sponsor = Become a sponsor
 master.menu.user-account.sponsor-profile = Sponsor profile
 
@@ -60,6 +61,10 @@ master.menu.campaign=Campaigns
 master.menu.audit=Audits
 master.menu.sponsorship=Sponsorships
 
+master.menu.spokesperson = Spokesperson
+master.menu.spokesperson.list-my-campaigns = My campaigns
+master.menu.user-account.become-spokesperson = Become a spokesperson
+master.menu.sponsor.list-my-sponsorships = Mis patrocinios
 master.menu.sponsor = Sponsor
 master.menu.sponsor.list-my-sponsorships = My sponsorships
 
