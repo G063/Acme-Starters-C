@@ -56,5 +56,4 @@
         <acme:submit code="inventor.invention.form.button.publish" action="/inventor/invention/publish"/>
     </jstl:if>
     
-    <acme:return/>
 </acme:form>

@@ -50,5 +50,4 @@
         </jstl:when>
     </jstl:choose>
 
-    <acme:return/>
 </acme:form>

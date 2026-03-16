@@ -11,5 +11,4 @@
     <acme:list-hidden path="description"/>
 </acme:list>
 
-<acme:return/>
 <acme:button action="/inventor/invention/create" code="inventor.invention.list.button.create"/>
