@@ -1,0 +1,17 @@
+inventor.part.form.title = Part management
+inventor.part.form.label.name = Part name
+inventor.part.form.label.kind = Part kind
+inventor.part.form.label.cost = Cost
+inventor.part.form.label.description = Description
+
+inventor.part.form.button.create = Create part
+inventor.part.form.button.update = Save changes
+inventor.part.form.button.delete = Delete part
+
+inventor.part.form.title.create = Register new part
+inventor.part.form.title.update = Edit part
+inventor.part.form.title.show = Part details
+
+inventor.part.error.currency = Currency must be EUR.
+inventor.part.error.negative-amount = Cost cannot be negative.
+inventor.part.error.no-invention = The part must be associated with an invention.

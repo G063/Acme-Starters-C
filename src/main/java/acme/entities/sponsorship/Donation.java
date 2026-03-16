@@ -12,6 +12,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoney;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
+import acme.constraints.sponsorship.ValidDonation;
 import acme.datatypes.DonationKind;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidDonation
 public class Donation extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
