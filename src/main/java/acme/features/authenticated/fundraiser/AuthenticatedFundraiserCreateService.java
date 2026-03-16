@@ -35,12 +35,12 @@ public class AuthenticatedFundraiserCreateService extends AbstractService<Authen
 
 	@Override
 	public void bind() {
-		super.bindObject(this.fundraiser, "bank", "statement");
+		super.bindObject(this.fundraiser, "bank", "statement", "agent");
 	}
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.fundraiser, "bank", "statement");
+		super.unbindObject(this.fundraiser, "bank", "statement", "agent");
 	}
 
 	@Override
