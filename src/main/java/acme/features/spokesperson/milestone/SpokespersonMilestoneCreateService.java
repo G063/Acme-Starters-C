@@ -7,7 +7,6 @@ import acme.client.components.models.Tuple;
 import acme.client.services.AbstractService;
 import acme.entities.campaign.Campaign;
 import acme.entities.campaign.Milestone;
-import acme.entities.campaign.MilestoneKind;
 import acme.realms.Spokesperson;
 
 @Service
@@ -30,11 +29,7 @@ public class SpokespersonMilestoneCreateService extends AbstractService<Spokespe
 		campaignId = super.getRequest().getData("campaignId", int.class);
 		campaign = this.repository.findCampaignById(campaignId);
 
-		this.milestone = super.newObject(Milestone.class);
-		this.milestone.setTitle("");
-		this.milestone.setAchievements("");
-		this.milestone.setEffort(0.0);
-		this.milestone.setKind(MilestoneKind.TEASER);
+		this.milestone = this.newObject(Milestone.class);
 		this.milestone.setCampaign(campaign);
 	}
 
