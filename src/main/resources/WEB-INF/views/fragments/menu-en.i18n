@@ -11,7 +11,13 @@
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
+master.menu.anonymous.list-audit-reports = Published audit reports
 master.menu.anonymous.favourite-link = Favourite link
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.list-audit-reports = Published audit reports
 
 # master.menu.administrator ###################################################
 
