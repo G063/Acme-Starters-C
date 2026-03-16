@@ -6,7 +6,6 @@ report-02,AA00-abc000,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolo
 report-03,AA00-abc000000,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2025/01/01 00:01,2025/01/01 00:01,http://lorem.com/ipsum,true,auditor-01
 report-04,AA00-abc0000000,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2025/01/01 00:01,2025/01/01 00:01,http://lorem.com/ipsum,true,auditor-01
 report-05,ZZ99-_____,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2025/01/01 00:01,2025/01/01 00:01,http://lorem.com/ipsum,true,auditor-01
-report-05,ZZ99-_____,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2025/01/01 00:01,2025/01/01 00:01,http://lorem.com/ipsum,true,auditor-01
 # ticker - no singular values,""
 # name - standard variations
 report-06,AA00-abc06,L,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2025/01/01 00:01,2025/01/01 00:01,http://lorem.com/ipsum,true,auditor-01
