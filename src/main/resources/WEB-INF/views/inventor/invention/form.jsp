@@ -43,9 +43,12 @@
     <jstl:if test="${_command == 'show' && draftMode}">
         <acme:button code="inventor.invention.form.button.navigate" action="/inventor/invention/update?id=${id}"/>
         <acme:submit code="inventor.invention.form.button.delete" action="/inventor/invention/delete"/>
+        <acme:submit code="inventor.invention.form.button.publish" action="/inventor/invention/publish?id=${id}"/>
+    </jstl:if>
+    
+    <jstl:if test="${draftMode}">
         <acme:button code="inventor.invention.form.button.manage-parts" 
              action="/inventor/part/list?inventionId=${id}"/>
-        <acme:submit code="inventor.invention.form.button.publish" action="/inventor/invention/publish"/>
     </jstl:if>
 
     <jstl:if test="${_command == 'create'}">
