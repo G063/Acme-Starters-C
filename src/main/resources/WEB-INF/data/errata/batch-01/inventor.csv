@@ -1,2 +1,12 @@
-key,bio,key-words,licensed,key:user-account
+key,key:userAccount,bio,keyWords,licensed
 inventor-01,,,TRUE,
+#userAccount
+inventor-02,,"Especialista en propulsión avanzada y sistemas aeroespaciales.","Aeronáutica,Física,I+D",true
+#bio
+inventor-03,user-account-inventor-err-01,"","Aeronáutica,Física,I+D",true
+inventor-04,user-account-inventor-err-01,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i","Aeronáutica,Física,I+D",true
+#keyWords
+inventor-05,user-account-inventor-err-01,"Especialista en propulsión avanzada y sistemas aeroespaciales.","",true
+inventor-06,user-account-inventor-err-01,"Especialista en propulsión avanzada y sistemas aeroespaciales.","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",true
+#licensed
+inventor-07,user-account-inventor-err-01,"Especialista en propulsión avanzada y sistemas aeroespaciales.","Aeronáutica,Física,I+D",
