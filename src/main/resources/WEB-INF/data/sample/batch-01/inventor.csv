@@ -1,4 +1,29 @@
 key,key:userAccount,bio,keyWords,licensed
+#base
 inventor-01,user-account-inventor-01,"Especialista en propulsión avanzada y sistemas aeroespaciales.","Aeronáutica,Física,I+D",true
 inventor-02,user-account-inventor-02,"Investigadora centrada en materiales sostenibles y bioplásticos.","Sostenibilidad,Química,Diseño",true
-inventor-03,user-account-inventor-03,"Desarrollador de software especializado en algoritmos de optimización.","Algoritmos,IA,Blockchain",false
+inventor-03,user-account-inventor-03,"Desarrollador de software especializado en algoritmos de optimización.","Algoritmos,IA,Blockchain",true
+#bio
+inventor-04,user-account-inventor-04,"L","Aeronáutica,Física,I+D",true
+inventor-05,user-account-inventor-05,"Lo","Aeronáutica,Física,I+D",true
+inventor-06,user-account-inventor-06,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor","Aeronáutica,Física,I+D",true
+inventor-07,user-account-inventor-07,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*","Aeronáutica,Física,I+D",true
+inventor-08,user-account-inventor-08,"โลเร็ม อิปซัม","Aeronáutica,Física,I+D",true
+inventor-09,user-account-inventor-09,"لوريم إيبسوم","Aeronáutica,Física,I+D",true
+inventor-10,user-account-inventor-10,"洛伦·伊普森","Aeronáutica,Física,I+D",true
+inventor-11,user-account-inventor-11,"<marquee>Hacked</marquee>","Aeronáutica,Física,I+D",true
+inventor-12,user-account-inventor-12,"<script>alert(‘Hacked!’);</script>","Aeronáutica,Física,I+D",true
+inventor-13,user-account-inventor-13,"'' or 'A' = 'A ","Aeronáutica,Física,I+D",true
+#keyWords
+inventor-14,user-account-inventor-14,"Especialista en propulsión avanzada y sistemas aeroespaciales.","L",true
+inventor-15,user-account-inventor-15,"Especialista en propulsión avanzada y sistemas aeroespaciales.","Lo",true
+inventor-16,user-account-inventor-16,"Especialista en propulsión avanzada y sistemas aeroespaciales.","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",true
+inventor-17,user-account-inventor-17,"Especialista en propulsión avanzada y sistemas aeroespaciales.","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",true
+inventor-18,user-account-inventor-18,"Especialista en propulsión avanzada y sistemas aeroespaciales.","โลเร็ม อิปซัม",true
+inventor-19,user-account-inventor-19,"Especialista en propulsión avanzada y sistemas aeroespaciales.","لوريم إيبسوم",true
+inventor-20,user-account-inventor-20,"Especialista en propulsión avanzada y sistemas aeroespaciales.","洛伦·伊普森",true
+inventor-21,user-account-inventor-21,"Especialista en propulsión avanzada y sistemas aeroespaciales.","<marquee>Hacked</marquee>",true
+inventor-22,user-account-inventor-22,"Especialista en propulsión avanzada y sistemas aeroespaciales.","<script>alert(‘Hacked!’);</script>",true
+inventor-23,user-account-inventor-23,"Especialista en propulsión avanzada y sistemas aeroespaciales.","'' or 'A' = 'A ",true
+#licensed
+inventor-24,user-account-inventor-24,"Especialista en propulsión avanzada y sistemas aeroespaciales.","Aeronáutica,Física,I+D",false
