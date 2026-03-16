@@ -1,0 +1,23 @@
+# messages-en.i18n
+
+sponsor.donation.list.title = Donations
+sponsor.donation.list.label.name = Name
+sponsor.donation.list.label.kind = Kind
+sponsor.donation.list.label.money = Money
+sponsor.donation.list.label.notes = Notes
+sponsor.donation.list.button.create = Create donation
+sponsor.donation.list.button.sponsorship = Back to sponsorship
+
+sponsor.donation.form.title = Donation details
+sponsor.donation.form.label.name = Name
+sponsor.donation.form.label.kind = Kind
+sponsor.donation.form.label.money = Money
+sponsor.donation.form.label.notes = Notes
+
+sponsor.donation.form.button.create = Create
+sponsor.donation.form.button.update = Update
+sponsor.donation.form.button.delete = Delete
+
+ALTRUIST = Altruist
+REWARDED = Rewarded
+CELEBRATED = Celebrated
