@@ -1,9 +1,12 @@
 
 package acme.features.inventor.invention;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.invention.Invention;
 import acme.realms.Inventor;
@@ -40,11 +43,14 @@ public class InventorInventionPublishService extends AbstractService<Inventor, I
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.invention, "ticker", "name", "description", "draftMode", "startMoment", "endMoment", "moreInfo");
+		super.unbindObject(this.invention, "ticker", "name", "description", "draftMode", "startMoment", "endMoment", "moreInfo", "cost", "monthsActive");
 	}
 
 	@Override
 	public void validate() {
+		Date base = MomentHelper.getBaseMoment();
+		Date start = this.invention.getStartMoment();
+		super.state(MomentHelper.isAfter(start, base), "*", "inventor.invention.form.error.date-incorrect");
 		super.validateObject(this.invention);
 		int partCount = this.repository.countPartsByInventionId(this.invention.getId());
 		super.state(partCount > 0, "*", "inventor.invention.form.error.no-parts");
