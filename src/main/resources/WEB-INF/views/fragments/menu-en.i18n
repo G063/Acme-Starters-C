@@ -34,7 +34,6 @@ master.menu.consumer.favourite-link = Favourite link
 # master.menu.fundraiser ##########################################################
 master.menu.fundraiser = Fundraiser
 master.menu.fundraiser.list-strategies = My strategies
-master.menu.fundraiser.create-strategies = Create strategy
 
 # master.menu.user-account ####################################################
 

@@ -49,7 +49,6 @@
 		
 		<acme:menu-option code="master.menu.fundraiser" access="hasRealm('Fundraiser')">
     		<acme:menu-suboption code="master.menu.fundraiser.list-strategies" action="/fundraiser/strategy/list"/>
-   			<acme:menu-suboption code="master.menu.fundraiser.create-strategies" action="/fundraiser/strategy/create"/>
 		</acme:menu-option>
 	</acme:menu-left>
 

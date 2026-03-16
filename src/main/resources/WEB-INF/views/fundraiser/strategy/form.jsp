@@ -53,5 +53,4 @@
         <acme:submit code="fundraiser.strategy.form.button.update" action="/fundraiser/strategy/update"/>
     </jstl:if>
     
-    <acme:return/>
 </acme:form>

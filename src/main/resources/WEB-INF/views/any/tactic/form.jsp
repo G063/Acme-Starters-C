@@ -14,5 +14,4 @@
 
 	<acme:form-textbox code="any.tactic.label.strategy.ticker" path="strategy.ticker" readonly="true"/>
 
-	<acme:return/>
 </acme:form>

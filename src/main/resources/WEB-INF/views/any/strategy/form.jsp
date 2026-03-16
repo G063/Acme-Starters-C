@@ -27,5 +27,4 @@
 
     <acme:button code="any.strategy.button.tactics" action="/any/tactic/list?strategyId=${id}"/>
 
-    <acme:return/>
 </acme:form>

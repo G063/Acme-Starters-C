@@ -21,5 +21,6 @@ public class FundraiserTacticController extends AbstractController<Fundraiser, T
 		super.addBasicCommand("show", FundraiserTacticShowService.class);
 		super.addBasicCommand("update", FundraiserTacticUpdateService.class);
 		super.addBasicCommand("delete", FundraiserTacticDeleteService.class);
+
 	}
 }

@@ -3,12 +3,12 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:list>
-    <acme:list-column code="fundraiser.tactic.list.label.name" path="name" width="30%"/>
-    <acme:list-column code="fundraiser.tactic.list.label.expectedPercentage" path="expectedPercentage" width="20%"/>
-    <acme:list-column code="fundraiser.tactic.list.label.kind" path="kind" width="20%"/>
-    <acme:list-hidden path="notes"/>
+	<acme:list-column code="fundraiser.tactic.list.label.name" path="name" width="30%"/>
+	<acme:list-column code="fundraiser.tactic.list.label.expectedPercentage" path="expectedPercentage" width="20%"/>
+	<acme:list-column code="fundraiser.tactic.list.label.kind" path="kind" width="20%"/>
+	<acme:list-hidden path="notes"/>
 </acme:list>
 
-<acme:return/>
-
-<acme:button action="/fundraiser/tactic/create?strategyId=${param.strategyId}" code="fundraiser.tactic.list.button.create"/>
+<jstl:if test="${strategyDraftMode}">
+	<acme:button code="fundraiser.tactic.list.button.create" action="/fundraiser/tactic/create?strategyId=${strategyId}"/>
+</jstl:if>

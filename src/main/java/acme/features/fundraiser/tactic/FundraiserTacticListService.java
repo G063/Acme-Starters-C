@@ -38,7 +38,8 @@ public class FundraiserTacticListService extends AbstractService<Fundraiser, Tac
 
 	@Override
 	public void unbind() {
-		super.getResponse().addGlobal("strategy", this.strategy);
-		super.unbindObjects(this.tactics, "name", "expectedPercentage", "kind");
+		super.getResponse().addGlobal("strategyId", this.strategy.getId());
+		super.getResponse().addGlobal("strategyDraftMode", this.strategy.getDraftMode());
+		super.unbindObjects(this.tactics, "name", "expectedPercentage", "kind", "notes");
 	}
 }
