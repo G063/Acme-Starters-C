@@ -27,16 +27,21 @@ public class InventorInventionUpdateService extends AbstractService<Inventor, In
 
 	@Override
 	public void authorise() {
-		boolean status;
+		boolean result = false;
+		final boolean isAuthenticated = super.getRequest().getPrincipal() != null;
+		final boolean isInventor = isAuthenticated && super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
 
-		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
-		int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.invention != null && this.invention.getInventor().getId() == inventorId;
-		boolean isDraft = this.invention != null && this.invention.getDraftMode();
+		if (isInventor && this.invention != null) {
+			final int activeInventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			final int ownerId = this.invention.getInventor().getId();
+			final boolean isOwner = activeInventorId == ownerId;
+			final boolean isDraft = this.invention.getDraftMode();
 
-		super.setAuthorised(isOwner && isDraft && status);
+			result = isOwner && isDraft;
+		}
+
+		super.setAuthorised(result);
 	}
-
 	@Override
 	public void bind() {
 		super.bindObject(this.invention, "ticker", "name", "description", "moreInfo");

@@ -33,12 +33,12 @@ public class InventorPartUpdateService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void authorise() {
-		boolean status;
-		Inventor inventor;
-
-		inventor = this.part.getInvention().getInventor();
-
-		status = this.part != null && this.part.getInvention().getDraftMode() && inventor.isPrincipal();
+		boolean status = false;
+		if (this.part != null) {
+			boolean isDraft = this.part.getInvention().getDraftMode();
+			boolean isOwner = this.part.getInvention().getInventor().isPrincipal();
+			status = isDraft && isOwner;
+		}
 
 		super.setAuthorised(status);
 	}

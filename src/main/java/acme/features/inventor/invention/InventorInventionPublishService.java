@@ -29,11 +29,14 @@ public class InventorInventionPublishService extends AbstractService<Inventor, I
 	@Override
 	public void authorise() {
 		boolean status;
-
 		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
-		int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.invention.getInventor().getId() == inventorId;
-		super.setAuthorised(isOwner && this.invention.getDraftMode() && status);
+		boolean isOwner = false;
+		if (status && this.invention != null) {
+			int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.invention.getInventor().getId() == inventorId;
+		}
+
+		super.setAuthorised(status && isOwner && this.invention != null && this.invention.getDraftMode());
 	}
 
 	@Override
