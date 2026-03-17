@@ -10,5 +10,4 @@
     <acme:list-hidden path="description"/>
 </acme:list>
 
-<acme:return/>
 <acme:button action="/fundraiser/strategy/create" code="fundraiser.strategy.list.button.create"/>
