@@ -32,29 +32,30 @@ public class SpokespersonMilestoneDeleteService extends AbstractService<Spokespe
 		boolean isSpokesperson;
 		boolean isOwner;
 		boolean isDraft;
+		boolean isPost;
 		int spokespersonId;
 
 		isSpokesperson = this.getRequest().getPrincipal().hasRealmOfType(Spokesperson.class);
 		spokespersonId = this.getRequest().getPrincipal().getActiveRealm().getId();
 		isOwner = this.milestone != null && this.milestone.getCampaign().getSpokesperson().getId() == spokespersonId;
 		isDraft = this.milestone != null && this.milestone.getCampaign().getDraftMode();
+		isPost = super.getRequest().getMethod().equals("POST");
 
-		super.setAuthorised(isSpokesperson && isOwner && isDraft);
+		super.setAuthorised(isSpokesperson && isOwner && isDraft && isPost);
 	}
 
 	@Override
 	public void bind() {
-		super.bindObject(this.milestone, "title", "achievements", "effort", "kind");
 	}
 
 	@Override
 	public void validate() {
-		super.validateObject(this.milestone);
 	}
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.milestone, "title", "achievements", "effort", "kind");
+		if (this.milestone != null)
+			super.unbindObject(this.milestone, "title", "achievements", "effort", "kind");
 	}
 
 	@Override

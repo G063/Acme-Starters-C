@@ -35,20 +35,21 @@ public class SpokespersonCampaignPublishService extends AbstractService<Spokespe
 
 	@Override
 	public void bind() {
-		super.bindObject(this.campaign);
+		super.bindObject(this.campaign, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 	}
 
 	@Override
 	public void validate() {
 		super.validateObject(this.campaign);
 		int milestoneCount = this.repository.countMilestonesByCampaignId(this.campaign.getId());
-		super.state(milestoneCount > 0, "*", "inventor.invention.form.error.no-parts");
+		super.state(milestoneCount > 0, "*", "acme.validation.campaign.no-milestones");
 	}
 
 	@Override
 	public void unbind() {
-
 		super.unbindObject(this.campaign, "id","ticker", "name", "description", "startMoment", "endMoment","moreInfo", "draftMode");
+		super.unbindGlobal("monthsActive", this.campaign.getMonthsActive());
+		super.unbindGlobal("effort", this.campaign.getEffort());
 	}
 	
 	@Override
