@@ -49,7 +49,8 @@ public class SpokespersonCampaignPublishService extends AbstractService<Spokespe
 	public void unbind() {
 		super.unbindObject(this.campaign, "id","ticker", "name", "description", "startMoment", "endMoment","moreInfo", "draftMode");
 		super.unbindGlobal("monthsActive", this.campaign.getMonthsActive());
-		super.unbindGlobal("effort", this.campaign.getEffort());
+		Double effort = this.repository.sumEffortByCampaignId(this.campaign.getId());
+		super.unbindGlobal("effort", effort == null ? 0.0 : effort);
 	}
 	
 	@Override
