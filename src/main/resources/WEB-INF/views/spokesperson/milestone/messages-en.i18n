@@ -19,3 +19,5 @@ spokesperson.milestone.form.button.delete = Delete
 
 spokesperson.milestone.error.not-found = The milestone does not exist.
 spokesperson.milestone.delete.success = Milestone deleted successfully.
+
+spokesperson.milestone.form.title = Milestone Information

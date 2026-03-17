@@ -2,7 +2,7 @@ key,ticker,name,description,startMoment,endMoment,moreInfo,draftMode,key:spokesp
 # base entity
 camp-00,CM00-SAMP00,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,FALSE,spokesperson-01
 # ticker variations
-camp-01,CM01-SAMP01,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
+camp-01,CM01-SAMP01,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-02
 camp-02,CM02-SAMP02,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
 camp-03,CM03-SAMP03,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01
 camp-04,CM04-SAMP04,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/09/01 10:00,2027/09/01 10:00,http://lorem.com/ipsum,TRUE,spokesperson-01

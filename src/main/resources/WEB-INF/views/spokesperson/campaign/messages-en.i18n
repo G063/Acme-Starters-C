@@ -14,6 +14,11 @@ spokesperson.campaign.form.label.moreInfo = More info
 spokesperson.campaign.form.label.monthsActive = Active months
 spokesperson.campaign.form.label.effort = Effort
 spokesperson.campaign.form.label.draftMode = Draft mode
+spokesperson.campaign.form.placeholder.ticker = E.g.: CP26-camp01
+spokesperson.campaign.form.placeholder.name = Campaign name
+spokesperson.campaign.form.placeholder.description = Briefly describe the campaign goal
+spokesperson.campaign.form.placeholder.date = yyyy/mm/dd hh:mm
+spokesperson.campaign.form.placeholder.moreInfo = https://example.com/more-info
 
 spokesperson.campaign.form.button.create = Create
 spokesperson.campaign.form.button.update = Update

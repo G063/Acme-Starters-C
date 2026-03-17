@@ -19,3 +19,5 @@ spokesperson.milestone.form.button.delete = Eliminar
 
 spokesperson.milestone.error.not-found = El hito no existe.
 spokesperson.milestone.delete.success = Hito eliminado correctamente.
+
+spokesperson.milestone.form.title = Información del hito

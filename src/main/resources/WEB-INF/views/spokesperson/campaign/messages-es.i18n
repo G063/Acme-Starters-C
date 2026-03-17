@@ -3,7 +3,7 @@ spokesperson.campaign.list.label.name = Nombre
 spokesperson.campaign.list.label.effort = Esfuerzo
 spokesperson.campaign.list.label.draftMode = Modo borrador
 spokesperson.campaign.list.button.create = Crear campana
-spokesperson.campaign.list.title = Mis campanas
+spokesperson.campaign.list.title = Mis campañas
 
 spokesperson.campaign.form.label.ticker = Ticker
 spokesperson.campaign.form.label.name = Nombre
@@ -14,10 +14,15 @@ spokesperson.campaign.form.label.moreInfo = Mas informacion
 spokesperson.campaign.form.label.monthsActive = Meses activos
 spokesperson.campaign.form.label.effort = Esfuerzo
 spokesperson.campaign.form.label.draftMode = Modo borrador
+spokesperson.campaign.form.placeholder.ticker = Ej.: CP26-camp01
+spokesperson.campaign.form.placeholder.name = Nombre de la campana
+spokesperson.campaign.form.placeholder.description = Describe brevemente el objetivo de la campana
+spokesperson.campaign.form.placeholder.date = dd/mm/aaaa hh:mm
+spokesperson.campaign.form.placeholder.moreInfo = https://ejemplo.com/mas-informacion
 
 spokesperson.campaign.form.button.create = Crear
 spokesperson.campaign.form.button.update = Actualizar
 spokesperson.campaign.form.button.delete = Eliminar
 spokesperson.campaign.form.button.publish = Publicar
 spokesperson.campaign.form.button.milestones = Ver hitos
-spokesperson.campaign.form.title = Formulario de campana
+spokesperson.campaign.form.title = Formulario de campaña
