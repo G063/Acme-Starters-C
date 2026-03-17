@@ -42,7 +42,7 @@ public class SpokespersonCampaignPublishService extends AbstractService<Spokespe
 	public void validate() {
 		super.validateObject(this.campaign);
 		int milestoneCount = this.repository.countMilestonesByCampaignId(this.campaign.getId());
-		super.state(milestoneCount > 0, "*", "spokesperson.campaign.form.error.no-milestone");
+		super.state(milestoneCount > 0, "*", "inventor.invention.form.error.no-parts");
 	}
 
 	@Override

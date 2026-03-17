@@ -15,11 +15,7 @@ public class AnyMilestoneShowService extends AbstractService<Any, Milestone>{
 
 	    @Override
 	    public void authorise() {
-	    	boolean status;
-
-			status = this.milestone != null && !this.milestone.getCampaign().getDraftMode();
-
-			super.setAuthorised(status);
+	        super.getResponse().setAuthorised(true);
 	    }
 
 	    @Override
@@ -35,8 +31,8 @@ public class AnyMilestoneShowService extends AbstractService<Any, Milestone>{
 	    @Override
 	    public void unbind() {
 
-	    	if(this.milestone != null)
-	    		super.unbindObject(milestone,
+
+	        super.unbindObject(milestone,
 	        		"title",
 	                "achievements",
 	                "effort",

@@ -7,12 +7,12 @@
 <jstl:set var="isDraft" value="${draftMode}"/>
 
 <acme:form>
-	<acme:form-textbox code="spokesperson.campaign.form.label.ticker" path="ticker" placeholder="spokesperson.campaign.form.placeholder.ticker" readonly="${!isEditable}"/>
-	<acme:form-textbox code="spokesperson.campaign.form.label.name" path="name" placeholder="spokesperson.campaign.form.placeholder.name" readonly="${!isEditable}"/>
-	<acme:form-textbox code="spokesperson.campaign.form.label.description" path="description" placeholder="spokesperson.campaign.form.placeholder.description" readonly="${!isEditable}"/>
-	<acme:form-textbox code="spokesperson.campaign.form.label.startMoment" path="startMoment" placeholder="spokesperson.campaign.form.placeholder.date" readonly="${!isEditable}"/>
-	<acme:form-textbox code="spokesperson.campaign.form.label.endMoment" path="endMoment" placeholder="spokesperson.campaign.form.placeholder.date" readonly="${!isEditable}"/>
-	<acme:form-textbox code="spokesperson.campaign.form.label.moreInfo" path="moreInfo" placeholder="spokesperson.campaign.form.placeholder.moreInfo" readonly="${!isEditable}"/>
+	<acme:form-textbox code="spokesperson.campaign.form.label.ticker" path="ticker" readonly="${!isEditable}"/>
+	<acme:form-textbox code="spokesperson.campaign.form.label.name" path="name" readonly="${!isEditable}"/>
+	<acme:form-textbox code="spokesperson.campaign.form.label.description" path="description" readonly="${!isEditable}"/>
+	<acme:form-textbox code="spokesperson.campaign.form.label.startMoment" path="startMoment" readonly="${!isEditable}"/>
+	<acme:form-textbox code="spokesperson.campaign.form.label.endMoment" path="endMoment" readonly="${!isEditable}"/>
+	<acme:form-textbox code="spokesperson.campaign.form.label.moreInfo" path="moreInfo" readonly="${!isEditable}"/>
 
 	<jstl:if test="${!isCreate}">
 		<acme:form-textbox code="spokesperson.campaign.form.label.monthsActive" path="monthsActive" readonly="true"/>

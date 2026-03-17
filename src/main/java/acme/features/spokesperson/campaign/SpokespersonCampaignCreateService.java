@@ -23,11 +23,11 @@ public class SpokespersonCampaignCreateService extends AbstractService<Spokesper
 
     @Override
     public void load() {
-    	int spokespersonId;
+    	int userAccountId;
         Spokesperson spokesperson;
         
-        spokespersonId = super.getRequest().getPrincipal().getActiveRealm().getId();
-        spokesperson = this.repository.findSpokespersonByCampaignId(spokespersonId);
+        userAccountId = super.getRequest().getPrincipal().getAccountId();
+        spokesperson = this.repository.findSpokespersonByUserAccountId(userAccountId);
         
         this.campaign = super.newObject(Campaign.class);
         this.campaign.setDraftMode(true);
@@ -36,10 +36,7 @@ public class SpokespersonCampaignCreateService extends AbstractService<Spokesper
 
     @Override
     public void authorise() {
-    	boolean status;
-
-		status = super.getRequest().getPrincipal().hasRealmOfType(Spokesperson.class);
-		super.setAuthorised(status);
+        super.setAuthorised(true);
     }
 
     @Override

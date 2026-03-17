@@ -33,31 +33,22 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 	        boolean intervalValid =
 	            MomentHelper.isBefore(campaign.getStartMoment(), campaign.getEndMoment());
 
-	        if (!intervalValid) {
-	        	super.state(context, intervalValid, "endMoment",
-	    	            "acme.validation.campaign.invalid-interval");
+	        super.state(context, intervalValid, "endMoment",
+	            "acme.validation.campaign.invalid-interval");
+
+	        if (!intervalValid)
 	            result = false;
-	        }
-	        	
 	    }
 
 	    // startMoment/endMoment must be a valid time interval in future wrt. the moment when a campaign is published.
 	    if (campaign.getStartMoment() != null) {
-	        boolean isFuture = !campaign.getStartMoment().before(MomentHelper.getBaseMoment());
+	        boolean startFuture = MomentHelper.isFuture(campaign.getStartMoment());
 
+	        super.state(context, startFuture, "startMoment",
+	            "acme.validation.campaign.not-future");
 
-			final boolean chronologyOk = campaign.getEndMoment().after(campaign.getStartMoment());
-	        if (!isFuture) {
-	        	super.state(context, false, "startMoment",
-	     	            "acme.validation.campaign.future-threshold");
+	        if (!startFuture)
 	            result = false;
-	        }
-	        	 
-	            
-	        if (!chronologyOk) {
-	        	 super.state(context, false, "endMoment", "acme.validation.invention.dates.invalid-interval");
-				result = false;
-			}
 	    }
 
 
@@ -73,17 +64,6 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 	        if (!hasMilestones)
 	            result = false;
 	    }
-	    
-	    final int id = campaign.getId();
-	    
-	    if (campaign.getTicker() != null) {
-			final Campaign inv = this.repository.findCampaignByTicker(campaign.getTicker());
-			final boolean isUnique = inv == null || inv.getId() == id;
-			if (!isUnique) {
-				super.state(context, false, "ticker", "acme.validation.campaign.ticker.non-unique");
-				result = false;
-			}
-		}
 
 	    return result;
 	}

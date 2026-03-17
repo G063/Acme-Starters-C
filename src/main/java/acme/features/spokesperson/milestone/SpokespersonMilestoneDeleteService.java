@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.services.AbstractService;
+import acme.entities.campaign.Campaign;
 import acme.entities.campaign.Milestone;
 import acme.realms.Spokesperson;
 
