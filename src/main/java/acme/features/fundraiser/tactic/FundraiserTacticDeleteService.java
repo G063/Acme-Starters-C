@@ -24,10 +24,16 @@ public class FundraiserTacticDeleteService extends AbstractService<Fundraiser, T
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
-		int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.tactic != null && this.tactic.getStrategy().getFundraiser().getId() == fundraiserId;
-		boolean isDraft = this.tactic != null && this.tactic.getStrategy().getDraftMode();
+		final boolean hasPrincipal = super.getRequest().getPrincipal() != null;
+		final boolean status = hasPrincipal && super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
+		boolean isOwner = false;
+		boolean isDraft = false;
+
+		if (status && this.tactic != null) {
+			int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.tactic.getStrategy().getFundraiser().getId() == fundraiserId;
+			isDraft = this.tactic.getStrategy().getDraftMode();
+		}
 
 		super.setAuthorised(status && isOwner && isDraft);
 	}

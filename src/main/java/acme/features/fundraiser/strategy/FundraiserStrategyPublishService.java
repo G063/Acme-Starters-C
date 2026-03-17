@@ -27,16 +27,21 @@ public class FundraiserStrategyPublishService extends AbstractService<Fundraiser
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
-		int fundraiserId = this.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.strategy != null && this.strategy.getFundraiser().getId() == fundraiserId;
+		final boolean hasPrincipal = super.getRequest().getPrincipal() != null;
+		final boolean status = hasPrincipal && super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
+		boolean isOwner = false;
 
-		super.setAuthorised(isOwner && this.strategy.getDraftMode() && status);
+		if (status && this.strategy != null) {
+			int fundraiserId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.strategy.getFundraiser().getId() == fundraiserId;
+		}
+
+		super.setAuthorised(status && isOwner && this.strategy != null && this.strategy.getDraftMode());
 	}
 
 	@Override
 	public void bind() {
-		super.bindObject(this.strategy);
+		super.bindObject(this.strategy, "id");
 	}
 
 	@Override
@@ -45,6 +50,7 @@ public class FundraiserStrategyPublishService extends AbstractService<Fundraiser
 		Date start = this.strategy.getStartMoment();
 		super.state(MomentHelper.isAfter(start, base), "*", "fundraiser.strategy.form.error.date-incorrect");
 		super.validateObject(this.strategy);
+
 		int tacticsCount = this.repository.countTacticsByStrategyId(this.strategy.getId());
 		super.state(tacticsCount > 0, "*", "fundraiser.strategy.form.error.no-tactics");
 	}
@@ -57,6 +63,6 @@ public class FundraiserStrategyPublishService extends AbstractService<Fundraiser
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.strategy, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
+		super.unbindObject(this.strategy, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode", "expectedPercentage", "monthsActive");
 	}
 }

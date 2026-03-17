@@ -29,17 +29,24 @@ public class FundraiserTacticListService extends AbstractService<Fundraiser, Tac
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
-		int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.strategy != null && this.strategy.getFundraiser().getId() == fundraiserId;
+		final boolean hasPrincipal = super.getRequest().getPrincipal() != null;
+		final boolean status = hasPrincipal && super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
+		boolean isOwner = false;
+
+		if (status && this.strategy != null) {
+			int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.strategy.getFundraiser().getId() == fundraiserId;
+		}
 
 		super.setAuthorised(status && isOwner);
 	}
 
 	@Override
 	public void unbind() {
-		super.getResponse().addGlobal("strategyId", this.strategy.getId());
-		super.getResponse().addGlobal("strategyDraftMode", this.strategy.getDraftMode());
+		if (this.strategy != null) {
+			super.getResponse().addGlobal("strategyId", this.strategy.getId());
+			super.getResponse().addGlobal("strategyDraftMode", this.strategy.getDraftMode());
+		}
 		super.unbindObjects(this.tactics, "name", "expectedPercentage", "kind", "notes");
 	}
 }

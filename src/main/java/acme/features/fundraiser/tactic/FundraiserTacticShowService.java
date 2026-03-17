@@ -26,21 +26,28 @@ public class FundraiserTacticShowService extends AbstractService<Fundraiser, Tac
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
-		int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.tactic != null && this.tactic.getStrategy().getFundraiser().getId() == fundraiserId;
+		final boolean hasPrincipal = super.getRequest().getPrincipal() != null;
+		final boolean status = hasPrincipal && super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
+		boolean isOwner = false;
+
+		if (status && this.tactic != null) {
+			int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.tactic.getStrategy().getFundraiser().getId() == fundraiserId;
+		}
 
 		super.setAuthorised(status && isOwner);
 	}
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.tactic, "name", "notes", "expectedPercentage", "kind");
+		if (this.tactic != null) {
+			super.unbindObject(this.tactic, "name", "notes", "expectedPercentage", "kind");
 
-		this.getResponse().addGlobal("strategyDraftMode", this.tactic.getStrategy().getDraftMode());
-		this.getResponse().addGlobal("strategyId", this.tactic.getStrategy().getId());
+			this.getResponse().addGlobal("strategyDraftMode", this.tactic.getStrategy().getDraftMode());
+			this.getResponse().addGlobal("strategyId", this.tactic.getStrategy().getId());
 
-		final SelectChoices choices = SelectChoices.from(TacticKind.class, this.tactic.getKind());
-		this.getResponse().addGlobal("kinds", choices);
+			final SelectChoices choices = SelectChoices.from(TacticKind.class, this.tactic.getKind());
+			this.getResponse().addGlobal("kinds", choices);
+		}
 	}
 }

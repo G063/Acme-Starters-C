@@ -19,22 +19,25 @@ public class FundraiserStrategyCreateService extends AbstractService<Fundraiser,
 
 	@Override
 	public void load() {
-		int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		Fundraiser fundraiser = this.repository.findFundraiserById(fundraiserId);
-
 		this.strategy = this.newObject(Strategy.class);
 		this.strategy.setDraftMode(true);
-		this.strategy.setFundraiser(fundraiser);
+
+		if (super.getRequest().getPrincipal() != null) {
+			int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			Fundraiser fundraiser = this.repository.findFundraiserById(fundraiserId);
+			this.strategy.setFundraiser(fundraiser);
+		}
 	}
 
 	@Override
 	public void authorise() {
-		super.setAuthorised(super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class));
+		final boolean hasPrincipal = super.getRequest().getPrincipal() != null;
+		super.setAuthorised(hasPrincipal && super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class));
 	}
 
 	@Override
 	public void bind() {
-		super.bindObject(this.strategy, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
+		super.bindObject(this.strategy, "ticker", "name", "description", "moreInfo", "startMoment", "endMoment");
 	}
 
 	@Override

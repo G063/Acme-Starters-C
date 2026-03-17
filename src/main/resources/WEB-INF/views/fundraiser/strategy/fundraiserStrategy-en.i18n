@@ -30,4 +30,4 @@ acme.validation.strategy.ticker.non-unique = A strategy with this ticker already
 acme.validation.strategy.future-threshold = The start date must be in the future
 acme.validation.strategy.invalid-interval = The end date must be strictly after the start date
 acme.validation.strategy.no-tactics = This strategy needs at least one tactic to be published
-fundraiser.strategy.form.error.date-incorrect = Invalid dates: please ensure the format is correct and the end date is after the start date
+fundraiser.strategy.form.error.date-incorrect = Invalid dates: please ensure the format is correct and the end date is after the start date, the start date cannot be earlier than the current date

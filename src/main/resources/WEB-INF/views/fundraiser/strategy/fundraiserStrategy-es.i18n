@@ -30,4 +30,4 @@ acme.validation.strategy.ticker.non-unique = Ya existe una estrategia con este t
 acme.validation.strategy.future-threshold = La fecha de inicio debe ser en el futuro
 acme.validation.strategy.invalid-interval = La fecha de finalización debe ser posterior a la de inicio
 acme.validation.strategy.no-tactics = Esta estrategia necesita al menos una táctica para publicarse
-fundraiser.strategy.form.error.date-incorrect = Fechas no válidas: asegúrese de que el formato es correcto y la fecha de fin es posterior a la de inicio
+fundraiser.strategy.form.error.date-incorrect = Fechas no válidas: asegúrese de que el formato es correcto, la fecha de fin es posterior a la de inicio y la fecha de inicio no puede ser previa a la actual

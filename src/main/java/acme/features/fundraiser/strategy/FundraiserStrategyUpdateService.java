@@ -1,8 +1,6 @@
 
 package acme.features.fundraiser.strategy;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,21 +24,26 @@ public class FundraiserStrategyUpdateService extends AbstractService<Fundraiser,
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
-		int fundraiserId = this.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.strategy != null && this.strategy.getFundraiser().getId() == fundraiserId;
-		boolean isDraft = this.strategy != null && this.strategy.getDraftMode();
+		boolean result = false;
+		final boolean isAuthenticated = super.getRequest().getPrincipal() != null;
+		final boolean isFundraiser = isAuthenticated && super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
 
-		super.setAuthorised(isOwner && isDraft && status);
+		if (isFundraiser && this.strategy != null) {
+			final int activeFundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			final int ownerId = this.strategy.getFundraiser().getId();
+
+			final boolean isOwner = activeFundraiserId == ownerId;
+			final boolean isDraft = this.strategy.getDraftMode();
+
+			result = isOwner && isDraft;
+		}
+
+		super.setAuthorised(result);
 	}
 
 	@Override
 	public void bind() {
-		super.bindObject(this.strategy, "ticker", "name", "description", "moreInfo");
-		Date start = this.getRequest().getData("startMoment", Date.class);
-		Date end = this.getRequest().getData("endMoment", Date.class);
-		this.strategy.setStartMoment(start);
-		this.strategy.setEndMoment(end);
+		super.bindObject(this.strategy, "ticker", "name", "description", "moreInfo", "startMoment", "endMoment");
 	}
 
 	@Override
@@ -55,6 +58,6 @@ public class FundraiserStrategyUpdateService extends AbstractService<Fundraiser,
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.strategy, "id", "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
+		super.unbindObject(this.strategy, "id", "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode", "expectedPercentage", "monthsActive");
 	}
 }
