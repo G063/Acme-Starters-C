@@ -8,4 +8,3 @@
     <acme:list-column code="any.tactic.list.label.expectedPercentage" path="expectedPercentage" width="30%"/>
 </acme:list>
 
-<acme:return/>
