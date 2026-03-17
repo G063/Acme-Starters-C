@@ -32,10 +32,10 @@ public class AnyStrategyShowService extends AbstractService<Any, Strategy> {
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.strategy, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "fundraiser.userAccount.identity.name", "fundraiser.userAccount.identity.surname", "fundraiser.userAccount.identity.email",
-			"fundraiser.bank", "fundraiser.statement");
 
+		super.unbindObject(this.strategy, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 		super.unbindGlobal("monthsActive", this.strategy.getMonthsActive());
 		super.unbindGlobal("expectedPercentage", this.strategy.getExpectedPercentage());
+		super.getResponse().addGlobal("fundraiserId", this.strategy.getFundraiser().getId());
 	}
 }

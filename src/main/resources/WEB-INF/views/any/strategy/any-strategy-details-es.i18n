@@ -8,11 +8,5 @@ any.strategy.label.moreInfo = Más información
 any.strategy.label.monthsActive = Meses activa
 any.strategy.label.expectedPercentage = Porcentaje esperado
 
-any.strategy.label.fundraiser-profile = Perfil del Gestor
-any.strategy.label.fundraiser.name = Nombre
-any.strategy.label.fundraiser.surname = Apellidos
-any.strategy.label.fundraiser.email = Email
-any.strategy.label.fundraiser.bank = Banco
-any.strategy.label.fundraiser.statement = Declaración
-
 any.strategy.button.tactics = Ver tácticas
+any.strategy.button.fundraiser = Perfil del recaudador

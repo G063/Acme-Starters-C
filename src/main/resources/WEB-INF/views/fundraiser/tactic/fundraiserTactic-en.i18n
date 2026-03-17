@@ -15,9 +15,8 @@ fundraiser.tactic.form.label.notes = Notes
 fundraiser.tactic.form.label.expectedPercentage = Expected Percentage
 fundraiser.tactic.form.label.kind = Kind
 fundraiser.tactic.form.button.create = Create tactic
-fundraiser.tactic.form.button.update = Edit tactic
+fundraiser.tactic.form.button.update = Save changes
 fundraiser.tactic.form.button.delete = Delete tactic
-fundraiser.tactic.list.button.edit = Edit tactic
 
 fundraiser.tactic.error.not-found = The tactic does not exist or you do not have permission to access it.
 fundraiser.tactic.delete.success = The tactic was successfully deleted.
