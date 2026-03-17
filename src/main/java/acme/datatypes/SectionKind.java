@@ -1,4 +1,4 @@
-package acme.entities;
+package acme.datatypes;
 
 public enum SectionKind {
 

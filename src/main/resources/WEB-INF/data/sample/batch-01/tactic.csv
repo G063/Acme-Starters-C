@@ -1,0 +1,9 @@
+key,name,notes,expectedPercentage,kind,key:strategy
+tactic-sample-01,Tactica Sutil Inicial,Notas de la tactica base,25.50,SUBTLE,strategy-sample-01
+tactic-sample-02,A,B,0.0,AGGRESSIVE,strategy-sample-02
+tactic-sample-03,Ti,No,0.01,TENDER,strategy-sample-03
+tactic-sample-04,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod temp,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in re,99.99,SUBTLE,strategy-sample-04
+tactic-sample-05,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempo,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in rep,100.0,AGGRESSIVE,strategy-sample-05
+tactic-sample-06,Tactica Agresiva Media,Notas de ejemplo para tactica intermedia,50.25,AGGRESSIVE,strategy-sample-06
+tactic-sample-07,Tactica Tierna de Apoyo,Valores normales,10.0,TENDER,strategy-sample-07
+tactic-sample-08,Tactica Sutil Final,Ultima nota de prueba,75.12,SUBTLE,strategy-sample-08

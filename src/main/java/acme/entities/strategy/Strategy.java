@@ -1,7 +1,7 @@
 
 package acme.entities.strategy;
 
-import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,12 +18,12 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
 import acme.constraints.ValidHeader;
 import acme.constraints.ValidText;
 import acme.constraints.ValidTicker;
+import acme.constraints.strategy.ValidStrategy;
 import acme.realms.Fundraiser;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,6 +31,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidStrategy
 public class Strategy extends AbstractEntity {
 
 	// Serialisation version --------------------------------------------------
@@ -55,12 +56,12 @@ public class Strategy extends AbstractEntity {
 	private String				description;
 
 	@Mandatory
-	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				startMoment;
 
 	@Mandatory
-	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				endMoment;
 
@@ -84,11 +85,8 @@ public class Strategy extends AbstractEntity {
 
 		if (this.startMoment == null || this.endMoment == null)
 			return 0.0;
-		Duration diffInMillies = MomentHelper.computeDuration(this.startMoment, this.endMoment);
-		double days = diffInMillies.getSeconds() / (60. * 60 * 24);
-		double months = days / 30.44;
 
-		return Math.round(months * 10.0) / 10.0;
+		return MomentHelper.computeDifference(this.startMoment, this.endMoment, ChronoUnit.MONTHS);
 	}
 
 

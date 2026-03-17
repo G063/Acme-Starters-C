@@ -1,0 +1,9 @@
+key,ticker,name,description,startMoment,endMoment,moreInfo,draftMode,key:fundraiser
+strategy-sample-01,AB12-abcde,Estrategia Base,Descripcion de la estrategia base,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-sample-04
+strategy-sample-02,XY99-ABCDE,A,B,2025/06/15 12:00,2025/12/31 23:59,,false,fundraiser-sample-05
+strategy-sample-03,ZZ00-12345,Ti,De,2026/01/01 00:00,2026/12/31 23:59,http://test.org,true,fundraiser-sample-06
+strategy-sample-04,MN55-123456789,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod temp,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in re,2025/04/01 09:00,2025/05/01 18:00,http://acme.com/strategy?id=4,false,fundraiser-sample-04
+strategy-sample-05,CD34-abcdefghij,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempo,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in rep,2025/08/10 14:00,2025/09/10 14:00,https://acme.com/a/b/c,true,fundraiser-sample-05
+strategy-sample-06,EF56-test_1,Estrategia Intermedia,Una estrategia con guion bajo en el ticker,2025/10/01 00:00,2026/01/01 00:00,,false,fundraiser-sample-06
+strategy-sample-07,GH78-ABC12,Otra Estrategia,Valores normales,2025/11/15 08:30,2025/11/30 20:45,http://example.com,true,fundraiser-sample-07
+strategy-sample-08,IJ90-word_word,Titulo del proyecto,Detalles del proyecto estrategico,2025/03/10 10:00,2025/04/10 10:00,http://example.org,false,fundraiser-sample-08
