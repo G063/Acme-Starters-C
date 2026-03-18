@@ -33,17 +33,14 @@ public class InventorPartShowService extends AbstractService<Inventor, Part> {
 	public void authorise() {
 		boolean isInventor = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
 		boolean isOwner = false;
-		boolean isDraft = false;
 		if (this.part != null) {
 			int currentInventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
 			int ownerId = this.part.getInvention().getInventor().getId();
 			isOwner = currentInventorId == ownerId;
-
-			isDraft = this.part.getInvention().getDraftMode();
 		}
 
-		super.setAuthorised(isInventor && isOwner && isDraft);
+		super.setAuthorised(isInventor && isOwner);
 	}
 
 	@Override

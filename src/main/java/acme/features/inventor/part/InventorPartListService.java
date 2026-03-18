@@ -48,9 +48,8 @@ public class InventorPartListService extends AbstractService<Inventor, Part> {
 			if (inv != null) {
 				int activeInventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
 				boolean isOwner = inv.getInventor().getId() == activeInventorId;
-				boolean isDraft = inv.getDraftMode();
 
-				result = isOwner && isDraft;
+				result = isOwner;
 			}
 		}
 		super.setAuthorised(result);

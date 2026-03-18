@@ -26,7 +26,12 @@
     </jstl:if>
     
     <acme:form-textbox code="inventor.invention.form.label.more-info" path="moreInfo" readonly="${isReadonly}"/>
-
+    
+    <jstl:if test="${_command != 'create'}">
+    <acme:button code="inventor.invention.form.button.manage-parts" 
+             action="/inventor/part/list?inventionId=${id}"/>
+	</jstl:if>
+	
     <jstl:if test="${_command != 'create'}">
         <input type="hidden" name="id" value="${id}"/>
     </jstl:if>
