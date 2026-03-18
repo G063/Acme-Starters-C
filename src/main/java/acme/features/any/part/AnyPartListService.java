@@ -24,15 +24,18 @@ public class AnyPartListService extends AbstractService<Any, Part> {
 	public void load() {
 		Integer inventionId;
 		inventionId = super.getRequest().getData("inventionId", Integer.class);
-		this.invention = this.repository.findInventionById(inventionId);
-		this.parts = this.repository.findPartsByInventionId(inventionId);
+		if (inventionId != null) {
+			this.invention = this.repository.findInventionById(inventionId);
+			this.parts = this.repository.findPartsByInventionId(inventionId);
+		}
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
+		Integer inventionId = super.getRequest().getData("inventionId", Integer.class);
 
-		status = this.invention != null && !this.invention.getDraftMode();
+		status = this.invention != null && !this.invention.getDraftMode() && inventionId != null;
 
 		super.setAuthorised(status);
 	}

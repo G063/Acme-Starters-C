@@ -16,13 +16,13 @@
 
 <h3><acme:print code="${titleCode}"/></h3>
 
-<jstl:set var="canEdit" value="${_command == 'create' || _command == 'update'}"/>
+<jstl:set var="canEdit" value="${_command == 'create' || _command == 'update' || (_command == 'show' && draftMode)}"/>
 <jstl:set var="isReadonly" value="${!canEdit}"/>
 
 <acme:form>
-    <acme:form-textbox code="spokesperson.milestone.form.label.title" path="title" readonly="${isReadonly}"/>
-    <acme:form-textarea code="spokesperson.milestone.form.label.achievements" path="achievements" readonly="${isReadonly}"/>
-    <acme:form-double code="spokesperson.milestone.form.label.effort" path="effort" readonly="${isReadonly}"/>
+    <acme:form-textbox code="spokesperson.milestone.form.label.title" path="title" placeholder="Milestone title" readonly="${isReadonly}"/>
+    <acme:form-textarea code="spokesperson.milestone.form.label.achievements" path="achievements" placeholder="What has been achieved" readonly="${isReadonly}"/>
+    <acme:form-double code="spokesperson.milestone.form.label.effort" path="effort" placeholder="0.01" readonly="${isReadonly}"/>
     
     <jstl:choose>
         <jstl:when test="${!isReadonly}">
@@ -50,13 +50,9 @@
         </jstl:when>
 
         <jstl:when test="${_command == 'create'}">
-            <acme:submit code="spokesperson.milestone.form.button.create" action="/spokesperson/milestone/create"/>
+            <acme:submit code="spokesperson.milestone.form.button.create" action="/spokesperson/milestone/create?campaignId=${campaignId}"/>
         </jstl:when>
         
-        <jstl:when test="${_command == 'show' && draftMode}">
-             <acme:button code="spokesperson.milestone.form.button.update" action="/spokesperson/milestone/update?id=${id}"/>
-             <acme:submit code="spokesperson.milestone.form.button.delete" action="/spokesperson/milestone/delete"/>
-        </jstl:when>
     </jstl:choose>
 
 </acme:form>

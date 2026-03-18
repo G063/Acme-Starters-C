@@ -21,3 +21,6 @@ spokesperson.campaign.form.button.delete = Delete
 spokesperson.campaign.form.button.publish = Publish
 spokesperson.campaign.form.button.milestones = View milestones
 spokesperson.campaign.form.title = Campaign form
+spokesperson.campaign.form.title.create = Create campaign
+spokesperson.campaign.form.title.update = Update campaign
+spokesperson.campaign.form.title.show = Campaign details

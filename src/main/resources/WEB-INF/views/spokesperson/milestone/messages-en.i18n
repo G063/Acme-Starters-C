@@ -7,6 +7,7 @@ spokesperson.milestone.list.button.create = Create milestone
 spokesperson.milestone.form.title.create = Create milestone
 spokesperson.milestone.form.title.update = Update milestone
 spokesperson.milestone.form.title.show = Milestone details
+spokesperson.milestone.form.title = Milestone details
 
 spokesperson.milestone.form.label.title = Title
 spokesperson.milestone.form.label.achievements = Achievements

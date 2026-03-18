@@ -11,6 +11,7 @@ any.campaign.label.description = Description
 any.campaign.label.startMoment = Start date
 any.campaign.label.endMoment = End date
 any.campaign.label.monthsActive = Active months
+any.campaign.label.effort = Effort
 any.campaign.button.spokesperson = View spokesperson Profile
 
 any.campaign.button.milestone = View milestones
