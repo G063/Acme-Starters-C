@@ -6,3 +6,6 @@ acme.validation.invention.ticker.non-unique=El ticker debe ser único
 acme.validation.invention.parts.message=Las invenciones no pueden ser publicadas a menos que tengan al menos una pieza
 acme.validation.invention.dates.message=Los momentos de inicio y fin deben ser un intervalo de tiempo válido en el futuro
 acme.validation.part.cost.currency=Solo se aceptan Euros
+inventor.invention.form.error.date-incorrect = La fecha de inicio debe ser posterior al momento actual
+inventor.invention.form.error.no-parts = No se puede publicar una invención que no tenga piezas asociadas
+acme.validation.invention.invalid-interval.message = El intervalo de fechas no es válido: la fecha de inicio debe ser anterior a la de finalización

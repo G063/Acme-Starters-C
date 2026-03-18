@@ -24,10 +24,12 @@ public class InventorInventionShowService extends AbstractService<Inventor, Inve
 
 	@Override
 	public void load() {
-		int id;
+		Integer id = this.getRequest().getData("id", Integer.class);
 
-		id = super.getRequest().getData("id", int.class);
-		this.invention = this.repository.findOneInventionById(id);
+		if (id != null)
+			this.invention = this.repository.findOneInventionById(id);
+		else
+			this.invention = null;
 	}
 
 	@Override

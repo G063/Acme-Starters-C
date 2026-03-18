@@ -22,14 +22,17 @@ public class InventorInventionDeleteService extends AbstractService<Inventor, In
 
 	@Override
 	public void load() {
-		int id = this.getRequest().getData("id", int.class);
-		this.invention = this.repository.findOneInventionById(id);
+		Integer id = this.getRequest().getData("id", Integer.class);
+
+		if (id != null)
+			this.invention = this.repository.findOneInventionById(id);
+		else
+			this.invention = null;
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
-
 		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
 		int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
 		boolean isOwner = this.invention != null && this.invention.getInventor().getId() == inventorId;
