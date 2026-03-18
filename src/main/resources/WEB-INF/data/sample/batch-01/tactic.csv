@@ -1,9 +1,103 @@
 key,name,notes,expectedPercentage,kind,key:strategy
-tactic-sample-01,Tactica Sutil Inicial,Notas de la tactica base,25.50,SUBTLE,strategy-sample-01
-tactic-sample-02,A,B,0.0,AGGRESSIVE,strategy-sample-02
-tactic-sample-03,Ti,No,0.01,TENDER,strategy-sample-03
-tactic-sample-04,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod temp,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in re,99.99,SUBTLE,strategy-sample-04
-tactic-sample-05,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempo,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in rep,100.0,AGGRESSIVE,strategy-sample-05
-tactic-sample-06,Tactica Agresiva Media,Notas de ejemplo para tactica intermedia,50.25,AGGRESSIVE,strategy-sample-06
-tactic-sample-07,Tactica Tierna de Apoyo,Valores normales,10.0,TENDER,strategy-sample-07
-tactic-sample-08,Tactica Sutil Final,Ultima nota de prueba,75.12,SUBTLE,strategy-sample-08
+# base entity
+tactic-00,"Tactica Base","Notas de la tactica base",25.50,SUBTLE,strategy-00
+# name variations (ValidHeader: 1-255 chars)
+tactic-01,L,"Notas cortas",10.00,SUBTLE,strategy-01
+tactic-02,Lo,"Notas de dos caracteres",15.00,AGGRESSIVE,strategy-02
+tactic-03,"Tactica Normal","Notas normales de tactica",20.00,TENDER,strategy-03
+tactic-04,"Tactica con espacios y números 12345","Notas con muchos caracteres",25.00,SUBTLE,strategy-04
+tactic-05,"Tacticamuylargaconmuchoscaracteresrepetidosaaaaaaabbbbbbbbccccccccddddddeee","Notas tactica larga",30.00,AGGRESSIVE,strategy-05
+# name - non-latin
+tactic-06,โลเร็ม อิปซัม,"Notas con caracteres thai",35.00,TENDER,strategy-06
+tactic-07,لوريم إيبسوم,"Notas con caracteres árabes",40.00,SUBTLE,strategy-07
+tactic-08,洛伦·伊普森,"Notas con caracteres chinos",45.00,AGGRESSIVE,strategy-08
+tactic-09,"Tactica con acentos: áéíóú ñ ü","Notas con caracteres especiales",50.00,TENDER,strategy-09
+# name - potential injection attempts
+tactic-10,"<marquee>Hacked</marquee>","Notas normales sin intento",55.00,SUBTLE,strategy-10
+tactic-11,"<script>alert('Hacked!');</script>","Notas sin script injection",60.00,AGGRESSIVE,strategy-01
+tactic-12,"' or 'A' = 'A","Notas sin comillas inyectadas",65.00,TENDER,strategy-02
+# notes variations (ValidText)
+tactic-13,"Nombre simple",L,10.00,SUBTLE,strategy-03
+tactic-14,"Nombre simple",Lo,15.00,AGGRESSIVE,strategy-04
+tactic-15,"Nombre simple","Notas normales con texto de longitud moderada",20.00,TENDER,strategy-05
+tactic-16,"Nombre simple","Notas tactica larga con muchos caracteres de prueba aaaa bbbb cccc dddd eeee ffff gggg hhhh iiii jjjj kkkk llll mmmm nnnn oooo pppp",25.00,SUBTLE,strategy-06
+tactic-17,"Nombre simple",โลเร็ม อิปซัม,30.00,AGGRESSIVE,strategy-07
+tactic-18,"Nombre simple",لوريم إيبسوم,35.00,TENDER,strategy-08
+tactic-19,"Nombre simple",洛伦·伊普森,40.00,SUBTLE,strategy-09
+tactic-20,"Nombre simple","<marquee>Hacked</marquee>",45.00,AGGRESSIVE,strategy-10
+tactic-21,"Nombre simple","<script>alert('Hacked!');</script>",50.00,TENDER,strategy-01
+tactic-22,"Nombre simple","'' or 'A' = 'A",55.00,SUBTLE,strategy-02
+# expectedPercentage variations (Real: 0.00 to 100.00)
+tactic-23,"Tactica","Notas",0.00,SUBTLE,strategy-03
+tactic-24,"Tactica","Notas",0.01,AGGRESSIVE,strategy-04
+tactic-25,"Tactica","Notas",0.50,TENDER,strategy-05
+tactic-26,"Tactica","Notas",1.00,SUBTLE,strategy-06
+tactic-27,"Tactica","Notas",25.00,AGGRESSIVE,strategy-07
+tactic-28,"Tactica","Notas",50.00,TENDER,strategy-08
+tactic-29,"Tactica","Notas",75.00,SUBTLE,strategy-09
+tactic-30,"Tactica","Notas",99.00,AGGRESSIVE,strategy-10
+tactic-31,"Tactica","Notas",99.50,TENDER,strategy-01
+tactic-32,"Tactica","Notas",99.99,SUBTLE,strategy-02
+tactic-33,"Tactica","Notas",100.00,AGGRESSIVE,strategy-03
+tactic-34,"Tactica","Notas",100.0,TENDER,strategy-04
+# kind - all enum values
+tactic-35,"Tactica Sutil","Notas sutil",33.33,SUBTLE,strategy-05
+tactic-36,"Tactica Agresiva","Notas agresiva",50.50,AGGRESSIVE,strategy-06
+tactic-37,"Tactica Tierna","Notas tierna",66.66,TENDER,strategy-07
+# boundary and edge cases
+tactic-38,"T","N",0.00,SUBTLE,strategy-08
+tactic-39,"Ts","No",0.01,AGGRESSIVE,strategy-09
+tactic-40,"Tta","Not",100.00,TENDER,strategy-10
+tactic-41,"Tactica muy sutil inicial","Estas son notas iniciales muy sutiles",10.25,SUBTLE,strategy-01
+tactic-42,"Tactica agresiva radical","Estas son notas agresivas muy radicales",89.75,AGGRESSIVE,strategy-02
+tactic-43,"Tactica tierna suave","Estas son notas tiernas muy suaves",50.00,TENDER,strategy-03
+# support tactics for additional strategies
+tactic-44,"Tactica Support 44","Notas de soporte 44",25.00,SUBTLE,strategy-11
+tactic-45,"Tactica Support 45","Notas de soporte 45",25.00,SUBTLE,strategy-12
+tactic-46,"Tactica Support 46","Notas de soporte 46",25.00,SUBTLE,strategy-13
+tactic-47,"Tactica Support 47","Notas de soporte 47",25.00,SUBTLE,strategy-14
+tactic-48,"Tactica Support 48","Notas de soporte 48",25.00,SUBTLE,strategy-15
+tactic-49,"Tactica Support 49","Notas de soporte 49",25.00,SUBTLE,strategy-16
+tactic-50,"Tactica Support 50","Notas de soporte 50",25.00,SUBTLE,strategy-17
+tactic-51,"Tactica Support 51","Notas de soporte 51",25.00,SUBTLE,strategy-18
+tactic-52,"Tactica Support 52","Notas de soporte 52",25.00,SUBTLE,strategy-19
+tactic-53,"Tactica Support 53","Notas de soporte 53",25.00,SUBTLE,strategy-20
+tactic-54,"Tactica Support 54","Notas de soporte 54",25.00,SUBTLE,strategy-21
+tactic-55,"Tactica Support 55","Notas de soporte 55",25.00,SUBTLE,strategy-22
+tactic-56,"Tactica Support 56","Notas de soporte 56",25.00,SUBTLE,strategy-23
+tactic-57,"Tactica Support 57","Notas de soporte 57",25.00,SUBTLE,strategy-24
+tactic-58,"Tactica Support 58","Notas de soporte 58",25.00,SUBTLE,strategy-25
+tactic-59,"Tactica Support 59","Notas de soporte 59",25.00,SUBTLE,strategy-26
+tactic-60,"Tactica Support 60","Notas de soporte 60",25.00,SUBTLE,strategy-27
+tactic-61,"Tactica Support 61","Notas de soporte 61",25.00,SUBTLE,strategy-28
+tactic-62,"Tactica Support 62","Notas de soporte 62",25.00,SUBTLE,strategy-29
+tactic-63,"Tactica Support 63","Notas de soporte 63",25.00,SUBTLE,strategy-30
+tactic-64,"Tactica Support 64","Notas de soporte 64",25.00,SUBTLE,strategy-31
+tactic-65,"Tactica Support 65","Notas de soporte 65",25.00,SUBTLE,strategy-32
+tactic-66,"Tactica Support 66","Notas de soporte 66",25.00,SUBTLE,strategy-33
+tactic-67,"Tactica Support 67","Notas de soporte 67",25.00,SUBTLE,strategy-34
+tactic-68,"Tactica Support 68","Notas de soporte 68",25.00,SUBTLE,strategy-35
+tactic-69,"Tactica Support 69","Notas de soporte 69",25.00,SUBTLE,strategy-36
+tactic-70,"Tactica Support 70","Notas de soporte 70",25.00,SUBTLE,strategy-37
+tactic-71,"Tactica Support 71","Notas de soporte 71",25.00,SUBTLE,strategy-38
+tactic-72,"Tactica Support 72","Notas de soporte 72",25.00,SUBTLE,strategy-39
+tactic-73,"Tactica Support 73","Notas de soporte 73",25.00,SUBTLE,strategy-40
+tactic-74,"Tactica Support 74","Notas de soporte 74",25.00,SUBTLE,strategy-41
+tactic-75,"Tactica Support 75","Notas de soporte 75",25.00,SUBTLE,strategy-42
+tactic-76,"Tactica Support 76","Notas de soporte 76",25.00,SUBTLE,strategy-43
+tactic-77,"Tactica Support 77","Notas de soporte 77",25.00,SUBTLE,strategy-44
+tactic-78,"Tactica Support 78","Notas de soporte 78",25.00,SUBTLE,strategy-45
+tactic-79,"Tactica Support 79","Notas de soporte 79",25.00,SUBTLE,strategy-46
+tactic-80,"Tactica Support 80","Notas de soporte 80",25.00,SUBTLE,strategy-47
+tactic-81,"Tactica Support 81","Notas de soporte 81",25.00,SUBTLE,strategy-48
+tactic-82,"Tactica Support 82","Notas de soporte 82",25.00,SUBTLE,strategy-49
+tactic-83,"Tactica Support 83","Notas de soporte 83",25.00,SUBTLE,strategy-50
+tactic-84,"Tactica Support 84","Notas de soporte 84",25.00,SUBTLE,strategy-51
+tactic-85,"Tactica Support 85","Notas de soporte 85",25.00,SUBTLE,strategy-52
+tactic-86,"Tactica Support 86","Notas de soporte 86",25.00,SUBTLE,strategy-53
+tactic-87,"Tactica Support 87","Notas de soporte 87",25.00,SUBTLE,strategy-54
+tactic-88,"Tactica Support 88","Notas de soporte 88",25.00,SUBTLE,strategy-55
+tactic-89,"Tactica Support 89","Notas de soporte 89",25.00,SUBTLE,strategy-56
+tactic-90,"Tactica Support 90","Notas de soporte 90",25.00,SUBTLE,strategy-57
+tactic-91,"Tactica Support 91","Notas de soporte 91",25.00,SUBTLE,strategy-58
+tactic-92,"Tactica Support 92","Notas de soporte 92",25.00,SUBTLE,strategy-59

@@ -1,15 +1,76 @@
 key,ticker,name,description,startMoment,endMoment,moreInfo,draftMode,key:fundraiser
-errata-strategy-01,,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,
-errata-strategy-02,ab12-abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,
-errata-strategy-03,AB1-abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,
-errata-strategy-04,AB12-abcd,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,
-errata-strategy-05,AB12-abcde,,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,
-errata-strategy-06,AB12-abcde,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,
-errata-strategy-07,AB12-abcde,Estrategia,,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,
-errata-strategy-08,AB12-abcde,Estrategia,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in repx,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,
-errata-strategy-09,AB12-abcde,Estrategia,Descripcion,,2025/03/01 10:00,http://example.com,true,
-errata-strategy-10,AB12-abcde,Estrategia,Descripcion,2024/12/31 23:59,2025/03/01 10:00,http://example.com,true,
-errata-strategy-11,AB12-abcde,Estrategia,Descripcion,2025/02/01 10:00,,http://example.com,true,
-errata-strategy-12,AB12-abcde,Estrategia,Descripcion,2025/02/01 10:00,2024/12/31 23:59,http://example.com,true,
-errata-strategy-13,AB12-abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,not-a-valid-url,true,
-errata-strategy-14,AB12-abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,,
+# base entity - all empty
+strategy-00,,,,,,,TRUE,
+# ticker - empty or invalid format
+strategy-01,,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-02,ab12-abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-03,AB1-abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-04,AB12-abcd,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-05,AB12-abcdefghij,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-06,A-abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-07,ABC123-abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-08,A1-abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-09,AB12_abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-10,AB12—abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-11,AB12 -abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-12,AB12- abcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-13,AB12-abcd-,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-14,AB12-abc.de,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-15,AB12-abc!de,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-16,AB12-abc de,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-17,AB12-ábcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-18,DUPLICATE-DUP,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-19,DUPLICATE-DUP,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-02
+# name - empty or invalid
+strategy-20,ST20-SAMP20,,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-21,ST21-SAMP21,"Estrategia muy larga con muchos caracteres repetidos aaaaaaa bbbbbbbb cccccccc dddddddd eeeeeeee ffffffff gggggggg hhhhhhhh iiiiiiii jjjjjjjj kkkkkkkk llllllll mmmmmmm","Descripcion",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-22,ST22-SAMP22,"Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat","Descripcion",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+# description - empty or invalid
+strategy-23,ST23-SAMP23,Estrategia,,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-24,ST24-SAMP24,Estrategia,"Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in repx",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+# startMoment - empty or out of range
+strategy-25,ST25-SAMP25,Estrategia,Descripcion,,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-26,ST26-SAMP26,Estrategia,Descripcion,1999/12/31 23:59,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-27,ST27-SAMP27,Estrategia,Descripcion,2024/12/31 23:59,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-28,ST28-SAMP28,Estrategia,Descripcion,2025/01/07 23:59,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-29,ST29-SAMP29,Estrategia,Descripcion,2200/12/31 23:59,2201/12/31 23:59,http://example.com,true,fundraiser-01
+strategy-30,ST30-SAMP30,Estrategia,Descripcion,2201/01/01 00:00,2202/01/01 00:00,http://example.com,true,fundraiser-01
+# endMoment - empty or out of range
+strategy-31,ST31-SAMP31,Estrategia,Descripcion,2025/02/01 10:00,,http://example.com,true,fundraiser-01
+strategy-32,ST32-SAMP32,Estrategia,Descripcion,2025/02/01 10:00,1999/12/31 23:59,http://example.com,true,fundraiser-01
+strategy-33,ST33-SAMP33,Estrategia,Descripcion,2025/02/01 10:00,2024/12/31 23:59,http://example.com,true,fundraiser-01
+strategy-34,ST34-SAMP34,Estrategia,Descripcion,2025/02/01 10:00,2025/01/07 23:59,http://example.com,true,fundraiser-01
+strategy-35,ST35-SAMP35,Estrategia,Descripcion,2025/02/01 10:00,2201/01/01 00:00,http://example.com,true,fundraiser-01
+strategy-36,ST36-SAMP36,Estrategia,Descripcion,2025/02/01 10:00,2202/01/01 00:00,http://example.com,true,fundraiser-01
+# startMoment - endMoment inversas
+strategy-37,ST37-SAMP37,Estrategia,Descripcion,2025/03/01 10:00,2025/02/01 10:00,http://example.com,true,fundraiser-01
+strategy-38,ST38-SAMP38,Estrategia,Descripcion,2025/12/31 23:59,2025/02/01 10:00,http://example.com,true,fundraiser-01
+strategy-39,ST39-SAMP39,Estrategia,Descripcion,2026/01/01 00:00,2025/02/01 10:00,http://example.com,true,fundraiser-01
+# startMoment - endMoment iguales
+strategy-40,ST40-SAMP40,Estrategia,Descripcion,2025/02/01 10:00,2025/02/01 10:00,http://example.com,true,fundraiser-01
+# moreInfo - empty or invalid URL
+strategy-41,ST41-SAMP41,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,,true,fundraiser-01
+strategy-42,ST42-SAMP42,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://,true,fundraiser-01
+strategy-43,ST43-SAMP43,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,ftp://,true,fundraiser-01
+strategy-44,ST44-SAMP44,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,not-a-valid-url,true,fundraiser-01
+strategy-45,ST45-SAMP45,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://a,true,fundraiser-01
+strategy-46,ST46-SAMP46,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,ftp://a,true,fundraiser-01
+strategy-47,ST47-SAMP47,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,"http://www.example-strategy.org/dolor/sit/amet,/consectetur/adipiscing/elit,/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/xi",true,fundraiser-01
+strategy-48,ST48-SAMP48,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com\ninjected,true,fundraiser-01
+# draftMode - empty
+strategy-49,ST49-SAMP49,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,,fundraiser-01
+# escape sequences and special characters
+strategy-56,ST56-SAMP56\n,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-57,ST57-SAMP57,Estrategia\n,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-58,ST58-SAMP58,Estrategia,Descripcion\n,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+# Name/Description with potential injection attempts
+strategy-59,ST59-SAMP59,"<marquee>Hacked</marquee>",Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-60,ST60-SAMP60,"<script>alert('Hacked!');</script>",Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-61,ST61-SAMP61,"' or 'A' = 'A",Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-62,ST62-SAMP62,Estrategia,"<marquee>Hacked</marquee>",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-63,ST63-SAMP63,Estrategia,"<script>alert('Hacked!');</script>",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-64,ST64-SAMP64,Estrategia,"'' or 'A' = 'A",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+# Unicode and special characters in ticker
+strategy-69,AB12-ábcde,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-70,AB12-αβγδ,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-71,AB12-日本,Estrategia,Descripcion,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01

@@ -1,9 +1,70 @@
 key,ticker,name,description,startMoment,endMoment,moreInfo,draftMode,key:fundraiser
-strategy-sample-01,AB12-abcde,Estrategia Base,Descripcion de la estrategia base,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-sample-04
-strategy-sample-02,XY99-ABCDE,A,B,2025/06/15 12:00,2025/12/31 23:59,,false,fundraiser-sample-05
-strategy-sample-03,ZZ00-12345,Ti,De,2026/01/01 00:00,2026/12/31 23:59,http://test.org,true,fundraiser-sample-06
-strategy-sample-04,MN55-123456789,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod temp,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in re,2025/04/01 09:00,2025/05/01 18:00,http://acme.com/strategy?id=4,false,fundraiser-sample-04
-strategy-sample-05,CD34-abcdefghij,Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempo,Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in rep,2025/08/10 14:00,2025/09/10 14:00,https://acme.com/a/b/c,true,fundraiser-sample-05
-strategy-sample-06,EF56-test_1,Estrategia Intermedia,Una estrategia con guion bajo en el ticker,2025/10/01 00:00,2026/01/01 00:00,,false,fundraiser-sample-06
-strategy-sample-07,GH78-ABC12,Otra Estrategia,Valores normales,2025/11/15 08:30,2025/11/30 20:45,http://example.com,true,fundraiser-sample-07
-strategy-sample-08,IJ90-word_word,Titulo del proyecto,Detalles del proyecto estrategico,2025/03/10 10:00,2025/04/10 10:00,http://example.org,false,fundraiser-sample-08
+# base entity
+strategy-00,ST00-SAMP00,"Estrategia Base","Descripción de la estrategia base",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-01
+# ticker variations - standard
+strategy-01,AB12-abcde,"Estrategia Test 1","Descripción test 1",2025/06/15 12:00,2025/12/31 23:59,http://example.com,true,fundraiser-01
+strategy-02,ZZ00-_____,"Estrategia Test 2","Descripción test 2",2026/01/01 00:00,2026/12/31 23:59,http://test.org,false,fundraiser-02
+strategy-03,XY99-12345,"Estrategia Test 3","Descripción test 3",2025/04/01 09:00,2025/05/01 18:00,http://acme.com/strategy?id=4,true,fundraiser-01
+strategy-04,QR45-A1b_9,"Estrategia Test 4","Descripción test 4",2025/08/10 14:00,2025/09/10 14:00,https://acme.com/a/b/c,false,fundraiser-04
+strategy-05,AB12-abcdefghij,"Estrategia Test 5","Descripción test 5",2025/10/01 00:00,2026/01/01 00:00,,true,fundraiser-05
+strategy-06,MN34-ABCDEF1234,"Estrategia Test 6","Descripción test 6",2025/11/15 08:30,2025/11/30 20:45,http://example.com,false,fundraiser-06
+strategy-07,TT77-__________,"Estrategia Test 7","Descripción test 7",2025/03/10 10:00,2025/04/10 10:00,http://example.org,true,fundraiser-07
+strategy-08,OP01-1234567890,"Estrategia Test 8","Descripción test 8",2025/05/20 15:30,2025/06/20 15:30,http://sample.com,false,fundraiser-08
+strategy-09,AA00-a____,"Estrategia Test 9","Descripción test 9",2025/07/01 00:00,2026/07/01 00:00,https://test.org,true,fundraiser-09
+strategy-10,AZ99-Z9_zZ,"Estrategia Test 10","Descripción test 10",2025/09/15 12:00,2025/10/15 12:00,http://example.org/path,false,fundraiser-10
+# name variations (1-75 chars)
+strategy-11,ST11-SAMP11,L,"Descripción estrategia nombre corto",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-12,ST12-SAMP12,Lo,"Descripción estrategia nombre dos chars",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-02
+strategy-13,ST13-SAMP13,"Estrategia normal","Descripción normal estrategia",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-14,ST14-SAMP14,"Estrategia con espacios y números 12345","Descripción con muchos caracteres y números",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-04
+strategy-15,ST15-SAMP15,"Estrategiamuylargaconmuchoscaracteresrepetidosaaaaaaabbbbbbbbccccccccdddddd","Descripción estrategia larga repetida",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-05
+# name - non-latin
+strategy-16,ST16-SAMP16,โลเร็ม อิปซัม,"Descripción con caracteres thai",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-06
+strategy-17,ST17-SAMP17,لوريم إيبسوم,"Descripción con caracteres árabes",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-07
+strategy-18,ST18-SAMP18,洛伦·伊普森,"Descripción con caracteres chinos",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-08
+strategy-19,ST19-SAMP19,"Estrategia con acentos: áéíóú ñ ü","Descripción con caracteres especiales",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-09
+# name - potential injection attempts
+strategy-20,ST20-SAMP20,"<marquee>Hacked</marquee>","Descripción normal sin intento",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-10
+strategy-21,ST21-SAMP21,"<script>alert('Hacked!');</script>","Descripción normal sin script",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-22,ST22-SAMP22,"' or 'A' = 'A","Descripción sin comillas inyectadas",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-02
+# description variations (ValidText)
+strategy-23,ST23-SAMP23,"Nombre simple",L,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-24,ST24-SAMP24,"Nombre simple",Lo,2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-04
+strategy-25,ST25-SAMP25,"Nombre simple","Descripción normal con texto de longitud moderada",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-05
+strategy-26,ST26-SAMP26,"Nombre simple","Descripción estrategia larga con muchos caracteres de prueba aaaa bbbb cccc dddd eeee ffff gggg hhhh iiii jjjj kkkk llll mmmm nnnn oooo pppp",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-06
+strategy-27,ST27-SAMP27,"Nombre simple",โลเร็ม อิปซัม,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-07
+strategy-28,ST28-SAMP28,"Nombre simple",لوريم إيبسوم,2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-08
+strategy-29,ST29-SAMP29,"Nombre simple",洛伦·伊普森,2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-09
+strategy-30,ST30-SAMP30,"Nombre simple","<marquee>Hacked</marquee>",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-10
+strategy-31,ST31-SAMP31,"Nombre simple","<script>alert('Hacked!');</script>",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-01
+strategy-32,ST32-SAMP32,"Nombre simple","'' or 'A' = 'A",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-02
+# startMoment/endMoment - boundary moments
+strategy-33,ST33-SAMP33,"Estrategia","Descripción",2000/01/01 0:00,2000/01/01 0:01,http://example.com,true,fundraiser-01
+strategy-34,ST34-SAMP34,"Estrategia","Descripción",2000/01/01 0:01,2026/01/01 10:00,http://example.com,false,fundraiser-04
+strategy-35,ST35-SAMP35,"Estrategia","Descripción",2025/01/08 00:00,2025/06/15 10:00,http://example.com,true,fundraiser-05
+strategy-36,ST36-SAMP36,"Estrategia","Descripción",2200/12/31 23:58,2200/12/31 23:59,http://example.com,false,fundraiser-06
+strategy-37,ST37-SAMP37,"Estrategia","Descripción",2026/03/18 00:00,2026/03/18 23:59,http://example.com,true,fundraiser-07
+strategy-38,ST38-SAMP38,"Estrategia","Descripción",2027/01/01 00:00,2200/12/31 23:59,http://example.com,false,fundraiser-08
+# moreInfo - URL variations (optional)
+strategy-39,ST39-SAMP39,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,,true,fundraiser-09
+strategy-40,ST40-SAMP40,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://a.b,false,fundraiser-10
+strategy-41,ST41-SAMP41,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,https://a.org,true,fundraiser-01
+strategy-42,ST42-SAMP42,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,"http://www.example-strategy.org/path/to/resource",false,fundraiser-02
+strategy-43,ST43-SAMP43,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,"http://www.very-long-domain-name-example.org/very/long/path/with/many/segments/strategy/resources/detailed/information/about/the/strategy/being/tested/with/very/long/urls/X",true,fundraiser-01
+strategy-44,ST44-SAMP44,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,https://www.example.org,false,fundraiser-04
+strategy-45,ST45-SAMP45,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://www.example.org/page.html,true,fundraiser-05
+strategy-46,ST46-SAMP46,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://www.example.org/page.html#section,false,fundraiser-06
+strategy-47,ST47-SAMP47,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://example.org?a=1&b=2,true,fundraiser-07
+strategy-48,ST48-SAMP48,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://example.org?,false,fundraiser-08
+strategy-49,ST49-SAMP49,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://example.org?a,true,fundraiser-09
+strategy-50,ST50-SAMP50,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://example.org?a&b,false,fundraiser-10
+strategy-51,ST51-SAMP51,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://example.org/,true,fundraiser-01
+strategy-52,ST52-SAMP52,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://example.org/a,false,fundraiser-02
+strategy-53,ST53-SAMP53,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://example.org/a/b,true,fundraiser-01
+strategy-54,ST54-SAMP54,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://example.org/a/b?,false,fundraiser-04
+strategy-55,ST55-SAMP55,"Estrategia","Descripción",2025/02/01 10:00,2025/03/01 10:00,http://example.org/a/b?a&b,true,fundraiser-05
+# draftMode variations
+strategy-56,ST56-SAMP56,"Estrategia Draft True","Descripción en modo draft",2025/02/01 10:00,2025/03/01 10:00,http://example.com,TRUE,fundraiser-06
+strategy-57,ST57-SAMP57,"Estrategia Draft False","Descripción no en draft",2025/02/01 10:00,2025/03/01 10:00,http://example.com,FALSE,fundraiser-07
+strategy-58,ST58-SAMP58,"Estrategia Draft true","Descripción minúsculas true",2025/02/01 10:00,2025/03/01 10:00,http://example.com,true,fundraiser-08
+strategy-59,ST59-SAMP59,"Estrategia Draft false","Descripción minúsculas false",2025/02/01 10:00,2025/03/01 10:00,http://example.com,false,fundraiser-09
