@@ -1,5 +1,6 @@
 package acme.features.spokesperson.milestone;
 
+import java.util.Collections;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,12 @@ public class SpokespersonMilestoneListService extends AbstractService<Spokespers
 
 	@Override
 	public void load() {
-		int campaignId;
+		Integer campaignId;
 
-		campaignId = super.getRequest().getData("campaignId", int.class);
+		campaignId = super.getRequest().getData("campaignId", Integer.class);
 		
-		this.campaign = this.repository.findCampaignById(campaignId);
-		this.milestones = this.repository.findMilestonesByCampaignId(campaignId);
+		this.campaign = campaignId == null ? null : this.repository.findCampaignById(campaignId);
+		this.milestones = this.campaign == null ? Collections.emptyList() : this.repository.findMilestonesByCampaignId(campaignId);
 	}
 
 	@Override
@@ -44,8 +45,8 @@ public class SpokespersonMilestoneListService extends AbstractService<Spokespers
 	public void unbind() {
 		boolean showCreate;
 		super.unbindObjects(this.milestones, "title", "achievements", "effort", "kind");
-		showCreate = this.campaign.getDraftMode() && this.campaign.getSpokesperson().isPrincipal();
-		super.unbindGlobal("campaignId", this.campaign.getId());
+		showCreate = this.campaign != null && this.campaign.getDraftMode() && this.campaign.getSpokesperson().isPrincipal();
+		super.unbindGlobal("campaignId", this.campaign == null ? null : this.campaign.getId());
 		super.unbindGlobal("showCreate", showCreate);
 	}
 }

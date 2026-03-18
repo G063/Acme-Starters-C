@@ -1,5 +1,7 @@
 package acme.constraints.campaign;
 
+import java.util.Date;
+
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,33 +25,44 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 	
 	@Override
 	public boolean isValid(final Campaign campaign, final ConstraintValidatorContext context) {
-	    assert campaign != null;
+	    assert context != null;
+
+	    if (campaign == null)
+	        return true;
 
 	    boolean result = true;
+	    final boolean published = campaign.getDraftMode() != null && !campaign.getDraftMode();
+	    final Date now = MomentHelper.getBaseMoment();
 
-	    // startMoment < endMoment
-	    if (campaign.getStartMoment() != null && campaign.getEndMoment() != null) {
+	    // startMoment/endMoment must be a valid interval.
+		boolean validInterval;
+		if (campaign.getStartMoment() != null && campaign.getEndMoment() != null) {
+			validInterval = MomentHelper.isBefore(campaign.getStartMoment(), campaign.getEndMoment());
 
-	        boolean intervalValid =
-	            MomentHelper.isBefore(campaign.getStartMoment(), campaign.getEndMoment());
+			if (!validInterval) {
+				super.state(context, false, "*", "acme.validation.campaign.invalid-interval.message");
+				result = false;
+			}
+		}
 
-	        super.state(context, intervalValid, "endMoment",
-	            "acme.validation.campaign.invalid-interval");
-
-	        if (!intervalValid)
-	            result = false;
-	    }
-
-	    // startMoment/endMoment must be a valid time interval in future wrt. the moment when a campaign is published.
-	    if (campaign.getStartMoment() != null) {
-	        boolean startFuture = MomentHelper.isFuture(campaign.getStartMoment());
-
-	        super.state(context, startFuture, "startMoment",
-	            "acme.validation.campaign.not-future");
-
-	        if (!startFuture)
-	            result = false;
-	    }
+		if (published && campaign.getStartMoment() != null) {
+			final boolean startInFuture = !campaign.getStartMoment().before(now);
+			if (!startInFuture) {
+				super.state(context, false, "startMoment", "acme.validation.campaign.future-dates.message");
+				result = false;
+			}
+		}
+	    
+	    final int id = campaign.getId();
+	    
+	    if (campaign.getTicker() != null) {
+	    	final long duplicates = this.repository.countOtherCampaignsWithTicker(campaign.getTicker(), id);
+	    	final boolean isUnique = duplicates == 0;
+	    	if (!isUnique) {
+	    		super.state(context, false, "ticker", "acme.validation.campaign.ticker.non-unique");
+	    		result = false;
+			}
+		}
 
 
 	    // Campaigns cannot be published unless they have at least one milestone.

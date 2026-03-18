@@ -13,10 +13,6 @@ public class AnyMilestoneShowService extends AbstractService<Any, Milestone>{
 	    protected AnyMilestoneRepository repository;
 	    protected Milestone milestone;
 
-	    @Override
-	    public void authorise() {
-	        super.getResponse().setAuthorised(true);
-	    }
 
 	    @Override
 	    public void load() {
@@ -24,15 +20,20 @@ public class AnyMilestoneShowService extends AbstractService<Any, Milestone>{
 	        int id;
 
 	        id = super.getRequest().getData("id", int.class);
-	        this.milestone = this.repository.findMilestoneById(id);
+	        this.milestone = this.repository.findPublishedMilestoneById(id);
 
+	    }
+
+	    @Override
+	    public void authorise() {
+	    		super.setAuthorised(this.milestone != null);
 	    }
 	    
 	    @Override
 	    public void unbind() {
 
-
-	        super.unbindObject(milestone,
+	    	if (this.milestone != null)
+	    		super.unbindObject(this.milestone,
 	        		"title",
 	                "achievements",
 	                "effort",

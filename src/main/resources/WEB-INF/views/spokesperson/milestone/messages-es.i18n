@@ -7,6 +7,7 @@ spokesperson.milestone.list.button.create = Crear hito
 spokesperson.milestone.form.title.create = Crear hito
 spokesperson.milestone.form.title.update = Actualizar hito
 spokesperson.milestone.form.title.show = Detalles del hito
+spokesperson.milestone.form.title = Detalles del hito
 
 spokesperson.milestone.form.label.title = Titulo
 spokesperson.milestone.form.label.achievements = Logros

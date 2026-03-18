@@ -1,7 +1,5 @@
 package acme.features.spokesperson.campaign;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,11 +34,7 @@ public class SpokespersonCampaignUpdateService extends AbstractService<Spokesper
 
 	@Override
 	public void bind() {
-		super.bindObject(this.campaign, "ticker", "name", "description", "moreInfo");
-		Date start = this.getRequest().getData("startMoment", Date.class);
-		Date end = this.getRequest().getData("endMoment", Date.class);
-		this.campaign.setStartMoment(start);
-		this.campaign.setEndMoment(end);
+		super.bindObject(this.campaign, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 	}
 
 	@Override
@@ -53,6 +47,8 @@ public class SpokespersonCampaignUpdateService extends AbstractService<Spokesper
 	public void unbind() {
 
 		super.unbindObject(this.campaign, "id","ticker", "name", "description", "startMoment", "endMoment","moreInfo", "draftMode");
+		super.unbindGlobal("monthsActive", this.campaign.getMonthsActive());
+		super.unbindGlobal("effort", this.campaign.getEffort());
 	}
 	
 	@Override

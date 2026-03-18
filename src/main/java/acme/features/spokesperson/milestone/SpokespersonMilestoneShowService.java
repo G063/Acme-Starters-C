@@ -36,9 +36,9 @@ public class SpokespersonMilestoneShowService extends AbstractService<Spokespers
 		boolean status;
 		Campaign campaign;
 
-		campaign = this.milestone.getCampaign();
+		campaign = this.milestone == null ? null : this.milestone.getCampaign();
 		
-		status =  campaign.getSpokesperson().isPrincipal() || !campaign.getDraftMode();
+		status = campaign != null && (campaign.getSpokesperson().isPrincipal() || !campaign.getDraftMode());
 
 		super.setAuthorised(status);
 	}
