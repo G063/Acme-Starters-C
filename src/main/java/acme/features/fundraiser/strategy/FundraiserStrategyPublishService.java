@@ -41,15 +41,18 @@ public class FundraiserStrategyPublishService extends AbstractService<Fundraiser
 
 	@Override
 	public void bind() {
-		super.bindObject(this.strategy, "id");
+		super.bindObject(this.strategy, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 	}
 
 	@Override
 	public void validate() {
-		Date base = MomentHelper.getBaseMoment();
-		Date start = this.strategy.getStartMoment();
-		super.state(MomentHelper.isAfter(start, base), "*", "fundraiser.strategy.form.error.date-incorrect");
 		super.validateObject(this.strategy);
+
+		Date start = this.strategy.getStartMoment();
+		if (start != null) {
+			Date base = MomentHelper.getBaseMoment();
+			super.state(MomentHelper.isAfter(start, base), "startMoment", "fundraiser.strategy.form.error.date-incorrect");
+		}
 
 		int tacticsCount = this.repository.countTacticsByStrategyId(this.strategy.getId());
 		super.state(tacticsCount > 0, "*", "fundraiser.strategy.form.error.no-tactics");

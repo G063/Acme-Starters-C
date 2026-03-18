@@ -7,6 +7,7 @@ fundraiser.tactic.list.label.kind = Tipo
 fundraiser.tactic.list.button.create = Añadir nueva táctica
 
 fundraiser.tactic.form.title = Detalles de la táctica
+fundraiser.tactic.form.title.show = Detalles de la táctica
 fundraiser.tactic.form.title.create = Crear táctica
 fundraiser.tactic.form.title.update = Editar táctica
 fundraiser.tactic.form.label.name = Nombre
