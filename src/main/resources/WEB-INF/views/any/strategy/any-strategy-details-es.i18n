@@ -1,0 +1,12 @@
+any.strategy.form.title = Detalles de la estrategia
+any.strategy.label.ticker = Ticker
+any.strategy.label.name = Nombre
+any.strategy.label.startMoment = Momento de inicio
+any.strategy.label.endMoment = Momento de fin
+any.strategy.label.description = Descripción
+any.strategy.label.moreInfo = Más información
+any.strategy.label.monthsActive = Meses activa
+any.strategy.label.expectedPercentage = Porcentaje esperado
+
+any.strategy.button.tactics = Ver tácticas
+any.strategy.button.fundraiser = Perfil del recaudador

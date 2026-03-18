@@ -1,0 +1,33 @@
+fundraiser.strategy.list.title = Mis Estrategias
+fundraiser.strategy.list.label.ticker = Ticker
+fundraiser.strategy.list.label.name = Nombre
+fundraiser.strategy.list.label.draft-mode = ¿Borrador?
+fundraiser.strategy.list.button.create = Crear estrategia
+
+fundraiser.strategy.form.title = Gestión de mi estrategia
+fundraiser.strategy.form.label.ticker = Ticker
+fundraiser.strategy.form.label.name = Nombre
+fundraiser.strategy.form.label.description = Descripción
+fundraiser.strategy.form.label.start-moment = Momento de inicio
+fundraiser.strategy.form.label.end-moment = Momento de finalización
+fundraiser.strategy.form.label.percentage = Porcentaje esperado
+fundraiser.strategy.form.label.months = Meses activo
+fundraiser.strategy.form.label.more-info = Más información (URL)
+
+fundraiser.strategy.form.button.create = Crear estrategia
+fundraiser.strategy.form.button.update = Guardar cambios
+fundraiser.strategy.form.button.publish = Publicar estrategia
+fundraiser.strategy.form.button.delete = Eliminar estrategia
+fundraiser.strategy.form.button.manage-tactics = Gestionar tácticas
+
+fundraiser.strategy.form.title.create = Registrar nueva estrategia
+fundraiser.strategy.form.title.update = Editando mi estrategia
+fundraiser.strategy.form.title.show = Detalles de la estrategia
+
+fundraiser.strategy.form.placeholder.date = dd/mm/aaaa hh:mm
+fundraiser.strategy.form.error.no-tactics = Esta estrategia necesita al menos una táctica para publicarse
+acme.validation.strategy.ticker.non-unique = Ya existe una estrategia con este ticker. Por favor, introduzca uno diferente
+acme.validation.strategy.future-threshold = La fecha de inicio debe ser en el futuro
+acme.validation.strategy.invalid-interval = La fecha de finalización debe ser posterior a la de inicio
+acme.validation.strategy.no-tactics = Esta estrategia necesita al menos una táctica para publicarse
+fundraiser.strategy.form.error.date-incorrect = Fechas no válidas: asegúrese de que el formato es correcto, la fecha de fin es posterior a la de inicio y la fecha de inicio no puede ser previa a la actual

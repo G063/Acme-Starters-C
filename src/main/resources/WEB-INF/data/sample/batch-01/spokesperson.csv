@@ -1,4 +1,31 @@
 key,key:userAccount,cv,achievements,licensed
-spokesperson-01,user-account-spokesperson-01,"Senior public spokesperson. Contact: +34-600-123-456. Portfolio: https://press.acme.example/profile/001","Led 12 campaigns with measurable conversion impact and compliant messaging.",true
-spokesperson-02,user-account-spokesperson-02,"Perfil multilingüe: العربية 中文 ไทย. username_min=a; username_max=spokesperson_user_with_extremely_long_identifier_abcdefghijklmnopqrstuvwxyz_0123456789; email_valid=spokesperson2@acme.com; name_special=Anne-Marie O'Neil #42","Very long profile text with symbols !@#$%^&*()_+-=[]{}|;:,.<>/? and unicode 之乎路可良 ᏥᏲᏎᎭ אבטיח to test sanitisation boundaries.",true
-spokesperson-03,user-account-spokesperson-03,"Security test payloads: email_invalid=spokesperson3@@acme..com; phone_invalid=12-ABCD-!@#; xss=<script>alert('x')</script>; sql=' OR '1'='1","No associated campaigns or milestones by design. Record intentionally includes hostile strings for validation tests.",false
+# base
+spokesperson-01,user-account-spokesperson-01, "Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",True
+# cv
+spokesperson-02,user-account-spokesperson-02, L,"Lorem ipsum dolor sit amet, consectetur adipiscing",True
+spokesperson-03,user-account-spokesperson-03, Lo,"Lorem ipsum dolor sit amet, consectetur adipiscing",True
+spokesperson-04,user-account-spokesperson-04, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod te","Lorem ipsum dolor sit amet, consectetur adipiscing",True
+spokesperson-05,user-account-spokesperson-05, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tem","Lorem ipsum dolor sit amet, consectetur adipiscing",True
+# cv - non-latin
+spokesperson-06,user-account-spokesperson-06, โลเร็ม อิปซัม,"Lorem ipsum dolor sit amet, consectetur adipiscing",True
+spokesperson-07,user-account-spokesperson-07, لوريم إيبسوم,"Lorem ipsum dolor sit amet, consectetur adipiscing",True
+spokesperson-08,user-account-spokesperson-08, 洛伦·伊普森,"Lorem ipsum dolor sit amet, consectetur adipiscing",True
+# cv - injection
+spokesperson-09,user-account-spokesperson-09, <marquee>Hacked</marquee>,"Lorem ipsum dolor sit amet, consectetur adipiscing",True
+spokesperson-10,user-account-spokesperson-10, <script>alert(‘Hacked!’);</script>,"Lorem ipsum dolor sit amet, consectetur adipiscing",True
+spokesperson-11,user-account-spokesperson-11, or 'A' = 'A,"Lorem ipsum dolor sit amet, consectetur adipiscing",True
+# achievements  
+spokesperson-12,user-account-spokesperson-12, "Lorem ipsum dolor sit amet, consectetur adipiscing","L",True
+spokesperson-13,user-account-spokesperson-13, "Lorem ipsum dolor sit amet, consectetur adipiscing","Lo",True
+spokesperson-14,user-account-spokesperson-14, "Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",True
+spokesperson-15,user-account-spokesperson-15, "Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",True
+# achievements - non-latin
+spokesperson-16,user-account-spokesperson-16, "Lorem ipsum dolor sit amet, consectetur adipiscing","โลเร็ม อิปซัม",True
+spokesperson-17,user-account-spokesperson-17, "Lorem ipsum dolor sit amet, consectetur adipiscing","لوريم إيبسوم",True
+spokesperson-18,user-account-spokesperson-18, "Lorem ipsum dolor sit amet, consectetur adipiscing","洛伦·伊普森",True
+# achievements - injection
+spokesperson-19,user-account-spokesperson-19, "Lorem ipsum dolor sit amet, consectetur adipiscing","<marquee>Hacked</marquee>",True
+spokesperson-20,user-account-spokesperson-20, "Lorem ipsum dolor sit amet, consectetur adipiscing","<script>alert(‘Hacked!’);</script>",True
+spokesperson-21,user-account-spokesperson-21, "Lorem ipsum dolor sit amet, consectetur adipiscing","or 'A' = 'A",True
+# licensed
+spokesperson-22,user-account-spokesperson-22, "Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",False

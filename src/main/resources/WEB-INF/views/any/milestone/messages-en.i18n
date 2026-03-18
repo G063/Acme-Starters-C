@@ -1,0 +1,12 @@
+any.milestone.list.label.title = Title
+any.milestone.list.label.achievement = Achievement
+any.milestone.list.label.kind = Type
+any.milestone.list.label.effort = Effort
+
+any.milestone.label.title = Title
+any.milestone.label.achievement = Achievements
+any.milestone.label.effort = Effort
+any.milestone.label.kind = Type
+
+any.milestone.list.title = Milestone List
+any.milestone.form.title = Milestone Details

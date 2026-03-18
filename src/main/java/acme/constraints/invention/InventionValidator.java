@@ -2,62 +2,76 @@
 package acme.constraints.invention;
 
 import java.util.Collection;
-import java.util.Date;
 
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
-import acme.client.components.validation.Validator;
 import acme.client.helpers.MomentHelper;
 import acme.entities.invention.Invention;
 import acme.entities.invention.InventionRepository;
 import acme.entities.invention.Part;
 
-@Validator
 public class InventionValidator extends AbstractValidator<ValidInvention, Invention> {
+
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private InventionRepository inventionRepo;
 
+	// ConstraintValidator interface ------------------------------------------
+
 
 	@Override
-	protected void initialise(final ValidInvention constraintAnnotation) {
-		assert constraintAnnotation != null;
+	protected void initialise(final ValidInvention annotation) {
+		assert annotation != null;
 	}
 
 	@Override
-	public boolean isValid(final Invention entity, final ConstraintValidatorContext cvc) {
-		assert cvc != null;
+	public boolean isValid(final Invention value, final ConstraintValidatorContext context) {
+		assert context != null;
 
-		if (entity == null)
-			return true;
+		boolean result = true;
 
-		final Invention inv = this.inventionRepo.findInventionByTicker(entity.getTicker());
-		final boolean isSameInvention = inv != null && inv.equals(entity);
+		if (value == null)
+			return result;
 
-		super.state(cvc, isSameInvention, "ticker", "acme.validation.invention.ticker.non-unique");
+		final boolean published = value.getDraftMode() != null && !value.getDraftMode();
+		final int id = value.getId();
 
-		if (entity.getDraftMode() != null && !entity.getDraftMode()) {
-			final Collection<Part> linkedParts = this.inventionRepo.findPartsByInventionId(entity.getId());
-			final boolean containsItems = linkedParts != null && !linkedParts.isEmpty();
-
-			super.state(cvc, containsItems, "draftMode", "acme.validation.invention.parts.message");
+		if (value.getTicker() != null) {
+			final Invention inv = this.inventionRepo.findInventionByTicker(value.getTicker());
+			final boolean isUnique = inv == null || inv.getId() == id;
+			if (!isUnique) {
+				super.state(context, false, "ticker", "acme.validation.invention.ticker.non-unique");
+				result = false;
+			}
 		}
 
-		final Date currentTime = MomentHelper.getBaseMoment();
-		final Date beginDate = entity.getStartMoment();
-		final Date finishDate = entity.getEndMoment();
+		if (published)
+			if (id != 0) {
+				final Collection<Part> linkedParts = this.inventionRepo.findPartsByInventionId(id);
+				final boolean containsItems = linkedParts != null && !linkedParts.isEmpty();
+				if (!containsItems) {
+					super.state(context, false, "draftMode", "acme.validation.invention.parts.message");
+					result = false;
+				}
+			} else {
+				super.state(context, false, "draftMode", "acme.validation.invention.parts.message");
+				result = false;
+			}
 
-		if (beginDate == null || finishDate == null)
-			super.state(cvc, false, "startMoment", "acme.validation.invention.dates.message");
-		else {
-			final boolean chronologyOk = !beginDate.before(currentTime) && finishDate.after(beginDate);
-			final boolean isSchemaValid = entity.getDraftMode() || chronologyOk;
-			super.state(cvc, isSchemaValid, "startMoment", "acme.validation.invention.dates.message");
+		boolean validInterval;
+		if (value.getStartMoment() != null && value.getEndMoment() != null) {
+			validInterval = MomentHelper.isBefore(value.getStartMoment(), value.getEndMoment());
+
+			if (!validInterval) {
+				super.state(context, false, "*", "acme.validation.invention.invalid-interval.message");
+				result = false;
+			}
 		}
 
-		return !super.hasErrors(cvc);
+		return result;
 	}
 }

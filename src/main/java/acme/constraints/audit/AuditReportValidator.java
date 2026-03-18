@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.client.helpers.MomentHelper;
-import acme.entities.AuditReport;
-import acme.entities.AuditReportRepository;
+import acme.entities.audits.AuditReport;
+import acme.entities.audits.AuditReportRepository;
 
 @Validator
 public class AuditReportValidator extends AbstractValidator<ValidAuditReport, AuditReport> {
@@ -40,14 +40,14 @@ public class AuditReportValidator extends AbstractValidator<ValidAuditReport, Au
 			Integer auditSectionCount = this.repository.countAuditSections(auditReport.getId());
 			boolean hasAuditSections = auditSectionCount != null && auditSectionCount >= 1;
 			super.state(context, hasAuditSections, "draftMode", "acme.validation.auditReport.auditSection.error");
+
+			Date now = MomentHelper.getBaseMoment();
+			Date start = auditReport.getStartMoment();
+			Date end = auditReport.getEndMoment();
+
+			boolean validDates = start != null && end != null && !start.before(now) && !end.before(start);
+			super.state(context, validDates, "startMoment", "acme.validation.auditReport.dates.error");
 		}
-
-		Date now = MomentHelper.getBaseMoment();
-		Date start = auditReport.getStartMoment();
-		Date end = auditReport.getEndMoment();
-
-		boolean validDates = start != null && end != null && !start.before(now) && end.after(start);
-		super.state(context, validDates, "startMoment", "acme.validation.auditReport.dates.error");
 		return !super.hasErrors(context);
 	}
 }

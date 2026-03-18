@@ -1,0 +1,60 @@
+key,name,notes,expectedPercentage,kind,key:strategy
+# base entity - all empty
+tactic-00,,,,,
+# name - empty or invalid
+tactic-01,,Notas validas,50.0,SUBTLE,strategy-01
+tactic-02,"Tactica muy larga con muchos caracteres repetidos aaaaaaa bbbbbbbb cccccccc dddddddd eeeeeeee ffffffff gggggggg hhhhhhhh iiiiiiii jjjjjjjj kkkkkkkk llllllll mmmmmmm",Notas validas,50.0,AGGRESSIVE,strategy-02
+tactic-03,"Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",Notas validas,50.0,TENDER,strategy-03
+# notes - empty or invalid
+tactic-04,Tactica valida,,50.0,SUBTLE,strategy-04
+tactic-05,Tactica valida,"Lorem ipsum dolor sit amet consectetur adipiscing elit Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in repx",50.0,AGGRESSIVE,strategy-05
+# expectedPercentage - empty, negative, or out of range
+tactic-06,Tactica valida,Notas validas,,SUBTLE,strategy-06
+tactic-07,Tactica valida,Notas validas,-0.01,AGGRESSIVE,strategy-07
+tactic-08,Tactica valida,Notas validas,-1.00,TENDER,strategy-08
+tactic-09,Tactica valida,Notas validas,-99.99,SUBTLE,strategy-09
+tactic-10,Tactica valida,Notas validas,0.01,AGGRESSIVE,strategy-10
+tactic-11,Tactica valida,Notas validas,100.01,TENDER,strategy-01
+tactic-12,Tactica valida,Notas validas,100.1,SUBTLE,strategy-02
+tactic-13,Tactica valida,Notas validas,999.99,AGGRESSIVE,strategy-03
+tactic-14,Tactica valida,Notas validas,50.123,TENDER,strategy-04
+tactic-15,Tactica valida,Notas validas,50.126,SUBTLE,strategy-05
+# kind - empty enum value
+tactic-18,Tactica valida,Notas validas,50.0,,strategy-08
+# key:strategy - empty reference
+tactic-26,Tactica valida,Notas validas,50.0,SUBTLE,
+# Name with potential injection attempts
+tactic-30,"<marquee>Hacked</marquee>",Notas validas,50.0,AGGRESSIVE,strategy-06
+tactic-31,"<script>alert('Hacked!');</script>",Notas validas,50.0,TENDER,strategy-07
+tactic-32,"' or 'A' = 'A",Notas validas,50.0,SUBTLE,strategy-08
+# Notes with potential injection attempts
+tactic-33,Tactica valida,"<marquee>Hacked</marquee>",50.0,AGGRESSIVE,strategy-09
+tactic-34,Tactica valida,"<script>alert('Hacked!');</script>",50.0,TENDER,strategy-10
+tactic-35,Tactica valida,"'' or 'A' = 'A",50.0,SUBTLE,strategy-01
+# Escape sequences and special characters
+tactic-36,"Tactica\n",Notas validas,50.0,AGGRESSIVE,strategy-02
+tactic-37,Tactica valida,"Notas\n",50.0,TENDER,strategy-03
+tactic-38,"Tactica\t",Notas validas,50.0,SUBTLE,strategy-04
+# Edge cases with percentages
+tactic-43,Tactica valida,Notas validas,-100.00,AGGRESSIVE,strategy-05
+tactic-44,Tactica valida,Notas validas,100.00001,TENDER,strategy-06
+tactic-45,Tactica valida,Notas validas,0.009,SUBTLE,strategy-07
+tactic-46,Tactica valida,Notas validas,100.009,AGGRESSIVE,strategy-08
+# Unicode and special characters in name/notes
+tactic-47,"Tactica\u0000nula",Notas validas,50.0,TENDER,strategy-09
+tactic-48,Tactica valida,"Notas\u0000nulas",50.0,SUBTLE,strategy-10
+tactic-49,"Tactica_ábcde",Notas validas,50.0,AGGRESSIVE,strategy-01
+tactic-50,"Tactica_αβγδ",Notas validas,50.0,TENDER,strategy-02
+tactic-51,Tactica valida,"Notas_日本",50.0,SUBTLE,strategy-03
+# Boundary percentage values with invalid formats
+tactic-52,Tactica valida,Notas validas,0.0000,AGGRESSIVE,strategy-04
+tactic-53,Tactica valida,Notas validas,100.0000,TENDER,strategy-05
+tactic-56,Tactica valida,Notas validas,+50.0,TENDER,strategy-08
+# Percentage edge cases just outside valid range
+tactic-58,Tactica valida,Notas validas,-0.001,AGGRESSIVE,strategy-10
+tactic-59,Tactica valida,Notas validas,100.001,TENDER,strategy-01
+# Duplicate strategy references with other errors
+tactic-60,Tactica valida,Notas validas,50.0,SUBTLE,strategy-01
+tactic-61,Tactica valida,Notas validas,50.0,SUBTLE,strategy-01
+# Name and notes exactly at boundary (255 chars)
+tactic-62,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",50.0,AGGRESSIVE,strategy-02

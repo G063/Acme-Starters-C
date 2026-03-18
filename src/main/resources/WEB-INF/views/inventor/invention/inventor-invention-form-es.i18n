@@ -1,0 +1,27 @@
+inventor.invention.form.title = Gestión de mi invento
+inventor.invention.form.label.ticker = Ticker
+inventor.invention.form.label.name = Nombre
+inventor.invention.form.label.description = Descripción
+inventor.invention.form.label.start-moment = Momento de inicio
+inventor.invention.form.label.end-moment = Momento de finalización
+inventor.invention.form.label.cost = Coste
+inventor.invention.form.label.months = Meses activo
+inventor.invention.form.label.more-info = Más información (URL)
+
+inventor.invention.form.button.create = Crear invento
+inventor.invention.form.button.update = Guardar cambios
+inventor.invention.form.button.publish = Publicar invento
+inventor.invention.form.button.delete = Eliminar invento
+inventor.invention.form.button.manage-parts = Gestionar piezas
+inventor.invention.button.save = Guardar asignación
+inventor.invention.form.button.navigate = Editar invento
+
+inventor.invention.form.title.create = Registrar nuevo invento
+inventor.invention.form.title.update = Editando mi invento
+inventor.invention.form.title.assign = Asignar piezas al invento
+inventor.invention.form.title.show = Detalles del invento
+
+# Formatos y placeholders para España
+inventor.invention.form.placeholder.date = dd/mm/aaaa hh:mm
+inventor.invention.form.error.invalid-sequence = La fecha de fin debe ser posterior a la de inicio
+inventor.invention.form.error.ticker-duplicated = Este ticker ya está registrado en otra invención

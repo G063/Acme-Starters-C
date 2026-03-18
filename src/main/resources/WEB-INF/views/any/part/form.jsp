@@ -14,5 +14,4 @@
 
 	<acme:form-textbox code="any.part.label.invention.ticker" path="invention.ticker" readonly="true"/>
 
-	<acme:return/>
 </acme:form>

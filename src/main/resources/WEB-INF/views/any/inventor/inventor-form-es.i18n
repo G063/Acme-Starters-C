@@ -1,0 +1,8 @@
+any.inventor.form.label.name = Nombre
+any.inventor.form.label.surname = Apellidos
+any.inventor.form.label.email = Correo electrónico
+any.inventor.form.label.bio = Biografía
+any.inventor.form.label.keyWords = Palabras clave
+any.inventor.form.label.licensed = Licenciado
+any.inventor.form.button.invention = Volver a la invención
+any.inventor.form.title = Detalles del inventor

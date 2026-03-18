@@ -8,5 +8,3 @@
     <acme:list-column code="any.part.list.label.kind" path="kind" width="15%"/>
     <acme:list-column code="any.part.list.label.description" path="description" width="45%"/>
 </acme:list>
-
-<acme:return/>

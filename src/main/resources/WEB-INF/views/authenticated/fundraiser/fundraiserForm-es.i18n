@@ -1,0 +1,5 @@
+authenticated.fundraiser.form.title = Perfil de Fundraiser
+authenticated.fundraiser.label.bank = Cuenta bancaria
+authenticated.fundraiser.label.statement = Declaración
+authenticated.fundraiser.label.agent = ¿Es un agente?
+authenticated.fundraiser.button.save = Guardar
