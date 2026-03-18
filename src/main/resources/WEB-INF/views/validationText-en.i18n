@@ -7,6 +7,6 @@ acme.validation.invention.parts.message=Inventions cannot be published unless th
 acme.validation.invention.dates.message=Start and end moments must be a valid time interval in the future
 acme.validation.part.cost.currency=Only Euros are accepted
 acme.validation.campaign.invalid-interval.message=Start and end moments must form a valid interval
-acme.validation.campaign.future-dates.message=When publishing, the start moment must be in the present or future
+acme.validation.campaign.future-dates.message=When publishing, the start moment must be in the future
 acme.validation.campaign.ticker.non-unique=The ticker must be unique
 acme.validation.campaign.no-milestones=Campaigns cannot be published unless they have at least one milestone

@@ -30,7 +30,6 @@
 	<jstl:if test="${!isCreate}">
 		<acme:form-textbox code="spokesperson.campaign.form.label.monthsActive" path="monthsActive" readonly="true"/>
 		<acme:form-textbox code="spokesperson.campaign.form.label.effort" path="effort" readonly="true"/>
-		<acme:form-textbox code="spokesperson.campaign.form.label.draftMode" path="draftMode" readonly="true"/>
 	</jstl:if>
 
 	<jstl:if test="${!isCreate}">
