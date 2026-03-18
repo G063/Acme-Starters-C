@@ -22,8 +22,12 @@ public class InventorInventionPublishService extends AbstractService<Inventor, I
 
 	@Override
 	public void load() {
-		int id = this.getRequest().getData("id", int.class);
-		this.invention = this.repository.findOneInventionById(id);
+		Integer id = this.getRequest().getData("id", Integer.class);
+
+		if (id != null)
+			this.invention = this.repository.findOneInventionById(id);
+		else
+			this.invention = null;
 	}
 
 	@Override
@@ -41,7 +45,7 @@ public class InventorInventionPublishService extends AbstractService<Inventor, I
 
 	@Override
 	public void bind() {
-		super.bindObject(this.invention);
+		super.bindObject(this.invention, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 	}
 
 	@Override

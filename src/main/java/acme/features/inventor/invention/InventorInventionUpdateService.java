@@ -1,8 +1,6 @@
 
 package acme.features.inventor.invention;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +19,12 @@ public class InventorInventionUpdateService extends AbstractService<Inventor, In
 
 	@Override
 	public void load() {
-		int id = this.getRequest().getData("id", int.class);
-		this.invention = this.repository.findOneInventionById(id);
+		Integer id = this.getRequest().getData("id", Integer.class);
+
+		if (id != null)
+			this.invention = this.repository.findOneInventionById(id);
+		else
+			this.invention = null;
 	}
 
 	@Override
@@ -44,11 +46,7 @@ public class InventorInventionUpdateService extends AbstractService<Inventor, In
 	}
 	@Override
 	public void bind() {
-		super.bindObject(this.invention, "ticker", "name", "description", "moreInfo");
-		Date start = this.getRequest().getData("startMoment", Date.class);
-		Date end = this.getRequest().getData("endMoment", Date.class);
-		this.invention.setStartMoment(start);
-		this.invention.setEndMoment(end);
+		super.bindObject(this.invention, "ticker", "name", "description", "moreInfo", "startMoment", "endMoment");
 	}
 
 	@Override

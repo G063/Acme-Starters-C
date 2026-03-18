@@ -22,14 +22,14 @@ public class InventorPartCreateService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void load() {
-		int inventionId;
-		Invention invention;
-
-		inventionId = super.getRequest().getData("inventionId", int.class);
-		invention = this.repository.findOneInventionById(inventionId);
-
+		Integer inventionId = super.getRequest().getData("inventionId", Integer.class);
+		Invention invention = null;
+		if (inventionId != null)
+			invention = this.repository.findOneInventionById(inventionId);
 		this.part = this.newObject(Part.class);
-		this.part.setInvention(invention);
+
+		if (invention != null)
+			this.part.setInvention(invention);
 	}
 
 	@Override

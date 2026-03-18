@@ -5,17 +5,7 @@
 <jstl:set var="canEdit" value="${_command == 'create' || draftMode}"/>
 <jstl:set var="isReadonly" value="${!canEdit}"/>
 
-<jstl:choose>
-    <jstl:when test="${_command == 'create'}">
-        <jstl:set var="titleCode" value="inventor.invention.form.title.create"/>
-    </jstl:when>
-    <jstl:when test="${_command == 'update'}">
-        <jstl:set var="titleCode" value="inventor.invention.form.title.update"/>
-    </jstl:when>
-    <jstl:otherwise>
-        <jstl:set var="titleCode" value="inventor.invention.form.title.show"/>
-    </jstl:otherwise>
-</jstl:choose>
+<jstl:set var="titleCode" value="inventor.invention.form.title.show"/>
 
 <h3><acme:print code="${titleCode}"/></h3>
 

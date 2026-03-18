@@ -16,25 +16,31 @@ public class AnyInventorShowService extends AbstractService<Any, Inventor> {
 	private AnyInventorRepository	repository;
 
 	private Inventor				inventor;
-	private int						inventionId;
+	private Integer					inventionId;
 
 
 	@Override
 	public void load() {
-		int inventorId = super.getRequest().getData("id", int.class);
-		this.inventionId = super.getRequest().getData("inventionId", int.class);
-		this.inventor = this.repository.findInventorById(inventorId);
+		Integer inventorId = super.getRequest().getData("id", Integer.class);
+		Integer invId = super.getRequest().getData("inventionId", Integer.class);
+		if (inventorId != null)
+			this.inventor = this.repository.findInventorById(inventorId);
+		else
+			this.inventor = null;
+
+		this.inventionId = invId;
 	}
 
 	@Override
 	public void authorise() {
-		int inventorId = super.getRequest().getData("id", int.class);
-		int invId = super.getRequest().getData("inventionId", int.class);
+		if (this.inventor == null || this.inventionId == null) {
+			super.setAuthorised(false);
+			return;
+		}
+		int id = this.inventor.getId();
+		Long count = this.repository.countPublishedInventionByInventor(this.inventionId, id);
 
-		Long count = this.repository.countPublishedInventionByInventor(invId, inventorId);
-		boolean status = count != null && count > 0;
-
-		super.setAuthorised(status);
+		super.setAuthorised(count != null && count > 0);
 	}
 
 	@Override

@@ -26,17 +26,22 @@ public class InventorPartUpdateService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void load() {
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		this.part = this.repository.findPartById(id);
+		Integer id = super.getRequest().getData("id", Integer.class);
+
+		if (id != null)
+			this.part = this.repository.findPartById(id);
+		else
+			this.part = null;
 	}
 
 	@Override
 	public void authorise() {
 		boolean status = false;
+
 		if (this.part != null) {
 			boolean isDraft = this.part.getInvention().getDraftMode();
 			boolean isOwner = this.part.getInvention().getInventor().isPrincipal();
+
 			status = isDraft && isOwner;
 		}
 

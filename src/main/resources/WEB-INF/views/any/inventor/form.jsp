@@ -12,6 +12,4 @@
     <acme:form-textarea code="any.inventor.form.label.bio" path="bio" readonly="true"/>
     <acme:form-textbox code="any.inventor.form.label.keyWords" path="keyWords" readonly="true"/>
     <acme:form-checkbox code="any.inventor.form.label.licensed" path="licensed" readonly="true"/>
-
-    <acme:button code="any.inventor.form.button.invention" action="/any/invention/show?id=${inventionId}"/>
 </acme:form>

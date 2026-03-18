@@ -1,6 +1,7 @@
 
 package acme.features.inventor.part;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,13 @@ public class InventorPartListService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void load() {
-		int inventionId = this.getRequest().getData("inventionId", int.class);
+		Integer inventionId = this.getRequest().getData("inventionId", Integer.class);
 
-		this.parts = this.repository.findPartsByInventionId(inventionId);
-
-		this.getResponse().addGlobal("inventionId", inventionId);
+		if (inventionId != null) {
+			this.parts = this.repository.findPartsByInventionId(inventionId);
+			this.getResponse().addGlobal("inventionId", inventionId);
+		} else
+			this.parts = new ArrayList<>();
 	}
 
 	@Override
@@ -36,16 +39,21 @@ public class InventorPartListService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void authorise() {
+		Integer inventionId = this.getRequest().getData("inventionId", Integer.class);
 		boolean result = false;
-		int inventionId = super.getRequest().getData("inventionId", int.class);
-		Invention inv = this.repository.findOneInventionById(inventionId);
 
-		if (inv != null) {
-			int activeInventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			result = inv.getInventor().getId() == activeInventorId;
+		if (inventionId != null) {
+			Invention inv = this.repository.findOneInventionById(inventionId);
+
+			if (inv != null) {
+				int activeInventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
+				boolean isOwner = inv.getInventor().getId() == activeInventorId;
+				boolean isDraft = inv.getDraftMode();
+
+				result = isOwner && isDraft;
+			}
 		}
-
-		super.setAuthorised(result && inv.getDraftMode());
+		super.setAuthorised(result);
 	}
 
 }
