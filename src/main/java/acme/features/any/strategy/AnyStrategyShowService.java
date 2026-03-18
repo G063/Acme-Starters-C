@@ -19,9 +19,7 @@ public class AnyStrategyShowService extends AbstractService<Any, Strategy> {
 
 	@Override
 	public void load() {
-		int id;
-
-		id = super.getRequest().getData("id", int.class);
+		int id = super.getRequest().getData("id", int.class);
 		this.strategy = this.repository.findStrategyById(id);
 	}
 
@@ -32,10 +30,13 @@ public class AnyStrategyShowService extends AbstractService<Any, Strategy> {
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.strategy, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "fundraiser.userAccount.identity.name", "fundraiser.userAccount.identity.surname", "fundraiser.userAccount.identity.email",
-			"fundraiser.bank", "fundraiser.statement");
+		if (this.strategy != null) {
+			super.unbindObject(this.strategy, "id", "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 
-		super.unbindGlobal("monthsActive", this.strategy.getMonthsActive());
-		super.unbindGlobal("expectedPercentage", this.strategy.getExpectedPercentage());
+			super.unbindGlobal("monthsActive", this.strategy.getMonthsActive());
+			super.unbindGlobal("expectedPercentage", this.strategy.getExpectedPercentage());
+
+			super.getResponse().addGlobal("fundraiserId", this.strategy.getFundraiser().getId());
+		}
 	}
 }

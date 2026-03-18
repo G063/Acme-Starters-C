@@ -20,27 +20,25 @@ public class FundraiserTacticUpdateService extends AbstractService<Fundraiser, T
 
 
 	@Override
-	public void authorise() {
-		boolean status;
-		status = super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
-
-		final int id = super.getRequest().getData("id", int.class);
-		this.tactic = this.repository.findOneTacticById(id);
-
-		boolean result = false;
-		if (this.tactic != null) {
-			final int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
-			final boolean isOwner = this.tactic.getStrategy().getFundraiser().getId() == fundraiserId;
-			final boolean isDraft = this.tactic.getStrategy().getDraftMode();
-			result = isOwner && isDraft && status;
-		}
-		super.setAuthorised(result);
-	}
-
-	@Override
 	public void load() {
 		final int id = super.getRequest().getData("id", int.class);
 		this.tactic = this.repository.findOneTacticById(id);
+	}
+
+	@Override
+	public void authorise() {
+		final boolean hasPrincipal = super.getRequest().getPrincipal() != null;
+		final boolean status = hasPrincipal && super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
+		boolean result = false;
+
+		if (status && this.tactic != null) {
+			final int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			final boolean isOwner = this.tactic.getStrategy().getFundraiser().getId() == fundraiserId;
+			final boolean isDraft = this.tactic.getStrategy().getDraftMode();
+			result = isOwner && isDraft;
+		}
+
+		super.setAuthorised(result);
 	}
 
 	@Override
@@ -62,18 +60,20 @@ public class FundraiserTacticUpdateService extends AbstractService<Fundraiser, T
 	}
 
 	@Override
-	public void unbind() {
-		Tuple tuple;
-		SelectChoices choices;
-
-		choices = SelectChoices.from(TacticKind.class, this.tactic.getKind());
-		tuple = super.unbindObject(this.tactic, "name", "notes", "expectedPercentage", "kind");
-		tuple.put("kinds", choices);
-		tuple.put("strategyId", this.tactic.getStrategy().getId());
+	public void execute() {
+		this.repository.save(this.tactic);
 	}
 
 	@Override
-	public void execute() {
-		this.repository.save(this.tactic);
+	public void unbind() {
+		if (this.tactic != null) {
+			Tuple tuple;
+			SelectChoices choices;
+
+			choices = SelectChoices.from(TacticKind.class, this.tactic.getKind());
+			tuple = super.unbindObject(this.tactic, "id", "name", "notes", "expectedPercentage", "kind");
+			tuple.put("kinds", choices);
+			tuple.put("strategyId", this.tactic.getStrategy().getId());
+		}
 	}
 }

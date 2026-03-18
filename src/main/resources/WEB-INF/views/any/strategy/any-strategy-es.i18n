@@ -3,4 +3,4 @@ any.strategy.list.label.ticker = Ticker
 any.strategy.list.label.name = Nombre
 any.strategy.list.label.startMoment = Momento de inicio
 any.strategy.list.label.endMoment = Momento de fin
-any.strategy.list.label.fundraiser = Gestor
+any.strategy.list.label.fundraiser = Recaudador

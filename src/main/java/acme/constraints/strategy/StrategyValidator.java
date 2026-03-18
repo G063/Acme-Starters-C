@@ -29,8 +29,20 @@ public class StrategyValidator extends AbstractValidator<ValidStrategy, Strategy
 
 		boolean result = true;
 
+		if (strategy.getTicker() != null) {
+			final Strategy existing = this.repository.findStrategyByTicker(strategy.getTicker());
+
+			final boolean isUnique = existing == null || existing.getId() == strategy.getId();
+
+			super.state(context, isUnique, "ticker", "acme.validation.strategy.ticker.non-unique");
+
+			if (!isUnique)
+				result = false;
+		}
+
 		if (strategy.getStartMoment() != null && strategy.getEndMoment() != null) {
-			boolean intervalValid = MomentHelper.isBefore(strategy.getStartMoment(), strategy.getEndMoment());
+
+			final boolean intervalValid = MomentHelper.isBefore(strategy.getStartMoment(), strategy.getEndMoment());
 
 			super.state(context, intervalValid, "endMoment", "acme.validation.strategy.invalid-interval");
 
@@ -43,8 +55,8 @@ public class StrategyValidator extends AbstractValidator<ValidStrategy, Strategy
 			boolean hasTactics = false;
 
 			if (strategy.getId() != 0) {
-				Integer tacticsCount = this.repository.countTacticsByStrategyId(strategy.getId());
-				hasTactics = tacticsCount != null && tacticsCount > 0L;
+				final Integer tacticsCount = this.repository.countTacticsByStrategyId(strategy.getId());
+				hasTactics = tacticsCount != null && tacticsCount > 0;
 			}
 
 			super.state(context, hasTactics, "draftMode", "acme.validation.strategy.no-tactics");

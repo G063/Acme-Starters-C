@@ -9,5 +9,3 @@
     <acme:list-column code="any.strategy.list.label.endMoment" path="endMoment" width="20%"/>
     <acme:list-column code="any.strategy.list.label.fundraiser" path="fundraiser.userAccount.identity.name" width="20%"/>
 </acme:list>
-
-<acme:return/>

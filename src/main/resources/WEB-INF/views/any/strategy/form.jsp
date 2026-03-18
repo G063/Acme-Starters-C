@@ -11,20 +11,14 @@
     <acme:form-textbox code="any.strategy.label.expectedPercentage" path="expectedPercentage" readonly="true"/>
     <acme:form-textarea code="any.strategy.label.description" path="description" readonly="true"/>
     
-    <jstl:if test="${moreInfo != ''}">
+    <jstl:if test="${moreInfo != null && !moreInfo.isEmpty()}">
         <acme:form-textbox code="any.strategy.label.moreInfo" path="moreInfo" readonly="true"/>
     </jstl:if>
     
     <hr/>
-    
-    <h3><acme:print code="any.strategy.label.fundraiser-profile"/></h3>
-
-    <acme:form-textbox code="any.strategy.label.fundraiser.name" path="fundraiser.userAccount.identity.name" readonly="true"/>
-    <acme:form-textbox code="any.strategy.label.fundraiser.surname" path="fundraiser.userAccount.identity.surname" readonly="true"/>
-    <acme:form-textbox code="any.strategy.label.fundraiser.email" path="fundraiser.userAccount.identity.email" readonly="true"/>
-    <acme:form-textbox code="any.strategy.label.fundraiser.bank" path="fundraiser.bank" readonly="true"/>
-    <acme:form-textarea code="any.strategy.label.fundraiser.statement" path="fundraiser.statement" readonly="true"/>
 
     <acme:button code="any.strategy.button.tactics" action="/any/tactic/list?strategyId=${id}"/>
+    
+    <acme:button code="any.strategy.button.fundraiser" action="/any/fundraiser/show?id=${fundraiserId}&strategyId=${id}"/>
 
 </acme:form>

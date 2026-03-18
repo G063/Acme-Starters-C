@@ -19,11 +19,15 @@ fundraiser.strategy.form.button.update = Save changes
 fundraiser.strategy.form.button.publish = Publish strategy
 fundraiser.strategy.form.button.delete = Delete strategy
 fundraiser.strategy.form.button.manage-tactics = Manage tactics
-fundraiser.strategy.form.button.navigate = Edit strategy
 
 fundraiser.strategy.form.title.create = Register new strategy
 fundraiser.strategy.form.title.update = Editing my strategy
 fundraiser.strategy.form.title.show = Strategy details
 
 fundraiser.strategy.form.placeholder.date = yyyy/mm/dd hh:mm
-fundraiser.strategy.form.error.no-tactics = This strategy needs at least one tactic to be published.
+fundraiser.strategy.form.error.no-tactics = This strategy needs at least one tactic to be published
+acme.validation.strategy.ticker.non-unique = A strategy with this ticker already exists. Please enter a different one
+acme.validation.strategy.future-threshold = The start date must be in the future
+acme.validation.strategy.invalid-interval = The end date must be strictly after the start date
+acme.validation.strategy.no-tactics = This strategy needs at least one tactic to be published
+fundraiser.strategy.form.error.date-incorrect = Invalid dates: please ensure the format is correct and the end date is after the start date, the start date cannot be earlier than the current date

@@ -1,6 +1,7 @@
 
 package acme.features.fundraiser.strategy;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,25 +14,24 @@ import acme.realms.Fundraiser;
 @Service
 public class FundraiserStrategyListService extends AbstractService<Fundraiser, Strategy> {
 
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected FundraiserStrategyRepository	repository;
 	protected Collection<Strategy>			strategies;
 
-	// AbstractService interface ----------------------------------------------
-
 
 	@Override
 	public void load() {
-		int fundraiserId;
-		fundraiserId = this.getRequest().getPrincipal().getActiveRealm().getId();
-		this.strategies = this.repository.findStrategiesByFundraiserId(fundraiserId);
+		if (this.getRequest().getPrincipal() != null && this.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class)) {
+			int fundraiserId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			this.strategies = this.repository.findStrategiesByFundraiserId(fundraiserId);
+		} else
+			this.strategies = new ArrayList<>();
 	}
 
 	@Override
 	public void authorise() {
-		super.setAuthorised(this.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class));
+		final boolean hasPrincipal = super.getRequest().getPrincipal() != null;
+		super.setAuthorised(hasPrincipal && this.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class));
 	}
 
 	@Override

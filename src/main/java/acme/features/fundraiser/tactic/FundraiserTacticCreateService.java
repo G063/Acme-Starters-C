@@ -32,10 +32,16 @@ public class FundraiserTacticCreateService extends AbstractService<Fundraiser, T
 
 	@Override
 	public void authorise() {
-		boolean status = super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
-		int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.strategy != null && this.strategy.getFundraiser().getId() == fundraiserId;
-		boolean isDraft = this.strategy != null && this.strategy.getDraftMode();
+		final boolean hasPrincipal = super.getRequest().getPrincipal() != null;
+		final boolean status = hasPrincipal && super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
+		boolean isOwner = false;
+		boolean isDraft = false;
+
+		if (status && this.strategy != null) {
+			int fundraiserId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.strategy.getFundraiser().getId() == fundraiserId;
+			isDraft = this.strategy.getDraftMode();
+		}
 
 		super.setAuthorised(status && isOwner && isDraft);
 	}
@@ -57,12 +63,14 @@ public class FundraiserTacticCreateService extends AbstractService<Fundraiser, T
 
 	@Override
 	public void unbind() {
-		Tuple tuple;
-		SelectChoices choices;
+		if (this.tactic != null && this.tactic.getStrategy() != null) {
+			Tuple tuple;
+			SelectChoices choices;
 
-		choices = SelectChoices.from(TacticKind.class, this.tactic.getKind());
-		tuple = super.unbindObject(this.tactic, "name", "notes", "expectedPercentage", "kind");
-		tuple.put("kinds", choices);
-		tuple.put("strategyId", this.tactic.getStrategy().getId());
+			choices = SelectChoices.from(TacticKind.class, this.tactic.getKind());
+			tuple = super.unbindObject(this.tactic, "name", "notes", "expectedPercentage", "kind");
+			tuple.put("kinds", choices);
+			tuple.put("strategyId", this.tactic.getStrategy().getId());
+		}
 	}
 }
