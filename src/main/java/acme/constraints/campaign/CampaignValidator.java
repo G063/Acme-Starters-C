@@ -53,6 +53,8 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 			}
 		}
 	    
+		
+		// Ticker unico
 	    final int id = campaign.getId();
 	    
 	    if (campaign.getTicker() != null) {
