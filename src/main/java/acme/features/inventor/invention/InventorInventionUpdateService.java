@@ -1,8 +1,6 @@
 
 package acme.features.inventor.invention;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,34 +19,39 @@ public class InventorInventionUpdateService extends AbstractService<Inventor, In
 
 	@Override
 	public void load() {
-		int id = this.getRequest().getData("id", int.class);
-		this.invention = this.repository.findOneInventionById(id);
+		Integer id = this.getRequest().getData("id", Integer.class);
+
+		if (id != null)
+			this.invention = this.repository.findOneInventionById(id);
+		else
+			this.invention = null;
 	}
 
 	@Override
 	public void authorise() {
-		boolean status;
+		boolean result = false;
+		final boolean isAuthenticated = super.getRequest().getPrincipal() != null;
+		final boolean isInventor = isAuthenticated && super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
 
-		status = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
-		int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.invention != null && this.invention.getInventor().getId() == inventorId;
-		boolean isDraft = this.invention != null && this.invention.getDraftMode();
+		if (isInventor && this.invention != null) {
+			final int activeInventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
+			final int ownerId = this.invention.getInventor().getId();
+			final boolean isOwner = activeInventorId == ownerId;
+			final boolean isDraft = this.invention.getDraftMode();
 
-		super.setAuthorised(isOwner && isDraft && status);
+			result = isOwner && isDraft;
+		}
+
+		super.setAuthorised(result);
 	}
-
 	@Override
 	public void bind() {
-		super.bindObject(this.invention, "ticker", "name", "description", "moreInfo");
-		Date start = this.getRequest().getData("startMoment", Date.class);
-		Date end = this.getRequest().getData("endMoment", Date.class);
-		this.invention.setStartMoment(start);
-		this.invention.setEndMoment(end);
+		super.bindObject(this.invention, "ticker", "name", "description", "moreInfo", "startMoment", "endMoment");
 	}
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.invention, "id", "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
+		super.unbindObject(this.invention, "id", "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode", "cost", "monthsActive");
 	}
 
 	@Override

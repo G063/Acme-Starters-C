@@ -10,3 +10,6 @@ acme.validation.campaign.invalid-interval.message=Start and end moments must for
 acme.validation.campaign.future-dates.message=When publishing, the start moment must be in the future
 acme.validation.campaign.ticker.non-unique=The ticker must be unique
 acme.validation.campaign.no-milestones=Campaigns cannot be published unless they have at least one milestone
+inventor.invention.form.error.date-incorrect = The start date must be in the future
+inventor.invention.form.error.no-parts = Cannot publish an invention without any associated parts
+acme.validation.invention.invalid-interval.message = The date interval is invalid: the start date must be before the end date

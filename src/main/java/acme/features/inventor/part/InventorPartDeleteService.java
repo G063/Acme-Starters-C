@@ -19,30 +19,33 @@ public class InventorPartDeleteService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void load() {
-		int id = this.getRequest().getData("id", int.class);
-		this.part = this.repository.findPartById(id);
+		Integer id = this.getRequest().getData("id", Integer.class);
+
+		if (id != null)
+			this.part = this.repository.findPartById(id);
+		else
+			this.part = null;
 	}
 
 	@Override
 	public void authorise() {
 		boolean isInventor = this.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
-
-		int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
-		boolean isOwner = this.part != null && this.part.getInvention().getInventor().getId() == inventorId;
-
-		boolean isDraft = this.part != null && this.part.getInvention().getDraftMode();
-
+		boolean isOwner = false;
+		boolean isDraft = false;
+		if (this.part != null) {
+			int inventorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.part.getInvention().getInventor().getId() == inventorId;
+			isDraft = this.part.getInvention().getDraftMode();
+		}
 		super.setAuthorised(isInventor && isOwner && isDraft);
 	}
 
 	@Override
 	public void bind() {
-		super.bindObject(this.part, "name", "description", "cost", "kind");
 	}
 
 	@Override
 	public void validate() {
-		super.validateObject(this.part);
 	}
 
 	@Override
@@ -53,7 +56,5 @@ public class InventorPartDeleteService extends AbstractService<Inventor, Part> {
 	@Override
 	public void execute() {
 		this.repository.delete(this.part);
-
-		super.getResponse().setView("redirect:/authenticated/inventor/part/list?inventionId=" + this.part.getInvention().getId());
 	}
 }

@@ -20,16 +20,27 @@ public class InventorPartShowService extends AbstractService<Inventor, Part> {
 
 	@Override
 	public void load() {
-		int id;
-		id = super.getRequest().getData("id", int.class);
-		this.part = this.repository.findPartById(id);
+		Integer id;
+		id = super.getRequest().getData("id", Integer.class);
+
+		if (id != null)
+			this.part = this.repository.findPartById(id);
+		else
+			this.part = null;
 	}
 
 	@Override
 	public void authorise() {
 		boolean isInventor = super.getRequest().getPrincipal().hasRealmOfType(Inventor.class);
+		boolean isOwner = false;
+		if (this.part != null) {
+			int currentInventorId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		super.setAuthorised(isInventor);
+			int ownerId = this.part.getInvention().getInventor().getId();
+			isOwner = currentInventorId == ownerId;
+		}
+
+		super.setAuthorised(isInventor && isOwner);
 	}
 
 	@Override
