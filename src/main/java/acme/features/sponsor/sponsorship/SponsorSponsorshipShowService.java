@@ -24,23 +24,26 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		this.sponsorship = this.repository.findSponsorshipById(id);
+		this.sponsorship = (Integer) id != null ? this.repository.findSponsorshipById(id) : null;
 	}
 
 	@Override
 	public void authorise() {
 		int sponsorId;
 		boolean isOwner;
+		boolean exists;
+
+		exists = this.sponsorship != null;
 
 		if (this.getRequest().getPrincipal() == null || !this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class))
 			isOwner = false;
 		else {
 			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
 
-			isOwner = this.sponsorship != null && this.sponsorship.getSponsor().getId() == sponsorId;
-		}
+			isOwner = this.sponsorship != null && this.sponsorship.getSponsor() != null && this.sponsorship.getSponsor().getId() == sponsorId;
 
-		super.setAuthorised(isOwner);
+		}
+		super.setAuthorised(isOwner && exists);
 	}
 
 	@Override
@@ -49,7 +52,7 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 
 		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
 
-		tuple.put("monsthsActive", this.sponsorship.getMonthsActive());
+		tuple.put("monthsActive", this.sponsorship.getMonthsActive());
 		tuple.put("totalMoney", this.sponsorship.getTotalMoney());
 		tuple.put("draftModes", this.getDraftModeChoices(this.sponsorship.getDraftMode()));
 	}

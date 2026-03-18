@@ -18,6 +18,8 @@ sponsor.donation.form.button.create = Create
 sponsor.donation.form.button.update = Update
 sponsor.donation.form.button.delete = Delete
 
+sponsor.donation.error.not-found = The selected donation or sponsorship no longer exists or is not accessible
+
 ALTRUIST = Altruist
 REWARDED = Rewarded
 CELEBRATED = Celebrated

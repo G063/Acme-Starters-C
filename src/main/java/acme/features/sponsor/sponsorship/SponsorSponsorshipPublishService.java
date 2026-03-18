@@ -1,11 +1,14 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.components.models.Tuple;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorship.Sponsorship;
 import acme.realms.Sponsor;
@@ -29,28 +32,44 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 	@Override
 	public void authorise() {
-		int sponsorId;
+		boolean status;
+		boolean isSponsor;
 		boolean isOwner;
 		boolean isDraft;
+		int sponsorId;
 
-		sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+		isSponsor = this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class);
+		if (!isSponsor || this.sponsorship == null)
+			status = false;
+		else {
+			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.sponsorship.getSponsor() != null && this.sponsorship.getSponsor().getId() == sponsorId;
+			isDraft = Boolean.TRUE.equals(this.sponsorship.getDraftMode());
+			status = isOwner && isDraft;
+		}
 
-		isOwner = this.sponsorship != null && this.sponsorship.getSponsor().getId() == sponsorId;
-
-		isDraft = this.sponsorship != null && this.sponsorship.getDraftMode();
-
-		super.setAuthorised(isOwner && isDraft);
+		super.setAuthorised(status);
 	}
 
 	@Override
 	public void bind() {
-		super.bindObject(this.sponsorship);
+		super.bindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 	}
 
 	@Override
 	public void validate() {
-		this.sponsorship.setDraftMode(false);
-		super.validateObject(this.sponsorship);
+		Date baseMoment = MomentHelper.getBaseMoment();
+		Date startMoment;
+		boolean validStartMoment;
+
+		super.state(this.sponsorship != null, "*", "sponsor.sponsorship.error.not-found");
+		if (this.sponsorship != null) {
+			startMoment = this.sponsorship.getStartMoment();
+			validStartMoment = startMoment != null && MomentHelper.isAfter(startMoment, baseMoment);
+			super.state(validStartMoment, "*", "acme.validation.sponsorship.past-moment.message");
+			super.validateObject(this.sponsorship);
+		}
+
 	}
 
 	@Override
@@ -58,14 +77,14 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		this.sponsorship.setDraftMode(false);
 		this.repository.save(this.sponsorship);
 
-		super.getResponse().setView("redirect:/sponsor/sponsorship/list");
+		super.getResponse().setView("redirect:/sponsor/sponsorship/show?id=" + this.sponsorship.getId());
 	}
 
 	@Override
 	public void unbind() {
 		Tuple tuple;
 
-		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
+		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 
 		tuple.put("monthsActive", this.sponsorship.getMonthsActive());
 		tuple.put("totalMoney", this.sponsorship.getTotalMoney());

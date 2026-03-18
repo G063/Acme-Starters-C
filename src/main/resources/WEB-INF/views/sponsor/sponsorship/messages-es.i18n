@@ -43,3 +43,5 @@ acme.validation.duplicated-ticker.message = Este ticker ya está en uso
 acme.validation.sponsorship.no-donations.message = Un patrocinio debe tener al menos una donación antes de poder publicarse
 acme.validation.sponsorship.invalid-interval.message = La fecha de inicio debe ser anterior a la fecha de fin
 acme.validation.donation.money.currency.message = Solo se aceptan Euros
+acme.validation.sponsorship.past-moment.message = Las fechas no pueden estar en un intervalo pasado. 
+sponsor.sponsorship.error.not-found = El patrocinio seleccionado ya no existe o no esta accesible

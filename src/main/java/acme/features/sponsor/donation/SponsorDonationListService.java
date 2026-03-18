@@ -32,7 +32,19 @@ public class SponsorDonationListService extends AbstractService<Sponsor, Donatio
 
 	@Override
 	public void authorise() {
-		super.setAuthorised(this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class));
+		boolean status;
+		boolean isSponsor;
+		int sponsorId;
+
+		isSponsor = this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class);
+		if (!isSponsor || this.sponsorship == null)
+			status = false;
+		else {
+			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			status = this.sponsorship.getSponsor() != null && this.sponsorship.getSponsor().getId() == sponsorId;
+		}
+
+		super.setAuthorised(status);
 	}
 
 	@Override

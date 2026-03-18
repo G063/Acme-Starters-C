@@ -30,17 +30,23 @@ public class SponsorSponsorshipDeleteService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void authorise() {
-		int sponsorId;
+		boolean status;
+		boolean isSponsor;
 		boolean isOwner;
 		boolean isDraft;
+		int sponsorId;
 
-		sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+		isSponsor = this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class);
+		if (!isSponsor || this.sponsorship == null)
+			status = false;
+		else {
+			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.sponsorship.getSponsor() != null && this.sponsorship.getSponsor().getId() == sponsorId;
+			isDraft = Boolean.TRUE.equals(this.sponsorship.getDraftMode());
+			status = isOwner && isDraft;
+		}
 
-		isOwner = this.sponsorship != null && this.sponsorship.getSponsor().getId() == sponsorId;
-
-		isDraft = this.sponsorship != null && this.sponsorship.getDraftMode();
-
-		super.setAuthorised(isOwner && isDraft);
+		super.setAuthorised(status);
 
 	}
 

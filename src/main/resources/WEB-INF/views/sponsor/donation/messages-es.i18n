@@ -19,6 +19,8 @@ sponsor.donation.form.button.update = Actualizar
 sponsor.donation.form.button.delete = Borrar
 sponsor.donation.form.button.sponsorship = Patrocinio
 
+sponsor.donation.error.not-found = La donacion o el patrocinio seleccionados ya no existen o no estan accesibles
+
 ALTRUIST = Altruista
 REWARDED = Recompensada
 CELEBRATED = Celebrada
