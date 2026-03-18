@@ -1,31 +1,24 @@
 key,ticker,name,description,startMoment,endMoment,moreInfo,draftMode,key:spokesperson
 # base entity
 camp-00,,,,,,,TRUE,
-# ticker - standard variations
+# ticker
 camp-01,,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
 camp-02,TICKER-DUP,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
 camp-03,TICKER-DUP,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
 camp-04,TICK,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
 camp-05,TICKER-123456789,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
 camp-06,A&B&C,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
-# ticker - no singular values
-# name - standard variations
-camp-07,CM01-SAMP01,,"Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
-camp-09,CM02-SAMP02,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tem","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
-# name - no singular values
-# description - standard variations
-camp-10,CM03-SAMP03,"Lorem ipsum dolor sit amet, consectetur adipiscing",,2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
+# name
+camp-09,CM02-SAMP02,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
+# description
 camp-11,CM04-SAMP04,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor i",2026/03/02 10:00,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
-# description - no singular values
 # startMoment 
 camp-12,CM05-SAMP05,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",1999/12/31 23:59,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
-camp-13,CM06-SAMP06,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2025/01/01 23:59,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
-# startMoment 
+camp-13,CM06-SAMP06,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2201/01/01 23:59,2026/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
 # endMoment 
 camp-14,CM08-SAMP08,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,1999/12/31 23:59,http://lorem.com/ipsum,TRUE,spokesperson-01
 camp-15,CM09-SAMP09,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2201/01/01 00:01,http://lorem.com/ipsum,TRUE,spokesperson-01
-# endMoment 
-# moreInfo - standard variations
+# moreInfo
 camp-16,CM10-SAMP10,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,,TRUE,spokesperson-01
 camp-17,CM11-SAMP011,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,http://,TRUE,spokesperson-01
 camp-18,CM12-SAMP012,"Lorem ipsum dolor sit amet, consectetur adipiscing","Lorem ipsum dolor sit amet, consectetur adipiscing",2026/03/02 10:00,2026/12/31 23:59,ftp://,TRUE,spokesperson-01

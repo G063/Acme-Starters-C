@@ -1,10 +1,12 @@
 package acme.features.spokesperson.campaign;
 
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.services.AbstractService;
+import acme.client.helpers.MomentHelper;
 import acme.entities.campaign.Campaign;
 import acme.realms.Spokesperson;
 
@@ -41,6 +43,9 @@ public class SpokespersonCampaignPublishService extends AbstractService<Spokespe
 	@Override
 	public void validate() {
 		super.validateObject(this.campaign);
+		Date now = MomentHelper.getBaseMoment();
+		boolean validStartMoment = this.campaign.getStartMoment() != null && !this.campaign.getStartMoment().before(now);
+		super.state(validStartMoment, "startMoment", "acme.validation.campaign.future-dates.message");
 		int milestoneCount = this.repository.countMilestonesByCampaignId(this.campaign.getId());
 		super.state(milestoneCount > 0, "*", "acme.validation.campaign.no-milestones");
 	}

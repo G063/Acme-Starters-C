@@ -1,5 +1,7 @@
 package acme.constraints.campaign;
 
+import java.util.Date;
+
 import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +31,24 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 	        return true;
 
 	    boolean result = true;
+	    final boolean published = campaign.getDraftMode() != null && !campaign.getDraftMode();
+	    final Date now = MomentHelper.getBaseMoment();
 
-	    // startMoment/endMoment must be a valid interval; future is required only when publishing.
+	    // startMoment/endMoment must be a valid interval.
 		boolean validInterval;
 		if (campaign.getStartMoment() != null && campaign.getEndMoment() != null) {
 			validInterval = MomentHelper.isBefore(campaign.getStartMoment(), campaign.getEndMoment());
 
 			if (!validInterval) {
 				super.state(context, false, "*", "acme.validation.campaign.invalid-interval.message");
+				result = false;
+			}
+		}
+
+		if (published && campaign.getStartMoment() != null) {
+			final boolean startInFuture = !campaign.getStartMoment().before(now);
+			if (!startInFuture) {
+				super.state(context, false, "startMoment", "acme.validation.campaign.future-dates.message");
 				result = false;
 			}
 		}
