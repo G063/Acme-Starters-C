@@ -66,6 +66,8 @@ master.menu.user-account.become-sponsor = Become a sponsor
 master.menu.user-account.sponsor-profile = Sponsor profile
 master.menu.user-account.become-inventor = Become an inventor
 master.menu.user-account.inventor-profile = Inventor profile
+master.menu.user-account.become-auditor = Become an auditor
+master.menu.user-account.auditor-profile = Auditor profile
 
 master.menu.list=Main Lists
 master.menu.invention=Inventions
@@ -80,4 +82,6 @@ master.menu.user-account.become-spokesperson = Become a spokesperson
 master.menu.sponsor.list-my-sponsorships = Mis patrocinios
 master.menu.sponsor = Sponsor
 master.menu.sponsor.list-my-sponsorships = My sponsorships
+master.menu.auditor = Auditor
+master.menu.auditor.list-my-audit-reports = My audit reports
 

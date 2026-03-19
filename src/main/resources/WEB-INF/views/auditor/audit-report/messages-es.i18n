@@ -1,0 +1,30 @@
+auditor.audit-report.list.title = Mis informes de auditoria
+auditor.audit-report.list.label.ticker = Ticker
+auditor.audit-report.list.label.name = Nombre
+auditor.audit-report.list.label.start-moment = Momento de inicio
+auditor.audit-report.list.label.end-moment = Momento de fin
+auditor.audit-report.list.label.draft-mode = Borrador
+auditor.audit-report.list.button.create = Crear informe de auditoria
+
+auditor.audit-report.form.title = Gestion de informes de auditoria
+auditor.audit-report.form.label.ticker = Ticker
+auditor.audit-report.form.label.name = Nombre
+auditor.audit-report.form.label.description = Descripcion
+auditor.audit-report.form.label.start-moment = Momento de inicio
+auditor.audit-report.form.label.end-moment = Momento de fin
+auditor.audit-report.form.label.more-info = Mas informacion
+auditor.audit-report.form.label.draft-mode = Estado
+auditor.audit-report.form.label.months-active = Meses activos
+auditor.audit-report.form.label.hours = Horas totales
+
+auditor.audit-report.form.button.create = Crear informe de auditoria
+auditor.audit-report.form.button.update = Guardar cambios
+auditor.audit-report.form.button.delete = Eliminar informe de auditoria
+auditor.audit-report.form.button.publish = Publicar informe de auditoria
+auditor.audit-report.form.button.audit-sections = Gestionar secciones de auditoria
+
+auditor.audit-report.form.value.draft = Borrador
+auditor.audit-report.form.value.published = Publicado
+
+auditor.audit-report.error.not-found = El informe de auditoria no existe
+auditor.audit-report.delete.success = Informe de auditoria eliminado correctamente
