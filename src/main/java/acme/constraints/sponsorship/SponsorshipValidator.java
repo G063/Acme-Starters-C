@@ -44,10 +44,14 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 			{
 				// 1. Sponsorship's tickers are unique  
 				boolean uniqueSponsorship;
-				Sponsorship existingSponsorship;
+				Long duplicatedTickers;
 
-				existingSponsorship = this.repository.findSponsorshipByTicker(value.getTicker());
-				uniqueSponsorship = existingSponsorship == null || existingSponsorship.equals(value);
+				if (value.getTicker() == null || value.getTicker().isBlank())
+					uniqueSponsorship = true;
+				else {
+					duplicatedTickers = this.repository.countDuplicatedTickers(value.getTicker(), value.getId());
+					uniqueSponsorship = duplicatedTickers == null || duplicatedTickers == 0L;
+				}
 
 				super.state(context, uniqueSponsorship, "ticker", "acme.validation.duplicated-ticker.message");
 
@@ -89,7 +93,7 @@ public class SponsorshipValidator extends AbstractValidator<ValidSponsorship, Sp
 
 					allDonationsEUR = donations.stream().allMatch(d -> "EUR".equals(d.getMoney().getCurrency()));
 
-					super.state(context, allDonationsEUR, "draftMode", "acme.validation.sponsorship.donations-not-eur.message");
+					super.state(context, allDonationsEUR, "draftMode", "acme.validation.donation.money.currency.message");
 				}
 			}
 			result = !super.hasErrors(context);

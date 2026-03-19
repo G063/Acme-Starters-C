@@ -58,9 +58,6 @@ public class SponsorDonationUpdateService extends AbstractService<Sponsor, Donat
 	public void validate() {
 		super.state(this.donation != null && this.donation.getSponsorship() != null, "*", "sponsor.donation.error.not-found");
 		super.validateObject(this.donation);
-
-		if (this.donation != null)
-			super.getResponse().setView("redirect:/sponsor/donation/show?id=" + this.donation.getId());
 	}
 
 	@Override

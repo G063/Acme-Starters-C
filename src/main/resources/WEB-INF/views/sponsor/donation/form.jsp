@@ -3,10 +3,6 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 
-<jstl:set var="titleCode" value="sponsor.donation.form.title.show"/>
-
-
-<h3><acme:print code="${titleCode}"/></h3>
 
 <jstl:set var="canEdit" value="${_command == 'create' || (sponsorshipDraftMode && (_command == 'show' || _command == 'update'))}"/>
 <jstl:set var="isReadonly" value="${!canEdit}"/>

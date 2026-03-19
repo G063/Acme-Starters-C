@@ -19,6 +19,7 @@ sponsor.sponsorship.form.label.name = Nombre
 sponsor.sponsorship.form.label.description = Descripcion
 sponsor.sponsorship.form.label.start-moment = Inicio
 sponsor.sponsorship.form.label.end-moment = Fin
+sponsor.sponsorship.form.placeholder.date = dd/MM/aaaa HH:mm
 sponsor.sponsorship.form.label.more-info = Mas informacion
 sponsor.sponsorship.form.label.draft-mode = Borrador
 sponsor.sponsorship.form.label.months-active = Meses activos
@@ -31,6 +32,7 @@ sponsor.sponsorship.form.button.update = Actualizar
 sponsor.sponsorship.form.button.delete = Borrar
 sponsor.sponsorship.form.button.publish = Publicar
 sponsor.sponsorship.form.button.donations = Gestionar donaciones
+sponsor.sponsorship.form.button.view-donations = Ver donaciones
 
 # sponsorship draftmode
 

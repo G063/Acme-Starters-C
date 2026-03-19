@@ -9,6 +9,7 @@ sponsor.donation.list.button.create = Crear donacion
 sponsor.donation.list.button.sponsorship = Volver al patrocinio
 
 sponsor.donation.form.title = Detalles de la donacion
+sponsor.donation.form.title.show = Detalles de la donacion
 sponsor.donation.form.label.name = Nombre
 sponsor.donation.form.label.kind = Tipo
 sponsor.donation.form.label.money = Dinero

@@ -32,9 +32,6 @@ public class SponsorDonationShowService extends AbstractService<Sponsor, Donatio
 	public void authorise() {
 		int sponsorId;
 		boolean isOwner;
-		boolean isDraft;
-
-		isDraft = this.donation != null && this.donation.getSponsorship() != null && Boolean.TRUE.equals(this.donation.getSponsorship().getDraftMode());
 
 		if (this.getRequest().getPrincipal() == null || !this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class))
 			isOwner = false;
@@ -44,7 +41,7 @@ public class SponsorDonationShowService extends AbstractService<Sponsor, Donatio
 			isOwner = this.donation != null && this.donation.getSponsorship() != null && this.donation.getSponsorship().getSponsor() != null && this.donation.getSponsorship().getSponsor().getId() == sponsorId;
 		}
 
-		super.setAuthorised(isOwner && isDraft);
+		super.setAuthorised(isOwner);
 	}
 
 	@Override
