@@ -13,5 +13,5 @@
     <hr/>
     <acme:button code="any.campaign.button.milestone" action="/any/milestone/list?campaignId=${id}"/>
 
-	<acme:button code="any.campaign.button.spokesperson" action="/any/spokesperson/show?campaignId=${id}"/>
+    <acme:button code="any.campaign.button.spokesperson" action="/any/spokesperson/show?id=${spokespersonId}&campaignId=${id}"/>
 </acme:form>

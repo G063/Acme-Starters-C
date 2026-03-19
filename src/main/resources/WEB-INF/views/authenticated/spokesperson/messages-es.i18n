@@ -1,6 +1,8 @@
 authenticated.spokesperson.form.label.cv = Cv
 authenticated.spokesperson.form.label.achievements = Logros
 authenticated.spokesperson.form.label.licensed = Licenciado
+authenticated.spokesperson.form.placeholder.cv = Curriculum vitae
+authenticated.spokesperson.form.placeholder.achievements = Logros principales
 authenticated.spokesperson.form.button.create = Crear
 authenticated.spokesperson.form.button.update = Actualizar
 
