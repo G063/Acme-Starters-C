@@ -13,6 +13,7 @@ inventor.invention.form.button.update = Save changes
 inventor.invention.form.button.publish = Publish invention
 inventor.invention.form.button.delete = Delete invention
 inventor.invention.form.button.manage-parts = Manage parts
+inventor.invention.form.button.show-parts = Show parts
 inventor.invention.button.save = Save assignment
 inventor.invention.form.button.navigate = Edit invention
 

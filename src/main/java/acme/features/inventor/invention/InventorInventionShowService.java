@@ -54,4 +54,9 @@ public class InventorInventionShowService extends AbstractService<Inventor, Inve
 		tuple.put("cost", this.invention.getCost());
 		tuple.put("monthsActive", this.invention.getMonthsActive());
 	}
+
+	@Override
+	public void bind() {
+		super.bindObject(this.invention, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
+	}
 }

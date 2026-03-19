@@ -48,7 +48,7 @@
     </jstl:choose>
     
     <jstl:if test="${_command != 'create' && !canEdit}">
-    <acme:button code="inventor.invention.form.button.manage-parts" 
+    <acme:button code="inventor.invention.form.button.show-parts" 
              action="/inventor/part/list?inventionId=${id}"/>
 	</jstl:if>
     
