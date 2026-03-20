@@ -14,23 +14,16 @@
     <acme:form-textbox code="inventor.invention.form.label.name" path="name" readonly="${isReadonly}"/>
     <acme:form-textarea code="inventor.invention.form.label.description" path="description" readonly="${isReadonly}"/>
     
-    <acme:form-textbox code="inventor.invention.form.label.start-moment" path="startMoment" 
-               placeholder="inventor.invention.form.placeholder.date" readonly="${isReadonly}"/>
+    <acme:form-moment code="inventor.invention.form.label.start-moment" path="startMoment" readonly="${isReadonly}"/>
 
-    <acme:form-textbox code="inventor.invention.form.label.end-moment" path="endMoment" 
-               placeholder="inventor.invention.form.placeholder.date" readonly="${isReadonly}"/>
+    <acme:form-moment code="inventor.invention.form.label.end-moment" path="endMoment" readonly="${isReadonly}"/>
 
     <jstl:if test="${_command != 'create'}">
         <acme:form-money code="inventor.invention.form.label.cost" path="cost" readonly="true"/>
-        <acme:form-textbox code="inventor.invention.form.label.months" path="monthsActive" readonly="true"/>
+        <acme:form-double code="inventor.invention.form.label.months" path="monthsActive" readonly="true"/>
     </jstl:if>
     
-    <acme:form-textbox code="inventor.invention.form.label.more-info" path="moreInfo" readonly="${isReadonly}"/>
-    
-    <jstl:if test="${_command != 'create'}">
-    <acme:button code="inventor.invention.form.button.manage-parts" 
-             action="/inventor/part/list?inventionId=${id}"/>
-	</jstl:if>
+    <acme:form-url code="inventor.invention.form.label.more-info" path="moreInfo" readonly="${isReadonly}"/>
 	
     <jstl:if test="${_command != 'create'}">
         <input type="hidden" name="id" value="${id}"/>
@@ -51,5 +44,10 @@
             <acme:submit code="inventor.invention.form.button.create" action="/inventor/invention/create"/>
         </jstl:when>
     </jstl:choose>
+    
+    <jstl:if test="${_command != 'create' && !canEdit}">
+    <acme:button code="inventor.invention.form.button.show-parts" 
+             action="/inventor/part/list?inventionId=${id}"/>
+	</jstl:if>
     
 </acme:form>

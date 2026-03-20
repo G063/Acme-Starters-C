@@ -1,11 +1,14 @@
 
 package acme.features.sponsor.sponsorship;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.components.models.Tuple;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorship.Sponsorship;
 import acme.realms.Sponsor;
@@ -29,28 +32,50 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 
 	@Override
 	public void authorise() {
-		int sponsorId;
-		boolean isOwner;
-		boolean isDraft;
+		boolean status;
 
-		sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+		status = this.sponsorship != null && Boolean.TRUE.equals(this.sponsorship.getDraftMode()) && this.sponsorship.getSponsor() != null && this.sponsorship.getSponsor().isPrincipal();
 
-		isOwner = this.sponsorship != null && this.sponsorship.getSponsor().getId() == sponsorId;
-
-		isDraft = this.sponsorship != null && this.sponsorship.getDraftMode();
-
-		super.setAuthorised(isOwner && isDraft);
+		super.setAuthorised(status);
 	}
 
 	@Override
 	public void bind() {
-		super.bindObject(this.sponsorship);
+		super.bindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 	}
 
 	@Override
 	public void validate() {
-		this.sponsorship.setDraftMode(false);
-		super.validateObject(this.sponsorship);
+		Date baseMoment = MomentHelper.getBaseMoment();
+		Date endMoment;
+		Date startMoment;
+		Long donations;
+		boolean allDonationsEUR;
+		boolean validInterval;
+		boolean validStartMoment;
+		boolean validDonations;
+
+		super.state(this.sponsorship != null, "*", "sponsor.sponsorship.error.not-found");
+		if (this.sponsorship != null) {
+			super.validateObject(this.sponsorship);
+
+			donations = this.repository.countDonationsBySponsorshipId(this.sponsorship.getId());
+			validDonations = donations != null && donations >= 1L;
+			super.state(validDonations, "*", "acme.validation.sponsorship.no-donations.message");
+
+			startMoment = this.sponsorship.getStartMoment();
+			endMoment = this.sponsorship.getEndMoment();
+			validStartMoment = startMoment != null && MomentHelper.isAfter(startMoment, baseMoment);
+			super.state(validStartMoment, "*", "acme.validation.sponsorship.past-moment.message");
+
+			validInterval = startMoment != null && endMoment != null && MomentHelper.isBefore(startMoment, endMoment);
+			super.state(validInterval, "startMoment", "acme.validation.sponsorship.invalid-interval.message");
+			super.state(validInterval, "endMoment", "acme.validation.sponsorship.invalid-interval.message");
+
+			allDonationsEUR = this.repository.findDonationsBySponsorshipId(this.sponsorship.getId()).stream().allMatch(d -> "EUR".equals(d.getMoney().getCurrency()));
+			super.state(allDonationsEUR, "*", "acme.validation.donation.money.currency.message");
+		}
+
 	}
 
 	@Override
@@ -58,7 +83,7 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 		this.sponsorship.setDraftMode(false);
 		this.repository.save(this.sponsorship);
 
-		super.getResponse().setView("redirect:/sponsor/sponsorship/list");
+		super.getResponse().setView("redirect:/sponsor/sponsorship/show?id=" + this.sponsorship.getId());
 	}
 
 	@Override

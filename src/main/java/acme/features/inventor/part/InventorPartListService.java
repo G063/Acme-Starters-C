@@ -19,6 +19,7 @@ public class InventorPartListService extends AbstractService<Inventor, Part> {
 	protected InventorPartRepository	repository;
 
 	protected Collection<Part>			parts;
+	protected Invention					invention;
 
 
 	@Override
@@ -27,6 +28,7 @@ public class InventorPartListService extends AbstractService<Inventor, Part> {
 
 		if (inventionId != null) {
 			this.parts = this.repository.findPartsByInventionId(inventionId);
+			this.invention = this.repository.findOneInventionById(inventionId);
 			this.getResponse().addGlobal("inventionId", inventionId);
 		} else
 			this.parts = new ArrayList<>();
@@ -35,6 +37,8 @@ public class InventorPartListService extends AbstractService<Inventor, Part> {
 	@Override
 	public void unbind() {
 		super.unbindObjects(this.parts, "name", "description", "cost", "kind");
+		boolean isDraft = this.invention != null && this.invention.getDraftMode();
+		this.getResponse().addGlobal("draftMode", isDraft);
 	}
 
 	@Override

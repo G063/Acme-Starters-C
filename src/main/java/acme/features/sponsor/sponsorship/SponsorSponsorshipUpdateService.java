@@ -29,17 +29,23 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void authorise() {
-		int sponsorId;
+		boolean status;
+		boolean isSponsor;
 		boolean isOwner;
 		boolean isDraft;
+		int sponsorId;
 
-		sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+		isSponsor = this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class);
+		if (!isSponsor || this.sponsorship == null)
+			status = false;
+		else {
+			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.sponsorship.getSponsor() != null && this.sponsorship.getSponsor().getId() == sponsorId;
+			isDraft = Boolean.TRUE.equals(this.sponsorship.getDraftMode());
+			status = isOwner && isDraft;
+		}
 
-		isOwner = this.sponsorship != null && this.sponsorship.getSponsor().getId() == sponsorId;
-
-		isDraft = this.sponsorship != null && this.sponsorship.getDraftMode();
-
-		super.setAuthorised(isOwner && isDraft);
+		super.setAuthorised(status);
 	}
 
 	@Override
@@ -49,6 +55,7 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void validate() {
+		super.state(this.sponsorship != null, "*", "sponsor.sponsorship.error.not-found");
 		super.validateObject(this.sponsorship);
 	}
 
@@ -62,7 +69,7 @@ public class SponsorSponsorshipUpdateService extends AbstractService<Sponsor, Sp
 	public void unbind() {
 		Tuple tuple;
 
-		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
+		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 
 		tuple.put("monthsActive", this.sponsorship.getMonthsActive());
 		tuple.put("totalMoney", this.sponsorship.getTotalMoney());

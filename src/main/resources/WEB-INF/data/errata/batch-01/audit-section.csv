@@ -13,6 +13,7 @@ auditSection-106,auditReport-01,"Lorem ipsum dolor sit amet, consectetu","Lorem 
 auditSection-107,auditReport-01,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet.",-1,PRELIMINARY
 auditSection-108,auditReport-01,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet.",1000000,PRELIMINARY
 auditSection-109,auditReport-01,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet.",,PRELIMINARY
+auditSection-113,auditReport-01,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet.",0,PRELIMINARY
 #kind - errata
 auditSection-110,auditReport-01,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet.",5,
 auditSection-111,auditReport-01,"Lorem ipsum dolor sit amet, consectetu","Lorem ipsum dolor sit amet.",5,null

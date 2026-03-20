@@ -13,6 +13,7 @@ inventor.invention.form.button.update = Save changes
 inventor.invention.form.button.publish = Publish invention
 inventor.invention.form.button.delete = Delete invention
 inventor.invention.form.button.manage-parts = Manage parts
+inventor.invention.form.button.show-parts = Show parts
 inventor.invention.button.save = Save assignment
 inventor.invention.form.button.navigate = Edit invention
 
@@ -22,6 +23,5 @@ inventor.invention.form.title.assign = Assign parts to invention
 inventor.invention.form.title.show = Invention details
 
 # Formats and placeholders for English
-inventor.invention.form.placeholder.date = yyyy/mm/dd hh:mm
 inventor.invention.form.error.invalid-sequence = The end moment must be after the start moment
 inventor.invention.form.error.ticker-duplicated = This ticker is already in use by another invention

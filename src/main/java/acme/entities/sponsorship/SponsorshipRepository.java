@@ -17,8 +17,8 @@ public interface SponsorshipRepository extends AbstractRepository {
 	@Query("select count(d) from Donation d where d.sponsorship.id = :id ")
 	Long countSponsorshipsDonations(Integer id);
 
-	@Query("select s from Sponsorship s where s.ticker = :ticker")
-	Sponsorship findSponsorshipByTicker(String ticker);
+	@Query("select count(s) from Sponsorship s where s.ticker = :ticker and (:id is null or s.id <> :id)")
+	Long countDuplicatedTickers(String ticker, Integer id);
 
 	@Query("select s from Sponsorship s where s.draftMode = false order by s.startMoment desc")
 	Collection<Sponsorship> findPublishedSponsorships();

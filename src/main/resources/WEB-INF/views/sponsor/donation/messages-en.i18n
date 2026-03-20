@@ -9,6 +9,7 @@ sponsor.donation.list.button.create = Create donation
 sponsor.donation.list.button.sponsorship = Back to sponsorship
 
 sponsor.donation.form.title = Donation details
+sponsor.donation.form.title.show = Donation details
 sponsor.donation.form.label.name = Name
 sponsor.donation.form.label.kind = Kind
 sponsor.donation.form.label.money = Money
@@ -17,6 +18,8 @@ sponsor.donation.form.label.notes = Notes
 sponsor.donation.form.button.create = Create
 sponsor.donation.form.button.update = Update
 sponsor.donation.form.button.delete = Delete
+
+sponsor.donation.error.not-found = The selected donation or sponsorship no longer exists or is not accessible
 
 ALTRUIST = Altruist
 REWARDED = Rewarded

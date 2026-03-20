@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.components.models.Tuple;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractService;
+import acme.datatypes.DonationKind;
 import acme.entities.sponsorship.Donation;
 import acme.realms.Sponsor;
 
@@ -28,16 +30,29 @@ public class SponsorDonationShowService extends AbstractService<Sponsor, Donatio
 
 	@Override
 	public void authorise() {
-		super.setAuthorised(this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class));
+		int sponsorId;
+		boolean isOwner;
+
+		if (this.getRequest().getPrincipal() == null || !this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class))
+			isOwner = false;
+		else {
+			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+
+			isOwner = this.donation != null && this.donation.getSponsorship() != null && this.donation.getSponsorship().getSponsor() != null && this.donation.getSponsorship().getSponsor().getId() == sponsorId;
+		}
+
+		super.setAuthorised(isOwner);
 	}
 
 	@Override
 	public void unbind() {
 		Tuple tuple;
+		var sponsorship = this.donation.getSponsorship();
 
 		tuple = super.unbindObject(this.donation, "name", "kind", "money", "notes");
 
-		tuple.put("sponsorshipId", this.donation.getSponsorship().getId());
-		tuple.put("sponsorshipDraftMode", Boolean.TRUE.equals(this.donation.getSponsorship().getDraftMode()));
+		tuple.put("kinds", SelectChoices.from(DonationKind.class, this.donation.getKind()));
+		tuple.put("sponsorshipId", sponsorship == null ? null : sponsorship.getId());
+		tuple.put("sponsorshipDraftMode", sponsorship != null && Boolean.TRUE.equals(sponsorship.getDraftMode()));
 	}
 }

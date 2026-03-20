@@ -40,6 +40,6 @@ public class AnyPartShowService extends AbstractService<Any, Part> {
 	@Override
 	public void unbind() {
 		if (this.part != null)
-			super.unbindObject(this.part, "id", "name", "description", "cost", "kind", "invention.ticker");
+			super.unbindObject(this.part, "id", "name", "description", "cost", "kind");
 	}
 }

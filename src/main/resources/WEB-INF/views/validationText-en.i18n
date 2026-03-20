@@ -13,3 +13,8 @@ acme.validation.campaign.no-milestones=Campaigns cannot be published unless they
 inventor.invention.form.error.date-incorrect = The start date must be in the future
 inventor.invention.form.error.no-parts = Cannot publish an invention without any associated parts
 acme.validation.invention.invalid-interval.message = The date interval is invalid: the start date must be before the end date
+
+acme.validation.auditReport.ticker.non-unique=The ticker must be unique
+acme.validation.auditReport.auditSection.error=Published audit reports must have at least one audit section
+acme.validation.auditReport.dates.error=Start moment must be before end moment by at least one minute
+acme.validation.auditReport.minimum-start.error=Start moment must be from 2000/01/01 00:00 for draft reports, and after 2025/01/01 00:00 for published reports

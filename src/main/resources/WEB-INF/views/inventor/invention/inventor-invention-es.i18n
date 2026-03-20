@@ -3,6 +3,8 @@ inventor.invention.list.label.ticker = Ticker
 inventor.invention.list.label.name = Nombre
 inventor.invention.list.label.cost = Coste
 inventor.invention.list.label.draft-mode = ¿Borrador?
+inventor.invention.form.value.draft = Borrador
+inventor.invention.form.value.published = Publicado
 
 inventor.invention.list.button.create = Crear invento
 
