@@ -3,5 +3,7 @@ inventor.invention.list.label.ticker = Ticker
 inventor.invention.list.label.name = Name
 inventor.invention.list.label.cost = Cost
 inventor.invention.list.label.draft-mode = Draft mode?
+inventor.invention.form.value.draft = Draft
+inventor.invention.form.value.published = Published
 
 inventor.invention.list.button.create = Create invention
