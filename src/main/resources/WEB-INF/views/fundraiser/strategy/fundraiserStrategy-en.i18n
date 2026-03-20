@@ -4,6 +4,9 @@ fundraiser.strategy.list.label.name = Name
 fundraiser.strategy.list.label.draft-mode = Draft mode?
 fundraiser.strategy.list.button.create = Create strategy
 
+fundraiser.strategy.list.draft.true = Yes
+fundraiser.strategy.list.draft.false = No
+
 fundraiser.strategy.form.title = My strategy management
 fundraiser.strategy.form.label.ticker = Ticker
 fundraiser.strategy.form.label.name = Name
