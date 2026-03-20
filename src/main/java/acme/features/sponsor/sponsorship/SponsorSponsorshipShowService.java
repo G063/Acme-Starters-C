@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.components.models.Tuple;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractService;
 import acme.entities.sponsorship.Sponsorship;
 import acme.realms.Sponsor;
@@ -54,16 +53,5 @@ public class SponsorSponsorshipShowService extends AbstractService<Sponsor, Spon
 
 		tuple.put("monthsActive", this.sponsorship.getMonthsActive());
 		tuple.put("totalMoney", this.sponsorship.getTotalMoney());
-		tuple.put("draftModes", this.getDraftModeChoices(this.sponsorship.getDraftMode()));
-	}
-
-	private SelectChoices getDraftModeChoices(final Boolean draftMode) {
-		SelectChoices choices;
-
-		choices = this.newObject(SelectChoices.class);
-		choices.add("true", "sponsor.sponsorship.form.value.draft", Boolean.TRUE.equals(draftMode));
-		choices.add("false", "sponsor.sponsorship.form.value.published", Boolean.FALSE.equals(draftMode));
-
-		return choices;
 	}
 }
