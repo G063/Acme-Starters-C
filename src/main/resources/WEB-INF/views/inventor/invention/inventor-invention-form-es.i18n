@@ -23,6 +23,5 @@ inventor.invention.form.title.assign = Asignar piezas al invento
 inventor.invention.form.title.show = Detalles del invento
 
 # Formatos y placeholders para España
-inventor.invention.form.placeholder.date = dd/mm/aaaa hh:mm
 inventor.invention.form.error.invalid-sequence = La fecha de fin debe ser posterior a la de inicio
 inventor.invention.form.error.ticker-duplicated = Este ticker ya está registrado en otra invención
