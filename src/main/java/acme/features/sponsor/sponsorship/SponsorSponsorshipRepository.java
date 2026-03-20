@@ -25,4 +25,7 @@ public interface SponsorSponsorshipRepository extends AbstractRepository {
 
 	@Query("select d from Donation d where d.sponsorship.id = :sponsorshipId")
 	Collection<Donation> findDonationsBySponsorshipId(int sponsorshipId);
+
+	@Query("select count(d) from Donation d where d.sponsorship.id = :sponsorshipId")
+	Long countDonationsBySponsorshipId(int sponsorshipId);
 }

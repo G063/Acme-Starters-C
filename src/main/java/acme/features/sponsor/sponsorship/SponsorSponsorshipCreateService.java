@@ -34,7 +34,12 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 
 	@Override
 	public void authorise() {
-		super.setAuthorised(true);
+		boolean status;
+		boolean isSponsor;
+
+		isSponsor = super.getRequest().getPrincipal().hasRealmOfType(Sponsor.class);
+		status = isSponsor && this.sponsorship != null && this.sponsorship.getSponsor() != null;
+		super.setAuthorised(status);
 	}
 
 	@Override
@@ -57,7 +62,7 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 	public void unbind() {
 		Tuple tuple;
 
-		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode");
+		tuple = super.unbindObject(this.sponsorship, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo");
 		tuple.put("draftModes", this.getDraftModeChoices(this.sponsorship.getDraftMode()));
 	}
 
@@ -65,8 +70,8 @@ public class SponsorSponsorshipCreateService extends AbstractService<Sponsor, Sp
 		SelectChoices choices;
 
 		choices = this.newObject(SelectChoices.class);
-		choices.add("true", "sponsor.sponsorship.form.value.draft", draftMode.equals(true));
-		choices.add("false", "sponsor.sponsorship.form.value.published", draftMode.equals(false));
+		choices.add("true", "sponsor.sponsorship.form.value.draft", Boolean.TRUE.equals(draftMode));
+		choices.add("false", "sponsor.sponsorship.form.value.published", Boolean.FALSE.equals(draftMode));
 
 		return choices;
 	}

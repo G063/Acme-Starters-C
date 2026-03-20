@@ -33,25 +33,27 @@ public class SponsorDonationDeleteService extends AbstractService<Sponsor, Donat
 		boolean isDraft;
 		boolean isSponsor;
 
-		sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
-
 		isSponsor = this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class);
-
-		isOwner = this.donation != null && this.donation.getSponsorship().getSponsor().getId() == sponsorId;
-
-		isDraft = this.donation != null && this.donation.getSponsorship().getDraftMode();
+		if (!isSponsor || this.donation == null || this.donation.getSponsorship() == null) {
+			isOwner = false;
+			isDraft = false;
+		} else {
+			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.donation.getSponsorship().getSponsor() != null && this.donation.getSponsorship().getSponsor().getId() == sponsorId;
+			isDraft = Boolean.TRUE.equals(this.donation.getSponsorship().getDraftMode());
+		}
 
 		super.setAuthorised(isOwner && isDraft && isSponsor);
 	}
 
 	@Override
 	public void bind() {
-		super.bindObject(this.donation, "name", "kind", "money", "notes");
+		;
 	}
 
 	@Override
 	public void validate() {
-		super.validateObject(this.donation);
+		super.state(this.donation != null && this.donation.getSponsorship() != null, "*", "sponsor.donation.error.not-found");
 	}
 
 	@Override

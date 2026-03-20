@@ -35,7 +35,23 @@ public class SponsorDonationCreateService extends AbstractService<Sponsor, Donat
 
 	@Override
 	public void authorise() {
-		super.setAuthorised(this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class));
+		boolean status;
+		boolean isSponsor;
+		boolean isOwner;
+		boolean isDraft;
+		int sponsorId;
+
+		isSponsor = this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class);
+		if (!isSponsor || this.donation == null || this.donation.getSponsorship() == null)
+			status = false;
+		else {
+			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
+			isOwner = this.donation.getSponsorship().getSponsor() != null && this.donation.getSponsorship().getSponsor().getId() == sponsorId;
+			isDraft = Boolean.TRUE.equals(this.donation.getSponsorship().getDraftMode());
+			status = isOwner && isDraft;
+		}
+
+		super.setAuthorised(status);
 	}
 
 	@Override
@@ -45,6 +61,7 @@ public class SponsorDonationCreateService extends AbstractService<Sponsor, Donat
 
 	@Override
 	public void validate() {
+		super.state(this.donation != null && this.donation.getSponsorship() != null, "*", "sponsor.donation.error.not-found");
 		super.validateObject(this.donation);
 	}
 
@@ -56,10 +73,12 @@ public class SponsorDonationCreateService extends AbstractService<Sponsor, Donat
 	@Override
 	public void unbind() {
 		Tuple tuple;
+		Sponsorship sponsorship;
 
 		tuple = super.unbindObject(this.donation, "name", "kind", "money", "notes");
+		sponsorship = this.donation.getSponsorship();
 		tuple.put("kinds", SelectChoices.from(DonationKind.class, this.donation.getKind()));
-		tuple.put("sponsorshipId", this.donation.getSponsorship().getId());
-		tuple.put("sponsorshipDraftMode", this.donation.getSponsorship() != null && Boolean.TRUE.equals(this.donation.getSponsorship().getDraftMode()));
+		tuple.put("sponsorshipId", sponsorship == null ? null : sponsorship.getId());
+		tuple.put("sponsorshipDraftMode", sponsorship != null && Boolean.TRUE.equals(sponsorship.getDraftMode()));
 	}
 }

@@ -19,6 +19,7 @@ sponsor.sponsorship.form.label.name = Nombre
 sponsor.sponsorship.form.label.description = Descripcion
 sponsor.sponsorship.form.label.start-moment = Inicio
 sponsor.sponsorship.form.label.end-moment = Fin
+sponsor.sponsorship.form.placeholder.date = dd/MM/aaaa HH:mm
 sponsor.sponsorship.form.label.more-info = Mas informacion
 sponsor.sponsorship.form.label.draft-mode = Borrador
 sponsor.sponsorship.form.label.months-active = Meses activos
@@ -31,6 +32,7 @@ sponsor.sponsorship.form.button.update = Actualizar
 sponsor.sponsorship.form.button.delete = Borrar
 sponsor.sponsorship.form.button.publish = Publicar
 sponsor.sponsorship.form.button.donations = Gestionar donaciones
+sponsor.sponsorship.form.button.view-donations = Ver donaciones
 
 # sponsorship draftmode
 
@@ -43,3 +45,5 @@ acme.validation.duplicated-ticker.message = Este ticker ya está en uso
 acme.validation.sponsorship.no-donations.message = Un patrocinio debe tener al menos una donación antes de poder publicarse
 acme.validation.sponsorship.invalid-interval.message = La fecha de inicio debe ser anterior a la fecha de fin
 acme.validation.donation.money.currency.message = Solo se aceptan Euros
+acme.validation.sponsorship.past-moment.message = Las fechas no pueden estar en un intervalo pasado. 
+sponsor.sponsorship.error.not-found = El patrocinio seleccionado ya no existe o no esta accesible
