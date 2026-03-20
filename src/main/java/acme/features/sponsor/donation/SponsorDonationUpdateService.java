@@ -22,10 +22,13 @@ public class SponsorDonationUpdateService extends AbstractService<Sponsor, Donat
 
 	@Override
 	public void load() {
-		int id;
+		if (super.getRequest().hasData("id", int.class)) {
+			int id;
 
-		id = super.getRequest().getData("id", int.class);
-		this.donation = this.repository.findDonationById(id);
+			id = super.getRequest().getData("id", int.class);
+			this.donation = this.repository.findDonationById(id);
+		} else
+			this.donation = null;
 	}
 
 	@Override

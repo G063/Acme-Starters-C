@@ -33,20 +33,8 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void authorise() {
 		boolean status;
-		boolean isSponsor;
-		boolean isOwner;
-		boolean isDraft;
-		int sponsorId;
 
-		isSponsor = this.getRequest().getPrincipal().hasRealmOfType(Sponsor.class);
-		if (!isSponsor || this.sponsorship == null)
-			status = false;
-		else {
-			sponsorId = this.getRequest().getPrincipal().getActiveRealm().getId();
-			isOwner = this.sponsorship.getSponsor() != null && this.sponsorship.getSponsor().getId() == sponsorId;
-			isDraft = Boolean.TRUE.equals(this.sponsorship.getDraftMode());
-			status = isOwner && isDraft;
-		}
+		status = this.sponsorship != null && Boolean.TRUE.equals(this.sponsorship.getDraftMode()) && this.sponsorship.getSponsor() != null && this.sponsorship.getSponsor().isPrincipal();
 
 		super.setAuthorised(status);
 	}
@@ -59,15 +47,33 @@ public class SponsorSponsorshipPublishService extends AbstractService<Sponsor, S
 	@Override
 	public void validate() {
 		Date baseMoment = MomentHelper.getBaseMoment();
+		Date endMoment;
 		Date startMoment;
+		Long donations;
+		boolean allDonationsEUR;
+		boolean validInterval;
 		boolean validStartMoment;
+		boolean validDonations;
 
 		super.state(this.sponsorship != null, "*", "sponsor.sponsorship.error.not-found");
 		if (this.sponsorship != null) {
+			super.validateObject(this.sponsorship);
+
+			donations = this.repository.countDonationsBySponsorshipId(this.sponsorship.getId());
+			validDonations = donations != null && donations >= 1L;
+			super.state(validDonations, "*", "acme.validation.sponsorship.no-donations.message");
+
 			startMoment = this.sponsorship.getStartMoment();
+			endMoment = this.sponsorship.getEndMoment();
 			validStartMoment = startMoment != null && MomentHelper.isAfter(startMoment, baseMoment);
 			super.state(validStartMoment, "*", "acme.validation.sponsorship.past-moment.message");
-			super.validateObject(this.sponsorship);
+
+			validInterval = startMoment != null && endMoment != null && MomentHelper.isBefore(startMoment, endMoment);
+			super.state(validInterval, "startMoment", "acme.validation.sponsorship.invalid-interval.message");
+			super.state(validInterval, "endMoment", "acme.validation.sponsorship.invalid-interval.message");
+
+			allDonationsEUR = this.repository.findDonationsBySponsorshipId(this.sponsorship.getId()).stream().allMatch(d -> "EUR".equals(d.getMoney().getCurrency()));
+			super.state(allDonationsEUR, "*", "acme.validation.donation.money.currency.message");
 		}
 
 	}
