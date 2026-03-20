@@ -8,10 +8,4 @@
 	<acme:form-money code="any.part.label.cost" path="cost" readonly="true"/>
 	<acme:form-textarea code="any.part.label.description" path="description" readonly="true"/>
 
-	<hr/>
-
-	<h3><acme:print code="any.part.label.invention-info"/></h3>
-
-	<acme:form-textbox code="any.part.label.invention.ticker" path="invention.ticker" readonly="true"/>
-
 </acme:form>
