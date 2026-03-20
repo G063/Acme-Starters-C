@@ -5,6 +5,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.client.components.models.Tuple;
+import acme.client.helpers.MessageHelper;
 import acme.client.services.AbstractService;
 import acme.entities.campaign.Campaign;
 import acme.realms.Spokesperson;
@@ -33,6 +35,20 @@ public class SpokespersonCampaignListService extends AbstractService<Spokesperso
 
 	@Override
 	public void unbind() {
-		super.unbindObjects(this.campaigns, "ticker", "name", "effort", "draftMode");
+		for (Campaign s : this.campaigns) {
+			Tuple tuple;
+
+			tuple = super.unbindObject(s, "ticker", "name", "effort");
+			tuple.put("draftMode", this.getDraftModeLabel(s.getDraftMode()));
+		}
+
+	}
+
+	private String getDraftModeLabel(final Boolean draftMode) {
+		String key;
+
+		key = Boolean.TRUE.equals(draftMode) ? "spokesperson.campaign.form.value.draft" : "spokesperson.campaign.form.value.published";
+
+		return MessageHelper.getMessage(key);
 	}
 }

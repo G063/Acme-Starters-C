@@ -15,6 +15,9 @@ spokesperson.campaign.form.label.monthsActive = Active months
 spokesperson.campaign.form.label.effort = Effort
 spokesperson.campaign.form.label.draftMode = Draft mode
 
+spokesperson.campaign.form.value.draft = True
+spokesperson.campaign.form.value.published = False
+
 spokesperson.campaign.form.placeholder.ticker = XX00-XXXXXXXXXX
 spokesperson.campaign.form.placeholder.name = Campaign name
 spokesperson.campaign.form.placeholder.description = Brief description
