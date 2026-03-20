@@ -20,9 +20,9 @@
 <jstl:set var="isReadonly" value="${!canEdit}"/>
 
 <acme:form>
-    <acme:form-textbox code="spokesperson.milestone.form.label.title" path="title" placeholder="Milestone title" readonly="${isReadonly}"/>
-    <acme:form-textarea code="spokesperson.milestone.form.label.achievements" path="achievements" placeholder="What has been achieved" readonly="${isReadonly}"/>
-    <acme:form-double code="spokesperson.milestone.form.label.effort" path="effort" placeholder="0.01" readonly="${isReadonly}"/>
+    <acme:form-textbox code="spokesperson.milestone.form.label.title" path="title" placeholder="spokesperson.milestone.form.placeholder.title" readonly="${isReadonly}"/>
+    <acme:form-textarea code="spokesperson.milestone.form.label.achievements" path="achievements" placeholder="spokesperson.milestone.form.placeholder.achievements" readonly="${isReadonly}"/>
+    <acme:form-double code="spokesperson.milestone.form.label.effort" path="effort" placeholder="spokesperson.milestone.form.placeholder.effort" readonly="${isReadonly}"/>
     
     <jstl:choose>
         <jstl:when test="${!isReadonly}">

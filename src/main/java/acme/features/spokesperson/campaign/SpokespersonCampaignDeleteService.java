@@ -47,7 +47,7 @@ public class SpokespersonCampaignDeleteService extends AbstractService<Spokesper
 
 	@Override
 	public void validate() {
-		super.state(this.campaign != null, "*", "inventor.invention.error.not-found");
+		super.state(this.campaign != null, "*", "spokesperson.campaign.error.not-found");
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class SpokespersonCampaignDeleteService extends AbstractService<Spokesper
 
 	@Override
 	public void unbind() {
-		super.getResponse().addGlobal("confirmation", "inventor.invention.delete.success");
+		super.getResponse().addGlobal("confirmation", "spokesperson.campaign.delete.success");
 	}
 
 }

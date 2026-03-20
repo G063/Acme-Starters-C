@@ -11,4 +11,7 @@ public interface AnySpokespersonRepository extends AbstractRepository {
 	
 	@Query("select s from Spokesperson s where s.id = :id")
 	Spokesperson findSpokespersonById(int id);
+
+	@Query("select count(c) from Campaign c where c.id = :campaignId and c.spokesperson.id = :spokespersonId and c.draftMode = false")
+	Long countPublishedCampaignBySpokesperson(int campaignId, int spokespersonId);
 }

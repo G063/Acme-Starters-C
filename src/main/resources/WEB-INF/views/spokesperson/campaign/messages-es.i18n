@@ -15,6 +15,14 @@ spokesperson.campaign.form.label.monthsActive = Meses activos
 spokesperson.campaign.form.label.effort = Esfuerzo
 spokesperson.campaign.form.label.draftMode = Modo borrador
 
+spokesperson.campaign.form.value.draft = Verdadero
+spokesperson.campaign.form.value.published = Falso
+
+spokesperson.campaign.form.placeholder.ticker = XX00-XXXXXXXXXX
+spokesperson.campaign.form.placeholder.name = Nombre de campana
+spokesperson.campaign.form.placeholder.description = Breve descripcion
+spokesperson.campaign.form.placeholder.moreInfo = https://example.com
+
 spokesperson.campaign.form.button.create = Crear
 spokesperson.campaign.form.button.update = Actualizar
 spokesperson.campaign.form.button.delete = Eliminar
@@ -24,3 +32,5 @@ spokesperson.campaign.form.title = Formulario de campaña
 spokesperson.campaign.form.title.create = Crear campaña
 spokesperson.campaign.form.title.update = Actualizar campaña
 spokesperson.campaign.form.title.show = Detalles de la campaña
+spokesperson.campaign.error.not-found = La campaña no existe.
+spokesperson.campaign.delete.success = Campaña eliminada correctamente.
