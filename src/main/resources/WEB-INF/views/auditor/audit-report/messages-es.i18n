@@ -1,9 +1,9 @@
 auditor.audit-report.list.title = Mis informes de auditoria
 auditor.audit-report.list.label.ticker = Ticker
 auditor.audit-report.list.label.name = Nombre
-auditor.audit-report.list.label.start-moment = Momento de inicio
-auditor.audit-report.list.label.end-moment = Momento de fin
-auditor.audit-report.list.label.draft-mode = Borrador
+auditor.audit-report.list.label.start-moment = Inicio
+auditor.audit-report.list.label.end-moment = Fin
+auditor.audit-report.list.label.draft-mode = ¿Borrador?
 auditor.audit-report.list.button.create = Crear informe de auditoria
 
 auditor.audit-report.form.title = Gestion de informes de auditoria

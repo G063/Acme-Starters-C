@@ -3,7 +3,7 @@ auditor.audit-report.list.label.ticker = Ticker
 auditor.audit-report.list.label.name = Name
 auditor.audit-report.list.label.start-moment = Start moment
 auditor.audit-report.list.label.end-moment = End moment
-auditor.audit-report.list.label.draft-mode = Draft mode
+auditor.audit-report.list.label.draft-mode = Draft mode?
 auditor.audit-report.list.button.create = Create audit report
 
 auditor.audit-report.form.title = Audit report management
