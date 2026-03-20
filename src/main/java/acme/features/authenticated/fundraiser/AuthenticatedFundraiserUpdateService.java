@@ -26,7 +26,6 @@ public class AuthenticatedFundraiserUpdateService extends AbstractService<Authen
 
 	@Override
 	public void authorise() {
-		// Autorizado solo si SÍ tiene el rol
 		boolean status;
 		status = super.getRequest().getPrincipal().hasRealmOfType(Fundraiser.class);
 		super.setAuthorised(status);
@@ -34,7 +33,7 @@ public class AuthenticatedFundraiserUpdateService extends AbstractService<Authen
 
 	@Override
 	public void bind() {
-		super.bindObject(this.fundraiser, "bank", "statement");
+		super.bindObject(this.fundraiser, "bank", "statement", "agent");
 	}
 
 	@Override
@@ -49,7 +48,7 @@ public class AuthenticatedFundraiserUpdateService extends AbstractService<Authen
 
 	@Override
 	public void unbind() {
-		super.unbindObject(this.fundraiser, "bank", "statement");
+		super.unbindObject(this.fundraiser, "bank", "statement", "agent");
 	}
 
 	@Override

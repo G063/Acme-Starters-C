@@ -69,11 +69,11 @@ public class FundraiserTacticUpdateService extends AbstractService<Fundraiser, T
 		if (this.tactic != null) {
 			Tuple tuple;
 			SelectChoices choices;
-
 			choices = SelectChoices.from(TacticKind.class, this.tactic.getKind());
 			tuple = super.unbindObject(this.tactic, "id", "name", "notes", "expectedPercentage", "kind");
 			tuple.put("kinds", choices);
 			tuple.put("strategyId", this.tactic.getStrategy().getId());
+			tuple.put("strategyDraftMode", this.tactic.getStrategy().getDraftMode());
 		}
 	}
 }
