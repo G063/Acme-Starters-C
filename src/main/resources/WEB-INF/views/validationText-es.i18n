@@ -13,3 +13,8 @@ acme.validation.campaign.no-milestones=Las campañas no pueden publicarse sin al
 inventor.invention.form.error.date-incorrect = La fecha de inicio debe ser posterior al momento actual
 inventor.invention.form.error.no-parts = No se puede publicar una invención que no tenga piezas asociadas
 acme.validation.invention.invalid-interval.message = El intervalo de fechas no es válido: la fecha de inicio debe ser anterior a la de finalización
+
+acme.validation.auditReport.ticker.non-unique=El ticker debe ser unico
+acme.validation.auditReport.auditSection.error=Los informes de auditoria publicados deben tener al menos una seccion de auditoria
+acme.validation.auditReport.dates.error=El momento de inicio debe ser anterior al de fin con al menos un minuto de diferencia
+acme.validation.auditReport.minimum-start.error=El momento de inicio debe ser desde 2000/01/01 00:00 para borradores y posterior a 2025/01/01 00:00 para publicados

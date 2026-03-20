@@ -66,6 +66,8 @@ master.menu.user-account.become-sponsor = Hazte patrocinador
 master.menu.user-account.sponsor-profile = Perfil de patrocinador
 master.menu.user-account.become-inventor = Hazte inventor
 master.menu.user-account.inventor-profile = Perfil de inventor
+master.menu.user-account.become-auditor = Hazte auditor
+master.menu.user-account.auditor-profile = Perfil de auditor
 
 master.menu.list=Listados Principales
 master.menu.invention=Invenciones
@@ -80,4 +82,6 @@ master.menu.user-account.become-spokesperson = Hazte spokesperson
 
 master.menu.sponsor = Patrocinador
 master.menu.sponsor.list-my-sponsorships = Mis patrocinios
+master.menu.auditor = Auditor
+master.menu.auditor.list-my-audit-reports = Mis informes de auditoria
 

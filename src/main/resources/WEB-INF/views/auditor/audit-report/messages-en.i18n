@@ -1,0 +1,30 @@
+auditor.audit-report.list.title = My audit reports
+auditor.audit-report.list.label.ticker = Ticker
+auditor.audit-report.list.label.name = Name
+auditor.audit-report.list.label.start-moment = Start moment
+auditor.audit-report.list.label.end-moment = End moment
+auditor.audit-report.list.label.draft-mode = Draft mode
+auditor.audit-report.list.button.create = Create audit report
+
+auditor.audit-report.form.title = Audit report management
+auditor.audit-report.form.label.ticker = Ticker
+auditor.audit-report.form.label.name = Name
+auditor.audit-report.form.label.description = Description
+auditor.audit-report.form.label.start-moment = Start moment
+auditor.audit-report.form.label.end-moment = End moment
+auditor.audit-report.form.label.more-info = More info
+auditor.audit-report.form.label.draft-mode = Draft mode
+auditor.audit-report.form.label.months-active = Months active
+auditor.audit-report.form.label.hours = Total hours
+
+auditor.audit-report.form.button.create = Create audit report
+auditor.audit-report.form.button.update = Save changes
+auditor.audit-report.form.button.delete = Delete audit report
+auditor.audit-report.form.button.publish = Publish audit report
+auditor.audit-report.form.button.audit-sections = Manage audit sections
+
+auditor.audit-report.form.value.draft = Draft
+auditor.audit-report.form.value.published = Published
+
+auditor.audit-report.error.not-found = The audit report does not exist
+auditor.audit-report.delete.success = Audit report deleted successfully

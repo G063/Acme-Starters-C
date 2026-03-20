@@ -12,13 +12,10 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidMoment.Constraint;
 import acme.client.components.validation.ValidUrl;
 import acme.client.helpers.MomentHelper;
 import acme.client.helpers.SpringHelper;
@@ -58,12 +55,12 @@ public class AuditReport extends AbstractEntity {
 	private String					description;
 
 	@Mandatory
-	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date					startMoment;
 
 	@Mandatory
-	@ValidMoment(constraint = Constraint.ENFORCE_FUTURE)
+	@ValidMoment
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date					endMoment;
 
@@ -77,13 +74,11 @@ public class AuditReport extends AbstractEntity {
 	@Column
 	private Boolean					draftMode;
 
-	@Transient
-	@Autowired
-	private AuditReportRepository	repo;
-
 	// Derived attributes -----------------------------------------------------
 
 
+	@Mandatory
+	@Valid
 	@Transient
 	public Double getMonthsActive() {
 
@@ -93,6 +88,8 @@ public class AuditReport extends AbstractEntity {
 		return MomentHelper.computeDifference(this.startMoment, this.endMoment, ChronoUnit.MONTHS);
 	}
 
+	@Mandatory
+	@Valid
 	@Transient
 	public Integer getHours() {
 		AuditReportRepository repository = SpringHelper.getBean(AuditReportRepository.class);
